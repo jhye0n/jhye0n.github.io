@@ -20,7 +20,7 @@
   <meta content="JHYEON" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1628920349830" as="style">
+  <link rel="preload" href="/css/style.css?time=1628920414214" as="style">
   <!-- 页面元数据 -->
   <title>Archive: 2020 - JHYEON</title>
   <meta name="keywords" content="CTF, Penetration, DevSecOps, Web Hacking, System Hacking, Reversing, Bug Bounty">
@@ -2221,8 +2221,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1628920349830" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1628920349830"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1628920414214" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1628920414214"></noscript>
     <script>
       var userColorScheme=localStorage.getItem("user-color-scheme")
       if(userColorScheme){
@@ -2520,23 +2520,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/2020/04/10/zixemchall-200410/">
-        zixem challenge Write up
+      <a href="/2020/04/10/zer0ptsctf-200410/">
+        zer0pts 2020 Write up
       </a>
     </h2>
   
   <div class='md'>
     
       
-        Site : https://www.zixem.altervista.org/SQLi/
+        1. [web] can you guess it?(338 pt)&lt;?php
+include &#39;config.php&#39;; // FLAG is defined in config.php
 
-1. LEVEL-1id=0%20union%20select%201,version(),3;--%20-
-
-
-2. LEVEL-2showprofile=0%27%20union%20select%201,2,version(),4;--%20-
-
-
-3. LEVEL-3item=0%27%20...
+if (preg_match(&#39;/config\.php\/*$/i&#39;, $_SERVER[&#39;PHP_SELF&#39;])) &#123;
+  exit(...
       
     
   </div>
@@ -2550,12 +2546,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <time>2020-04-10</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/Wargame/">Wargame</a>
+          <a class="category-link" href="/categories/CTF/">CTF</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2020/04/10/zixemchall-200410/'>
+          <a class='readmore' href='/2020/04/10/zer0ptsctf-200410/'>
             Read More
           </a>
         </div>
@@ -3521,19 +3517,19 @@ volantis.pjax.push(bindToggleButton);
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1628920349830")
+        volantis.js("/js/plugins/sites.js?time=1628920414214")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1628920349830")
+        volantis.js("/js/plugins/friends.js?time=1628920414214")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1628920349830")
+        volantis.js("/js/plugins/contributors.js?time=1628920414214")
       }
     
   };
@@ -3716,7 +3712,7 @@ volantis.pjax.push(bindToggleButton);
 
 
 
-<script src="/js/app.js?time=1628920349830.js"></script>
+<script src="/js/app.js?time=1628920414214.js"></script>
 
 
 <!-- optional -->
@@ -3729,7 +3725,7 @@ function loadSearchScript(){
   return  volantis.import.jQuery().then(()=>{
     return new Promise((resolve) => {
       // see: layout/_partial/scripts/cdnCtrl.ejs
-      volantis.js('/js/search/hexo.js?time=1628920349830').then(()=>{ // 此处依赖JQ
+      volantis.js('/js/search/hexo.js?time=1628920414214').then(()=>{ // 此处依赖JQ
         setSearchService()
         resolve()
       })
@@ -3864,7 +3860,7 @@ volantis.pjax.push(()=>{
       fetch(imgs[index % imgs.length] +"?t=" + new Date().getTime());
     }
   }
-  volantis.js('/js/parallax.js?time=1628920349830').then(()=>{
+  volantis.js('/js/parallax.js?time=1628920414214').then(()=>{
     parallax()
   })
   volantis.pjax.push(next_parallax);

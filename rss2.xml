@@ -9,14 +9,14 @@
     <atom:link href="https://blog.jhyeon.dev/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>JHYEON BLOG</description>
-    <pubDate>Sat, 14 Aug 2021 05:52:08 GMT</pubDate>
+    <pubDate>Sat, 14 Aug 2021 05:53:26 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>KOSPO 한국남부발전 2회차 정보보안 경진대회 후기</title>
-      <link>https://blog.jhyeon.dev/2021/08/13/kospo-210812/</link>
-      <guid>https://blog.jhyeon.dev/2021/08/13/kospo-210812/</guid>
-      <pubDate>Fri, 13 Aug 2021 03:00:00 GMT</pubDate>
+      <link>https://blog.jhyeon.dev/2021/08/14/kospo-210814/</link>
+      <guid>https://blog.jhyeon.dev/2021/08/14/kospo-210814/</guid>
+      <pubDate>Fri, 13 Aug 2021 15:00:00 GMT</pubDate>
       
         
         
@@ -43,7 +43,7 @@
       <category domain="https://blog.jhyeon.dev/tags/%EB%B2%84%EA%B7%B8%EB%B0%94%EC%9A%B4%ED%8B%B0/">버그바운티</category>
       
       
-      <comments>https://blog.jhyeon.dev/2021/08/13/kospo-210812/#disqus_thread</comments>
+      <comments>https://blog.jhyeon.dev/2021/08/14/kospo-210814/#disqus_thread</comments>
       
     </item>
     
