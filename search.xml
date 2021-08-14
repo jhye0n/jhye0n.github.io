@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>IOS 단말기에서 Burp Suite 프록시 사용 방법</title>
+      <link href="/2021/08/14/iosproxy-210814/"/>
+      <url>/2021/08/14/iosproxy-210814/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>이번 게시글에서는 IOS 운영체제에서 Burp Suite 프록시를 구성하는 방법을 소개하고자 합니다.</p><p>크게 어려운 사항은 없으나 <code>https</code> 패킷을 Intercept 하기 위해서는 Burp 인증서를 함께 설치해야합니다.</p><h3 id="네트워크-설정-IOS"><a href="#네트워크-설정-IOS" class="headerlink" title="네트워크 설정(IOS)"></a>네트워크 설정(IOS)</h3><p>우선 아이폰에 연결된 <code>WIFI</code> 탭에 들어가서 연결된 와이파이의 정보 탭에 들어가면</p><p>하단에 <code>HTTP 프록시</code> 에 보면 프록시 구성이 있을 것입니다.</p><p>해당 구성탭에 들어가서, 프록시 구성 모드를 <code>수동</code> 으로 설정한 뒤</p><p>서버란에는 Burp Suite를 사용할 PC(호스트)의 IP주소, 포트는 Burp Suite에서 본인이 설정한 포트를</p><p>입력해주면 됩니다.</p><p><img src="/img/post/iosproxy/iosproxy.jpeg" class="lazyload" data-srcset="/img/post/iosproxy/iosproxy.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><h3 id="네트워크-설정-PC-Burp-Suite"><a href="#네트워크-설정-PC-Burp-Suite" class="headerlink" title="네트워크 설정(PC, Burp Suite)"></a>네트워크 설정(PC, Burp Suite)</h3><p>Burp Suite 에서의 네트워크 설정은 아래 사진과 같이 설정하면 됩니다.</p><p>Proxy &gt; Options &gt; Proxy Listeners 탭에서 Add를 눌러</p><p>Bind to port란에 디바이스와 통신할 포트(ex, 8081)을 적고</p><p>Bind to Address는 All interface 옵션으로 바꿔준 뒤 저장하면 됩니다.</p><p><img src="/img/post/iosproxy/proxyset.png" class="lazyload" data-srcset="/img/post/iosproxy/proxyset.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><h3 id="인증서-설치-IOS"><a href="#인증서-설치-IOS" class="headerlink" title="인증서 설치(IOS)"></a>인증서 설치(IOS)</h3><p>아이폰 기기로 Safari 브라우저에 접속하신 뒤 아래 주소에 접속해주세요!</p><p><a href="http://burp/">http://burp</a></p><p>이후 오른쪽 상단에 있는 <code>CA Certificate</code> 메뉴를 누르신 뒤 인증서를 다운로드 받으신 후,</p><p>아이폰 설정 &gt; 일반 &gt; 프로파일 탭에 가시면 다운로드 받으신 인증서가 있습니다.</p><p>해당 인증서를 클릭하여 설치하시면 됩니다.</p><p><img src="/img/post/iosproxy/download.png" class="lazyload" data-srcset="/img/post/iosproxy/download.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p><img src="/img/post/iosproxy/download2.png" class="lazyload" data-srcset="/img/post/iosproxy/download2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><p><img src="/img/post/iosproxy/download3.png" class="lazyload" data-srcset="/img/post/iosproxy/download3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Mobile </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> IOS </tag>
+            
+            <tag> 모의해킹 </tag>
+            
+            <tag> 프록시 </tag>
+            
+            <tag> Burp Suite </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>KOSPO 한국남부발전 2회차 정보보안 경진대회 후기</title>
       <link href="/2021/08/14/kospo-210814/"/>
       <url>/2021/08/14/kospo-210814/</url>
@@ -22,11 +53,11 @@
             
             <tag> CTF </tag>
             
+            <tag> 모의해킹 </tag>
+            
             <tag> KOSPO </tag>
             
             <tag> 한국남부발전 </tag>
-            
-            <tag> 모의해킹 </tag>
             
             <tag> 버그바운티 </tag>
             
@@ -188,11 +219,11 @@
             
             <tag> CTF </tag>
             
-            <tag> webhacking.kr </tag>
-            
             <tag> Web Hacking </tag>
             
             <tag> Wargame </tag>
+            
+            <tag> webhacking.kr </tag>
             
         </tags>
       
@@ -306,11 +337,11 @@
             
             <tag> 모의해킹 </tag>
             
+            <tag> Burp Suite </tag>
+            
             <tag> 웹 모의해킹 </tag>
             
             <tag> 웹 해킹 </tag>
-            
-            <tag> Burp Suite </tag>
             
             <tag> Fiddler </tag>
             
@@ -1431,7 +1462,7 @@
       <link href="/2020/11/21/poxctf-201121/"/>
       <url>/2020/11/21/poxctf-201121/</url>
       
-        <content type="html"><![CDATA[<p>POX 2020 출제자 Write up 자료입니다.</p><p>아래 노션에서 풀이를 확인하실 수 있습니다.</p><p>질문 사항이 있으시면 <a href="mailto:&#115;&#x74;&#x6a;&#104;&#x79;&#x65;&#x6f;&#110;&#64;&#x6b;&#x61;&#x6b;&#97;&#111;&#x2e;&#99;&#x6f;&#109;">&#115;&#x74;&#x6a;&#104;&#x79;&#x65;&#x6f;&#110;&#64;&#x6b;&#x61;&#x6b;&#97;&#111;&#x2e;&#99;&#x6f;&#109;</a> 으로 메일을 보내주세요!</p><p><a href="https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417">https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417</a></p>]]></content>
+        <content type="html"><![CDATA[<p>POX 2020 출제자 Write up 자료입니다.</p><p>아래 노션에서 풀이를 확인하실 수 있습니다.</p><p>질문 사항이 있으시면 <a href="mailto:&#115;&#116;&#106;&#x68;&#x79;&#x65;&#111;&#110;&#x40;&#x6b;&#x61;&#107;&#97;&#111;&#46;&#99;&#x6f;&#109;">&#115;&#116;&#106;&#x68;&#x79;&#x65;&#111;&#110;&#x40;&#x6b;&#x61;&#107;&#97;&#111;&#46;&#99;&#x6f;&#109;</a> 으로 메일을 보내주세요!</p><p><a href="https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417">https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417</a></p>]]></content>
       
       
       <categories>
@@ -2031,31 +2062,6 @@
     
     
     <entry>
-      <title>php wrapper</title>
-      <link href="/2020/04/22/phpwrapper-200422/"/>
-      <url>/2020/04/22/phpwrapper-200422/</url>
-      
-        <content type="html"><![CDATA[<pre><code class="bash">expect://    expect://lsphp:filter    php://filter/convert.base64-encode/resource=index.phpzip://    zip://filename.zip#webshell.phpdata://    data://text/plain;base64,&#123;RCE CODE HERE&#125;php://input    echo base64_encode(file_get_contents(&quot;filename&quot;));</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> Web </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> PHP </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>JWT None Type Injection</title>
       <link href="/2020/04/22/jwtinjection-200422/"/>
       <url>/2020/04/22/jwtinjection-200422/</url>
@@ -2073,6 +2079,31 @@
         <tags>
             
             <tag> JWT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>php wrapper</title>
+      <link href="/2020/04/22/phpwrapper-200422/"/>
+      <url>/2020/04/22/phpwrapper-200422/</url>
+      
+        <content type="html"><![CDATA[<pre><code class="bash">expect://    expect://lsphp:filter    php://filter/convert.base64-encode/resource=index.phpzip://    zip://filename.zip#webshell.phpdata://    data://text/plain;base64,&#123;RCE CODE HERE&#125;php://input    echo base64_encode(file_get_contents(&quot;filename&quot;));</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> PHP </tag>
             
         </tags>
       

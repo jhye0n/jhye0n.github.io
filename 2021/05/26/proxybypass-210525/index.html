@@ -20,10 +20,10 @@
   <meta content="JHYEON" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1628927981962" as="style">
+  <link rel="preload" href="/css/style.css?time=1628947263257" as="style">
   <!-- 页面元数据 -->
   <title>Proxy Bypass Technologies - JHYEON</title>
-  <meta name="keywords" content="모의해킹,웹 모의해킹,웹 해킹,Burp Suite,Fiddler,Proxy,Proxy Bypass,CTF, Penetration, DevSecOps, Web Hacking, System Hacking, Reversing, Bug Bounty">
+  <meta name="keywords" content="모의해킹,Burp Suite,웹 모의해킹,웹 해킹,Fiddler,Proxy,Proxy Bypass,CTF, Penetration, DevSecOps, Web Hacking, System Hacking, Reversing, Bug Bounty">
   <meta name="description" content="Intro이번 글에서는 웹 프록시 도구로 취약점을 진단할 때 이러한 프록시 설정이 차단되어 있을 경우를 가정하여 우회(Bypassing) 하는 방법을 작성해보고자 합니다. Bypass첫 번째로 Burp Suite 프록시 도구를 통해 진단을 하는 경우에는 Request Handling 기능을 사용할 수 있습니다. Proxy 기본 설정 옵션에 존재하며 해당 기">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Proxy Bypass Technologies">
@@ -38,9 +38,9 @@
 <meta property="article:modified_time" content="2021-05-25T15:18:27.305Z">
 <meta property="article:author" content="DongHyeon Jeong">
 <meta property="article:tag" content="모의해킹">
+<meta property="article:tag" content="Burp Suite">
 <meta property="article:tag" content="웹 모의해킹">
 <meta property="article:tag" content="웹 해킹">
-<meta property="article:tag" content="Burp Suite">
 <meta property="article:tag" content="Fiddler">
 <meta property="article:tag" content="Proxy">
 <meta property="article:tag" content="Proxy Bypass">
@@ -2233,8 +2233,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1628927981962" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1628927981962"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1628947263257" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1628947263257"></noscript>
     <script>
       var userColorScheme=localStorage.getItem("user-color-scheme")
       if(userColorScheme){
@@ -2586,7 +2586,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>Popluar Posts</span>
     </section>
     <section class='body'>
-      <div class="vlts-rps"><a class="item" href="/2021/08/14/kospo-210814/" title="KOSPO 한국남부발전 2회차 정보보안 경진대회 후기" rel="bookmark "><img src="/img/post/kospo2th/kospo.png" class="lazyload" data-srcset="/img/post/kospo2th/kospo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">KOSPO 한국남부발전 2회차 정보보안 경진대회 후기</span></a><a class="item" href="/2021/02/28/aeroctf2021-210228/" title="AeroCTF 2021 Write up" rel="bookmark "><img src="/img/header/junddok.jpeg" class="lazyload" data-srcset="/img/header/junddok.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">AeroCTF 2021 Write up</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="/2021/08/14/iosproxy-210814/" title="IOS 단말기에서 Burp Suite 프록시 사용 방법" rel="bookmark "><img src="/img/post/iosproxy/iosproxy.jpeg" class="lazyload" data-srcset="/img/post/iosproxy/iosproxy.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">IOS 단말기에서 Burp Suite 프록시 사용 방법</span></a><a class="item" href="/2021/08/14/kospo-210814/" title="KOSPO 한국남부발전 2회차 정보보안 경진대회 후기" rel="bookmark "><img src="/img/post/kospo2th/kospo.png" class="lazyload" data-srcset="/img/post/kospo2th/kospo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">KOSPO 한국남부발전 2회차 정보보안 경진대회 후기</span></a><a class="item" href="/2021/02/28/aeroctf2021-210228/" title="AeroCTF 2021 Write up" rel="bookmark "><img src="/img/header/junddok.jpeg" class="lazyload" data-srcset="/img/header/junddok.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">AeroCTF 2021 Write up</span></a></div></section></div>
       
       
       
@@ -2612,7 +2612,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>모의해킹</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%EC%9B%B9-%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>웹 모의해킹</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%EC%9B%B9-%ED%95%B4%ED%82%B9/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>웹 해킹</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Burp-Suite/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Burp Suite</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Fiddler/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Fiddler</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Proxy/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Proxy</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Proxy-Bypass/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Proxy Bypass</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>모의해킹</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Burp-Suite/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Burp Suite</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%EC%9B%B9-%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>웹 모의해킹</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%EC%9B%B9-%ED%95%B4%ED%82%B9/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>웹 해킹</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Fiddler/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Fiddler</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Proxy/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Proxy</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Proxy-Bypass/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Proxy Bypass</p></a></div>
 
 
         
@@ -3177,19 +3177,19 @@ volantis.pjax.push(bindToggleButton);
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1628927981962")
+        volantis.js("/js/plugins/sites.js?time=1628947263257")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1628927981962")
+        volantis.js("/js/plugins/friends.js?time=1628947263257")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1628927981962")
+        volantis.js("/js/plugins/contributors.js?time=1628947263257")
       }
     
   };
@@ -3372,7 +3372,7 @@ volantis.pjax.push(bindToggleButton);
 
 
 
-<script src="/js/app.js?time=1628927981962.js"></script>
+<script src="/js/app.js?time=1628947263257.js"></script>
 
 
 <!-- optional -->
@@ -3385,7 +3385,7 @@ function loadSearchScript(){
   return  volantis.import.jQuery().then(()=>{
     return new Promise((resolve) => {
       // see: layout/_partial/scripts/cdnCtrl.ejs
-      volantis.js('/js/search/hexo.js?time=1628927981962').then(()=>{ // 此处依赖JQ
+      volantis.js('/js/search/hexo.js?time=1628947263257').then(()=>{ // 此处依赖JQ
         setSearchService()
         resolve()
       })
@@ -3570,7 +3570,7 @@ volantis.pjax.push(()=>{
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"JHYEON","url":"https://blog.jhyeon.dev/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"sameAs":["https://github.com/volantis-x"]},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://blog.jhyeon.dev/","name":"JHYEON"}},{"@type":"ListItem","position":3,"item":{"@id":"https://blog.jhyeon.dev/2021/05/26/proxybypass-210525/","name":"Proxy Bypass Technologies"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Proxy Bypass Technologies","description":"","datePublished":"2021-05-25T15:10:00.000Z","dateModified":"2021-05-25T15:18:27.305Z","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jhyeon.dev/2021/05/26/proxybypass-210525/"},"author":{"@type":"Person"},"publisher":{"@type":"Organization","name":"JHYEON","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://blog.jhyeon.dev/2021/05/26/proxybypass-210525/","wordCount":0,"keywords":"모의해킹,웹 모의해킹,웹 해킹,Burp Suite,Fiddler,Proxy,Proxy Bypass"}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"JHYEON","url":"https://blog.jhyeon.dev/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"sameAs":["https://github.com/volantis-x"]},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://blog.jhyeon.dev/","name":"JHYEON"}},{"@type":"ListItem","position":3,"item":{"@id":"https://blog.jhyeon.dev/2021/05/26/proxybypass-210525/","name":"Proxy Bypass Technologies"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Proxy Bypass Technologies","description":"","datePublished":"2021-05-25T15:10:00.000Z","dateModified":"2021-05-25T15:18:27.305Z","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jhyeon.dev/2021/05/26/proxybypass-210525/"},"author":{"@type":"Person"},"publisher":{"@type":"Organization","name":"JHYEON","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://blog.jhyeon.dev/2021/05/26/proxybypass-210525/","wordCount":0,"keywords":"모의해킹,Burp Suite,웹 모의해킹,웹 해킹,Fiddler,Proxy,Proxy Bypass"}]</script>
 
 
 <!-- more -->
