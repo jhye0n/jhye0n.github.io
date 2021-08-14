@@ -219,11 +219,11 @@
       
       <category domain="https://blog.jhyeon.dev/tags/CTF/">CTF</category>
       
+      <category domain="https://blog.jhyeon.dev/tags/webhacking-kr/">webhacking.kr</category>
+      
       <category domain="https://blog.jhyeon.dev/tags/Web-Hacking/">Web Hacking</category>
       
       <category domain="https://blog.jhyeon.dev/tags/Wargame/">Wargame</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/webhacking-kr/">webhacking.kr</category>
       
       
       <comments>https://blog.jhyeon.dev/2021/07/10/webhackingkr-renew-0710/#disqus_thread</comments>
@@ -660,9 +660,9 @@
       <category domain="https://blog.jhyeon.dev/categories/Web/">Web</category>
       
       
-      <category domain="https://blog.jhyeon.dev/tags/Penetration/">Penetration</category>
-      
       <category domain="https://blog.jhyeon.dev/tags/Web/">Web</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/Penetration/">Penetration</category>
       
       <category domain="https://blog.jhyeon.dev/tags/OWASP/">OWASP</category>
       

@@ -188,11 +188,11 @@
             
             <tag> CTF </tag>
             
+            <tag> webhacking.kr </tag>
+            
             <tag> Web Hacking </tag>
             
             <tag> Wargame </tag>
-            
-            <tag> webhacking.kr </tag>
             
         </tags>
       
@@ -603,9 +603,9 @@
       
         <tags>
             
-            <tag> Penetration </tag>
-            
             <tag> Web </tag>
+            
+            <tag> Penetration </tag>
             
             <tag> OWASP </tag>
             
@@ -1431,7 +1431,7 @@
       <link href="/2020/11/21/poxctf-201121/"/>
       <url>/2020/11/21/poxctf-201121/</url>
       
-        <content type="html"><![CDATA[<p>POX 2020 출제자 Write up 자료입니다.</p><p>아래 노션에서 풀이를 확인하실 수 있습니다.</p><p>질문 사항이 있으시면 <a href="mailto:&#x73;&#116;&#x6a;&#104;&#121;&#101;&#111;&#110;&#64;&#x6b;&#x61;&#107;&#97;&#x6f;&#46;&#99;&#111;&#109;">&#x73;&#116;&#x6a;&#104;&#121;&#101;&#111;&#110;&#64;&#x6b;&#x61;&#107;&#97;&#x6f;&#46;&#99;&#111;&#109;</a> 으로 메일을 보내주세요!</p><p><a href="https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417">https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417</a></p>]]></content>
+        <content type="html"><![CDATA[<p>POX 2020 출제자 Write up 자료입니다.</p><p>아래 노션에서 풀이를 확인하실 수 있습니다.</p><p>질문 사항이 있으시면 <a href="mailto:&#115;&#x74;&#x6a;&#104;&#x79;&#x65;&#x6f;&#110;&#64;&#x6b;&#x61;&#x6b;&#97;&#111;&#x2e;&#99;&#x6f;&#109;">&#115;&#x74;&#x6a;&#104;&#x79;&#x65;&#x6f;&#110;&#64;&#x6b;&#x61;&#x6b;&#97;&#111;&#x2e;&#99;&#x6f;&#109;</a> 으로 메일을 보내주세요!</p><p><a href="https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417">https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417</a></p>]]></content>
       
       
       <categories>
@@ -2031,31 +2031,6 @@
     
     
     <entry>
-      <title>JWT None Type Injection</title>
-      <link href="/2020/04/22/jwtinjection-200422/"/>
-      <url>/2020/04/22/jwtinjection-200422/</url>
-      
-        <content type="html"><![CDATA[<h3 id="1-JWT-JSON-WEB-TOKEN"><a href="#1-JWT-JSON-WEB-TOKEN" class="headerlink" title="1. JWT(JSON WEB TOKEN)"></a>1. JWT(JSON WEB TOKEN)</h3><p>JWT(JSON WEB TOKEN) 란, 정보를 안전하게 전송하기 위해 개발된 RFC 7519 의 웹 표준 입니다.</p><p>JSON 객체를 통해 “self-contained” 방식으로 데이터를 전송합니다.</p><hr><h3 id="2-JWT-TOKEN"><a href="#2-JWT-TOKEN" class="headerlink" title="2. JWT TOKEN"></a>2. JWT TOKEN</h3><p>JWT는 아래와 같은 형태를 가지고 있고,</p><p>Header, Signature, Payload 3개의 부분으로 나뉘어져 있고 이는 .(dot) 으로 구분됩니다.</p><p>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiamh5ZW9uIn0.QmGHY7ZS7SmWSy_VFr93F342f1jIEAv_WuK_gHKbyL8</p><p>헤더(Header) 에는 alg(암호화 알고리즘), typ(token type) 값이 들어가게 됩니다.</p><pre><code>&#123;  &quot;alg&quot;: &quot;HS256&quot;,  &quot;typ&quot;: &quot;JWT&quot;&#125;</code></pre><p>두번째 부분인 페이로드(Payload) 부분에는 토큰의 클레임(Claim) 즉, 객체나 데이터 값이 들어가게 됩니다.</p><pre><code>&#123;   &quot;name&quot;: &quot;jhyeon&quot;&#125;</code></pre><p>세번째는 서명(Signature)가 들어갑니다. 서명에는 암호 알고리즘에 대한 정보가 들어가는데,</p><p>이러한 서명은 중간자에 의해 변조되지 않았다는 걸 증명 또는 검증하기 위해 사용합니다.</p><pre><code>HMACSHA256(  base64UrlEncode(header) + &quot;.&quot; +  base64UrlEncode(payload),  secret)</code></pre><p>위와 같이 세가지 부분을 각각 BASE64 인코딩을 통하여 JWT 토큰 값으로 사용하게 됩니다.</p><hr><h3 id="3-How-to-JWT-None-Type-Attack"><a href="#3-How-to-JWT-None-Type-Attack" class="headerlink" title="3. How to JWT None Type Attack?"></a>3. How to JWT None Type Attack?</h3><p>JWT None Type Attack 란, JWT 토큰의 헤더 부분 alg(암호화 알고리즘) 을 조작함으로써 발생하는 공격입니다.</p><pre><code>&#123;  &quot;alg&quot;: &quot;HS256&quot;,  &quot;typ&quot;: &quot;JWT&quot;&#125;</code></pre><p>일반적인 JWT 토큰에 대한 암호화 알고리즘은 HS256과 같이 형태를 가지고 있는데,</p><p>이 알고리즘을 “None” 타입으로 변조하여 Signature(검증) 부분을 우회할 수 있게 되므로, 잘못된 방법으로 JWT 토큰을 사용한다면 취약점이 발생할 수 있습니다.</p><p>따라서, 알고리즘을 조작하여 JWT 토큰을 변조하지 못하도록 토큰 생성시에 임의의 secret-key 를 사용하는 것이 안전합니다.</p><ul><li>참고 : <a href="https://jwt.io/">https://jwt.io</a></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Web </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> JWT </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>php wrapper</title>
       <link href="/2020/04/22/phpwrapper-200422/"/>
       <url>/2020/04/22/phpwrapper-200422/</url>
@@ -2073,6 +2048,31 @@
         <tags>
             
             <tag> PHP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JWT None Type Injection</title>
+      <link href="/2020/04/22/jwtinjection-200422/"/>
+      <url>/2020/04/22/jwtinjection-200422/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-JWT-JSON-WEB-TOKEN"><a href="#1-JWT-JSON-WEB-TOKEN" class="headerlink" title="1. JWT(JSON WEB TOKEN)"></a>1. JWT(JSON WEB TOKEN)</h3><p>JWT(JSON WEB TOKEN) 란, 정보를 안전하게 전송하기 위해 개발된 RFC 7519 의 웹 표준 입니다.</p><p>JSON 객체를 통해 “self-contained” 방식으로 데이터를 전송합니다.</p><hr><h3 id="2-JWT-TOKEN"><a href="#2-JWT-TOKEN" class="headerlink" title="2. JWT TOKEN"></a>2. JWT TOKEN</h3><p>JWT는 아래와 같은 형태를 가지고 있고,</p><p>Header, Signature, Payload 3개의 부분으로 나뉘어져 있고 이는 .(dot) 으로 구분됩니다.</p><p>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiamh5ZW9uIn0.QmGHY7ZS7SmWSy_VFr93F342f1jIEAv_WuK_gHKbyL8</p><p>헤더(Header) 에는 alg(암호화 알고리즘), typ(token type) 값이 들어가게 됩니다.</p><pre><code>&#123;  &quot;alg&quot;: &quot;HS256&quot;,  &quot;typ&quot;: &quot;JWT&quot;&#125;</code></pre><p>두번째 부분인 페이로드(Payload) 부분에는 토큰의 클레임(Claim) 즉, 객체나 데이터 값이 들어가게 됩니다.</p><pre><code>&#123;   &quot;name&quot;: &quot;jhyeon&quot;&#125;</code></pre><p>세번째는 서명(Signature)가 들어갑니다. 서명에는 암호 알고리즘에 대한 정보가 들어가는데,</p><p>이러한 서명은 중간자에 의해 변조되지 않았다는 걸 증명 또는 검증하기 위해 사용합니다.</p><pre><code>HMACSHA256(  base64UrlEncode(header) + &quot;.&quot; +  base64UrlEncode(payload),  secret)</code></pre><p>위와 같이 세가지 부분을 각각 BASE64 인코딩을 통하여 JWT 토큰 값으로 사용하게 됩니다.</p><hr><h3 id="3-How-to-JWT-None-Type-Attack"><a href="#3-How-to-JWT-None-Type-Attack" class="headerlink" title="3. How to JWT None Type Attack?"></a>3. How to JWT None Type Attack?</h3><p>JWT None Type Attack 란, JWT 토큰의 헤더 부분 alg(암호화 알고리즘) 을 조작함으로써 발생하는 공격입니다.</p><pre><code>&#123;  &quot;alg&quot;: &quot;HS256&quot;,  &quot;typ&quot;: &quot;JWT&quot;&#125;</code></pre><p>일반적인 JWT 토큰에 대한 암호화 알고리즘은 HS256과 같이 형태를 가지고 있는데,</p><p>이 알고리즘을 “None” 타입으로 변조하여 Signature(검증) 부분을 우회할 수 있게 되므로, 잘못된 방법으로 JWT 토큰을 사용한다면 취약점이 발생할 수 있습니다.</p><p>따라서, 알고리즘을 조작하여 JWT 토큰을 변조하지 못하도록 토큰 생성시에 임의의 secret-key 를 사용하는 것이 안전합니다.</p><ul><li>참고 : <a href="https://jwt.io/">https://jwt.io</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Web </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JWT </tag>
             
         </tags>
       
