@@ -9,8 +9,43 @@
     <atom:link href="https://blog.jhyeon.dev/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>JHYEON BLOG</description>
-    <pubDate>Sun, 11 Jul 2021 01:09:07 GMT</pubDate>
+    <pubDate>Sat, 14 Aug 2021 05:52:08 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>KOSPO 한국남부발전 2회차 정보보안 경진대회 후기</title>
+      <link>https://blog.jhyeon.dev/2021/08/13/kospo-210812/</link>
+      <guid>https://blog.jhyeon.dev/2021/08/13/kospo-210812/</guid>
+      <pubDate>Fri, 13 Aug 2021 03:00:00 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Summary&quot;&gt;&lt;a href=&quot;#Summary&quot; class=&quot;headerlink&quot; title=&quot;Summary&quot;&gt;&lt;/a&gt;Summary&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;한국남부발전 제 2회 KOSPO 정보보안 경진대회&lt;br&gt;&lt;a href=&quot;http</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><ul><li>한국남부발전 제 2회 KOSPO 정보보안 경진대회<br><a href="https://www.kospo.co.kr/bbs/kospo/95/102365/artclView.do">https://www.kospo.co.kr/bbs/kospo/95/102365/artclView.do</a></li></ul><p>이번에 KOSPO <code>한국남부발전 웹서비스 정보보안 경진대회</code>에 참가해보았습니다 ㅎㅎ..</p><p>팀원들은 BOB에서 같이 활동했던 친구들과 3인팀으로 출전하게 되었는데</p><p>대회 때 컨디션이 좋지 못한 관계로 전력을 다 못해서 많이 아쉬움도 남는 대회였습니다.</p><p>최종 순위는 어떻게 될진 모르겠지만 7시 기준으로 중간 집계했을 땐 <code>10위</code> 라는 순위를</p><p>기록할 수 있었고 그래도 최근에 하루동안 풀타임으로 집중해서 했던 대회이기도 하네요 ㅎㅎ</p><p>이번 대회 계기로 부족했던 점도 느끼게 되었고 다음 대회(내년이겠죠..ㅎㅎ) 때는 순위권에 들어가는 것을</p><p>목표로 하여 필요한 공부들을 더 많이 해야겠다고 생각하였습니다!</p><p><img src="/img/post/kospo2th/kospo.png" class="lazyload" data-srcset="/img/post/kospo2th/kospo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p><hr><p>대회가 끝나고 알게 되었던 정보지만.. 임의로 취약하게 만들어둔 페이지들이 많았고</p><p>심지어 커맨드 인젝션을 통해 RCE가 가능했던 페이지를 만들어둔것이 있어서.. 너무 리얼월드 관점에서만</p><p>생각했던 것이 이번 대회에서 좋은 성과를 못낸 것 같기도합니다 ㅠ_ㅠ</p>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Memo/">Memo</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/CTF/">CTF</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/KOSPO/">KOSPO</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%ED%95%9C%EA%B5%AD%EB%82%A8%EB%B6%80%EB%B0%9C%EC%A0%84/">한국남부발전</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/">모의해킹</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EB%B2%84%EA%B7%B8%EB%B0%94%EC%9A%B4%ED%8B%B0/">버그바운티</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/08/13/kospo-210812/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Memory Mitigation - Canary</title>
@@ -637,44 +672,6 @@
       
       
       <comments>https://blog.jhyeon.dev/2021/04/21/webpayload-210421/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>HackPackCTF 2021 Writeup</title>
-      <link>https://blog.jhyeon.dev/2021/04/18/hackpackctf-210418/</link>
-      <guid>https://blog.jhyeon.dev/2021/04/18/hackpackctf-210418/</guid>
-      <pubDate>Sat, 17 Apr 2021 15:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h3 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h3&gt;&lt;p&gt;HACKPACK CTF 2021 (4/17 Sat 01:00 ~ 4/18 Mon 01:00 KST)&lt;/p</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><p>HACKPACK CTF 2021 (4/17 Sat 01:00 ~ 4/18 Mon 01:00 KST)</p><ul><li><a href="https://ctf2021.hackpack.club/team">https://ctf2021.hackpack.club/team</a></li><li>pwnhub (jhyeon, owl, 3kk, MalHyuk)</li><li>rank : 81th (400pt)</li></ul><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>해당 게시글은 아래 노션 링크를 통해 확인하실 수 있습니다.</p><ul><li><a href="https://public.jhyeon.dev/ctf/hackpack2021">https://public.jhyeon.dev/ctf/hackpack2021</a></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://blog.jhyeon.dev/categories/CTF/">CTF</category>
-      
-      
-      <category domain="https://blog.jhyeon.dev/tags/CTF/">CTF</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Web/">Web</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/CTFtime/">CTFtime</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Pwn/">Pwn</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Rev/">Rev</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Crypto/">Crypto</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/HackPackCTF-2021/">HackPackCTF 2021</category>
-      
-      
-      <comments>https://blog.jhyeon.dev/2021/04/18/hackpackctf-210418/#disqus_thread</comments>
       
     </item>
     
