@@ -20,7 +20,7 @@
   <meta content="JHYEON" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1629074339139" as="style">
+  <link rel="preload" href="/css/style.css?time=1629075048734" as="style">
   <!-- 页面元数据 -->
   <title>23회 해킹캠프 CTF 운영 후기 - JHYEON</title>
   <meta name="keywords" content="CTF,해킹캠프,보안,해킹,버그바운티,HackingCamp,POC Security,DEMON,SISS,CTF, Penetration, DevSecOps, Web Hacking, System Hacking, Reversing, Bug Bounty">
@@ -32,8 +32,9 @@
 <meta property="og:description" content="Summary작년 해킹캠프 22회에 이어서 올해도 23회 해킹캠프 CTF 운영을 맡았다. (데몬팀이라서 ㅎㅎ) 이번에는 오프라인을 조금 기대하고 있었는데 6-7월부터 급격하게 코로나19 확진자가 늘어나서 오프라인은 불가능하였고, 23회도 온라인으로 진행되었지만 그래도 참가자분들께서 다 재밌게 참여해주셨고 행사를 함께 준비해주신 피오씨시큐리티, 데몬팀, S">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://blog.jhyeon.dev/img/post/hcamp23/hcamp23.png">
+<meta property="og:image" content="https://blog.jhyeon.dev/img/post/hcamp23/hcamp23ctf.png">
 <meta property="article:published_time" content="2021-08-15T23:00:00.000Z">
-<meta property="article:modified_time" content="2021-08-16T00:38:04.151Z">
+<meta property="article:modified_time" content="2021-08-16T00:49:05.504Z">
 <meta property="article:author" content="DongHyeon Jeong">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="해킹캠프">
@@ -2233,8 +2234,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1629074339139" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1629074339139"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1629075048734" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1629075048734"></noscript>
     <script>
       var userColorScheme=localStorage.getItem("user-color-scheme")
       if(userColorScheme){
@@ -2568,6 +2569,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>(사실 전 새벽 5시 조금 넘어서 기절하듯이 1시간 잤다가 알림 쌓인거보고 화들짝깨서 다시 대회 관리를 했다는..)</p>
 <p>CTF 대회가 마무리되어가던 시점에는 1,2,3등이 거의 정해졌는데 출제된 카테고리(web, pwn, rev crypto, misc)의</p>
 <p>문제들을 골고루 푸셨던 것 같다 👍👍</p>
+<p><img src="/img/post/hcamp23/hcamp23ctf.png" class="lazyload" data-srcset="/img/post/hcamp23/hcamp23ctf.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
 <h3 id="문제-출제"><a href="#문제-출제" class="headerlink" title="문제 출제"></a>문제 출제</h3><p>이번에 나는 웹 카테고리에서 총 4개의 문제 출제를 담당하였다. 왠만하면 작년보다 난이도를 상향하기 위해</p>
 <p>트릭보다는 취약점을 분석해야하고 이를 익스플로잇해서 플래그를 얻는 방식를 택했다.</p>
 <p>그러나 문제 개발, 검증 과정에서 꽤 많은 이슈가 있었고 이것을 사전에 꼼꼼한 검증을 안했던 탓에 대회 중간중간에</p>
@@ -2629,7 +2631,7 @@ $encrypt_path = hash(&#39;sha256&#39;, $pass);
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-16T09:38:04+09:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-16T09:49:05+09:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>Last updated : Aug 16, 2021</p>
@@ -3199,19 +3201,19 @@ volantis.pjax.push(bindToggleButton);
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1629074339139")
+        volantis.js("/js/plugins/sites.js?time=1629075048734")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1629074339139")
+        volantis.js("/js/plugins/friends.js?time=1629075048734")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1629074339139")
+        volantis.js("/js/plugins/contributors.js?time=1629075048734")
       }
     
   };
@@ -3394,7 +3396,7 @@ volantis.pjax.push(bindToggleButton);
 
 
 
-<script src="/js/app.js?time=1629074339139.js"></script>
+<script src="/js/app.js?time=1629075048734.js"></script>
 
 
 <!-- optional -->
@@ -3407,7 +3409,7 @@ function loadSearchScript(){
   return  volantis.import.jQuery().then(()=>{
     return new Promise((resolve) => {
       // see: layout/_partial/scripts/cdnCtrl.ejs
-      volantis.js('/js/search/hexo.js?time=1629074339139').then(()=>{ // 此处依赖JQ
+      volantis.js('/js/search/hexo.js?time=1629075048734').then(()=>{ // 此处依赖JQ
         setSearchService()
         resolve()
       })
@@ -3592,7 +3594,7 @@ volantis.pjax.push(()=>{
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"JHYEON","url":"https://blog.jhyeon.dev/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"sameAs":["https://github.com/volantis-x"]},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://blog.jhyeon.dev/","name":"JHYEON"}},{"@type":"ListItem","position":2,"item":{"@id":"https://blog.jhyeon.dev/categories/Memo/","name":"Memo"}},{"@type":"ListItem","position":3,"item":{"@id":"https://blog.jhyeon.dev/2021/08/16/hcamp23-210816/","name":"23회 해킹캠프 CTF 운영 후기"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"23회 해킹캠프 CTF 운영 후기","description":"","datePublished":"2021-08-15T23:00:00.000Z","dateModified":"2021-08-16T00:38:04.151Z","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jhyeon.dev/2021/08/16/hcamp23-210816/"},"author":{"@type":"Person"},"publisher":{"@type":"Organization","name":"JHYEON","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://blog.jhyeon.dev/2021/08/16/hcamp23-210816/","wordCount":0,"articleSection":"Memo","keywords":"CTF,해킹캠프,보안,해킹,버그바운티,HackingCamp,POC Security,DEMON,SISS"}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"JHYEON","url":"https://blog.jhyeon.dev/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"sameAs":["https://github.com/volantis-x"]},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://blog.jhyeon.dev/","name":"JHYEON"}},{"@type":"ListItem","position":2,"item":{"@id":"https://blog.jhyeon.dev/categories/Memo/","name":"Memo"}},{"@type":"ListItem","position":3,"item":{"@id":"https://blog.jhyeon.dev/2021/08/16/hcamp23-210816/","name":"23회 해킹캠프 CTF 운영 후기"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"23회 해킹캠프 CTF 운영 후기","description":"","datePublished":"2021-08-15T23:00:00.000Z","dateModified":"2021-08-16T00:49:05.504Z","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jhyeon.dev/2021/08/16/hcamp23-210816/"},"author":{"@type":"Person"},"publisher":{"@type":"Organization","name":"JHYEON","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://blog.jhyeon.dev/2021/08/16/hcamp23-210816/","wordCount":0,"articleSection":"Memo","keywords":"CTF,해킹캠프,보안,해킹,버그바운티,HackingCamp,POC Security,DEMON,SISS"}]</script>
 
 
 <!-- more -->
