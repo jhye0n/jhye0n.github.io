@@ -2429,7 +2429,6 @@ div.fancybox a {
   line-height: 0;
   margin: 0 auto;
   align-items: stretch;
-  cursor: zoom-in;
 }
 div.fancybox .gallery {
   overflow: hidden;
@@ -2774,23 +2773,23 @@ p,
 input,
 pre>span,
 textarea {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/text.png"), text !important;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/text.png"), text;
 }
 .fancybox-container .fancybox-stage,
 .fancybox__carousel .is-draggable {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/zoom-out.png"), zoom-out !important;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/zoom-out.png"), zoom-out;
 }
 .fancybox a,
 .fancybox-can-zoomIn .fancybox-content,
 .fancybox__carousel .fancybox__slide.can-zoom_in .fancybox__content {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/zoom-in.png"), zoom-in !important;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/zoom-in.png"), zoom-in;
 }
 span.btn>a:not([href]):hover,
 .fancybox-button[disabled],
 .fancybox-button[disabled]:hover,
 .gt-container .gt-btn.is--disable,
 span.not-select {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/circle.png"), not-allowed !important;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/circle.png"), not-allowed;
 }
 html,
 a:not([href]),
@@ -2817,7 +2816,7 @@ kbd,
 p > img,
 p > svg,
 .fix-cursor-default {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/left_ptr.png"), default !important;
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/left_ptr.png"), default;
 }
 a,
 psw,
@@ -2884,14 +2883,31 @@ a.result.search-result-fix,
 .tk-avatar img,
 .tk-meta a,
 .tk-action-icon,
-.carousel__slide,
-.fancybox__slide,
+.fancybox,
 .fix-cursor-pointer {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/pointer.png"), pointer;
+}
+.cur-default {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/left_ptr.png"), default !important;
+}
+.cur-pointer,
+.carousel__button,
+.fancybox__slide {
   cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/pointer.png"), pointer !important;
 }
-.c-message--close a,
-.c-message a {
-  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/pointer.png"), pointer !important;
+.cur-not-allowed {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/circle.png"), not-allowed !important;
+}
+.cur-zoom-in,
+.fancybox__carousel .fancybox__slide.can-zoom_in .fancybox__content {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/zoom-in.png"), zoom-in !important;
+}
+.cur-zoom-out,
+.fancybox__carousel .is-draggable {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/zoom-out.png"), zoom-out !important;
+}
+.cur-text {
+  cursor: url("https://cdn.jsdelivr.net/gh/inkss/common@1/cursor/text.png"), text !important;
 }
 article#arc,
 article#cat,
@@ -3410,7 +3426,6 @@ article#tag .all-tags ul li span:before {
 }
 .md .footer .related_posts .body .vlts-rps {
   display: flex;
-  overflow: scroll;
 }
 .md .footer .related_posts .body .vlts-rps .item {
   flex-shrink: 0;
@@ -3979,6 +3994,7 @@ svg.loading {
   align-items: baseline;
   justify-content: center;
   margin: 0 16px 0 0;
+  padding: 8px 0;
 }
 #l_main .post .article-meta .new-meta-box .new-meta-item .notlink {
   cursor: default;
@@ -4016,7 +4032,7 @@ svg.loading {
 #l_main .post .article-meta .new-meta-box .new-meta-item a img {
   height: 16px;
   width: 16px;
-  margin-right: 5px;
+  margin-right: 8px;
 }
 #l_main .post .article-meta .new-meta-box .new-meta-item a p {
   margin: 0;
@@ -4191,6 +4207,9 @@ img.lazyload:not(.placeholder) {
 }
 img.lazyload:not(.placeholder):not(.loaded) {
   opacity: 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.7777;
 }
 img.lazyload:not(.placeholder).loaded {
   opacity: 1;

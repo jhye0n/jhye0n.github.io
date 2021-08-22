@@ -15,12 +15,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="HandheldFriendly" content="True" >
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta content="JHYEON" name="application-name">
   <meta content="JHYEON" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1629606410495" as="style">
+  <link rel="preload" href="/css/style.css?time=1629607400878" as="style">
   <!-- 页面元数据 -->
   <title>Proxy Bypass Technologies - JHYEON</title>
   <meta name="keywords" content="모의해킹,Burp Suite,웹 모의해킹,웹 해킹,Fiddler,Proxy,Proxy Bypass,CTF, Penetration, DevSecOps, Web Hacking, System Hacking, Reversing, Bug Bounty">
@@ -54,10 +54,14 @@
   <style>
     /* 
       source/css/first.styl
-      scripts/first-style/index.js
+      scripts/helpers/first-style/index.js
      */
     #safearea {
   display: none;
+}
+.post-story {
+  content-visibility: auto;
+  contain-intrinsic-size: 1000px;
 }
 @supports (backdrop-filter: blur(20px)) {
   .blur {
@@ -142,6 +146,8 @@ body[theme='dark'] {
   --color-list: #666;
   --color-list-hl: #36ac91;
   --color-meta: #888;
+  --color-read-bkg: #e0d8c8;
+  --color-read-post: #f8f1e2;
 }
 * {
   box-sizing: border-box;
@@ -1004,6 +1010,11 @@ th {
     opacity: 1;
   }
 }
+.cover-wrapper .menu img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+}
 .l_header {
   position: fixed;
   z-index: 1000;
@@ -1066,6 +1077,9 @@ th {
   height: 64px;
   width: calc(100% - 2 * 16px);
   position: absolute;
+}
+.l_header #wrapper .nav-sub ::-webkit-scrollbar {
+  display: none;
 }
 @media screen and (min-width: 2048px) {
   .l_header #wrapper .nav-sub {
@@ -1636,22 +1650,7 @@ ul.list-v >li>a:hover {
     border-radius: 0;
   }
 }
-#u-search .modal-ajax-content {
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-}
-#u-search .modal-ajax-content.loaded {
-  opacity: 1;
-  visibility: visible;
-}
-#u-search .modal-header {
+#u-search .modal .modal-header {
   position: relative;
   width: 100%;
   height: 64px;
@@ -1670,12 +1669,12 @@ ul.list-v >li>a:hover {
   -o-transition: all 0.28s ease;
 }
 @media screen and (max-width: 680px) {
-  #u-search .modal-header {
+  #u-search .modal .modal-header {
     border-radius: 0;
     padding: 0px;
   }
 }
-#u-search .modal-header .btn-close {
+#u-search .modal .modal-header .btn-close {
   display: block;
   position: absolute;
   width: 55px;
@@ -1696,42 +1695,19 @@ ul.list-v >li>a:hover {
   -o-transition: all 0.28s ease;
   z-index: 2;
 }
-#u-search .modal-header .btn-close:hover {
+#u-search .modal .modal-header .btn-close:hover {
   transform: rotate(90deg);
 }
-#u-search .modal-header .modal-loading {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: transparent;
-  z-index: 1;
-}
-#u-search .modal-header .modal-loading .modal-loading-bar {
-  display: block;
-  position: relative;
-  width: 0%;
-  height: 100%;
-  background: #44d7b6;
-  transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-  -moz-transition: all 0.28s ease;
-  -webkit-transition: all 0.28s ease;
-  -o-transition: all 0.28s ease;
-}
-#u-search .modal-header #u-search-modal-form {
+#u-search .modal .modal-header #u-search-modal-form {
   position: relative;
   width: 100%;
   height: 100%;
   z-index: 2;
 }
-#u-search .modal-header #u-search-modal-form input {
+#u-search .modal .modal-header #u-search-modal-form input {
   color: var(--color-text);
 }
-#u-search .modal-header #u-search-modal-form #u-search-modal-input {
+#u-search .modal .modal-header #u-search-modal-form #u-search-modal-input {
   margin: 16px 50px;
   padding: 0 8px;
   width: calc(100% - 100px - 16px);
@@ -1751,15 +1727,15 @@ ul.list-v >li>a:hover {
   -o-transition: all 0.28s ease;
 }
 @media screen and (max-width: 680px) {
-  #u-search .modal-header #u-search-modal-form #u-search-modal-input {
+  #u-search .modal .modal-header #u-search-modal-form #u-search-modal-input {
     padding: 0;
   }
 }
-#u-search .modal-header #u-search-modal-form #u-search-modal-input:focus {
+#u-search .modal .modal-header #u-search-modal-form #u-search-modal-input:focus {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
-#u-search .modal-header #u-search-modal-btn-submit {
+#u-search .modal .modal-header #u-search-modal-btn-submit {
   position: absolute;
   top: 0;
   left: 0;
@@ -1773,82 +1749,7 @@ ul.list-v >li>a:hover {
   color: #44d7b6;
   z-index: 2;
 }
-#u-search .modal-footer {
-  position: absolute;
-  display: none;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  padding: 0px 15px;
-  background: var(--color-card);
-}
-#u-search .modal-footer .logo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  z-index: 0;
-}
-#u-search .modal-footer .logo a {
-  display: inline-block;
-  height: 50px;
-}
-#u-search .modal-footer .logo.google img {
-  height: 24px;
-  margin-top: 13px;
-}
-#u-search .modal-footer .logo.baidu img {
-  height: 22px;
-  margin-top: 14px;
-}
-#u-search .modal-footer .logo img {
-  position: relative;
-  display: inline-block;
-  width: auto;
-  height: 18px;
-  margin-top: 16px;
-}
-#u-search .modal-footer .modal-error {
-  position: relative;
-  float: left;
-  vertical-align: middle;
-  line-height: 50px;
-  font-size: 13px;
-  z-index: 1;
-}
-#u-search .modal-footer .modal-metadata {
-  position: relative;
-  float: left;
-  vertical-align: middle;
-  line-height: 50px;
-  font-size: 13px;
-  z-index: 1;
-}
-#u-search .modal-footer .nav {
-  position: relative;
-  display: block;
-  float: right;
-  vertical-align: middle;
-  font-size: 0.875rem;
-  font-weight: bold;
-  line-height: 50px;
-  color: var(--color-meta);
-  cursor: pointer;
-  z-index: 1;
-}
-#u-search .modal-footer .nav:hover {
-  color: #ff5722;
-}
-#u-search .modal-footer .nav.btn-next {
-  margin-left: 16px;
-}
-#u-search .modal-footer .nav .icon {
-  font-size: 0.875rem;
-}
-#u-search .modal-body {
+#u-search .modal .modal-body {
   position: absolute;
   padding: 16px;
   width: 100%;
@@ -1860,41 +1761,41 @@ ul.list-v >li>a:hover {
   background: var(--color-card);
   border-radius: 4px;
 }
-#u-search .modal-body::-webkit-scrollbar {
+#u-search .modal .modal-body::-webkit-scrollbar {
   height: 4px;
   width: 4px;
 }
-#u-search .modal-body::-webkit-scrollbar-track-piece {
+#u-search .modal .modal-body::-webkit-scrollbar-track-piece {
   background: transparent;
 }
-#u-search .modal-body::-webkit-scrollbar-thumb {
+#u-search .modal .modal-body::-webkit-scrollbar-thumb {
   background: #44d7b6;
   cursor: pointer;
   border-radius: 2px;
 }
-#u-search .modal-body::-webkit-scrollbar-thumb:hover {
+#u-search .modal .modal-body::-webkit-scrollbar-thumb:hover {
   background: #ff5722;
 }
-#u-search .modal-body .modal-results {
+#u-search .modal .modal-body .modal-results {
   list-style: none;
 }
-#u-search .modal-body .modal-results .result {
+#u-search .modal .modal-body .modal-results .result {
   position: relative;
   display: block;
   padding: 16px;
   border-radius: 4px;
 }
-#u-search .modal-body .modal-results .result b[mark] {
+#u-search .modal .modal-body .modal-results .result b[mark] {
   color: #29bf9d;
   text-decoration: underline;
 }
-#u-search .modal-body .modal-results .result:hover {
+#u-search .modal .modal-body .modal-results .result:hover {
   background: var(--color-site-bg);
 }
-#u-search .modal-body .modal-results .result:hover .title {
+#u-search .modal .modal-body .modal-results .result:hover .title {
   color: var(--color-list-hl);
 }
-#u-search .modal-body .modal-results .result .title {
+#u-search .modal .modal-body .modal-results .result .title {
   display: inline-block;
   max-width: 100%;
   color: var(--color-list);
@@ -1906,7 +1807,7 @@ ul.list-v >li>a:hover {
   text-overflow: ellipsis;
   font-size: 1.125rem;
 }
-#u-search .modal-body .modal-results .result .digest {
+#u-search .modal .modal-body .modal-results .result .digest {
   display: block;
   white-space: inherit;
   overflow: hidden;
@@ -1915,7 +1816,7 @@ ul.list-v >li>a:hover {
   font-size: 0.8125rem;
   color: var(--color-meta);
 }
-#u-search .modal-body .modal-results .result .icon {
+#u-search .modal .modal-body .modal-results .result .icon {
   position: absolute;
   top: 50%;
   right: 0;
@@ -1938,6 +1839,8 @@ ul.list-v >li>a:hover {
   }
   :root:not([data-user-color-scheme]) {
     --color-site-body: #000;
+    --color-read-bkg: #222;
+    --color-read-post: #333;
     --color-site-bg: #222;
     --color-site-inner: #eee;
     --color-site-footer: #aaa;
@@ -2081,6 +1984,8 @@ ul.list-v >li>a:hover {
 }
 [data-user-color-scheme='dark'] {
   --color-site-body: #000;
+  --color-read-bkg: #222;
+  --color-read-post: #333;
   --color-site-bg: #222;
   --color-site-inner: #eee;
   --color-site-footer: #aaa;
@@ -2233,8 +2138,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1629606410495" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1629606410495"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1629607400878" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1629607400878"></noscript>
     <script>
       var userColorScheme=localStorage.getItem("user-color-scheme")
       if(userColorScheme){
@@ -2255,6 +2160,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 			'height: 100%;'+
 			'margin-top: 15%;'+
 			'margin-bottom: 5500%;'+
+		'}'+
+		'#l_header,#l_body{'+
+			'display: none;'+
 		'}'+
 	'</style>'+
     '<div class="kill-ie">'+
@@ -2278,6 +2186,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 			margin-top: 15%;
 			margin-bottom: 5500%;
 		}
+		#l_header,#l_body{
+			display: none;
+		}
 	</style>
     <div class="kill-noscript">
         <h2><b>抱歉，您的浏览器无法访问本站</b></h2>
@@ -2298,9 +2209,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='nav-sub'>
       <p class="title"></p>
       <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
-        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self"  href="/" onclick="return false;" title="comment"></a></li>
         
-          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self"  href="/" onclick="return false;" title="toc"></a></li>
         
       </ul>
     </div>
@@ -2328,7 +2239,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    id="categories"
+                    active-action="categories"
                   >
                   <i class='fas fa-folder-open fa-fw'></i>Categories
                 </a>
@@ -2344,7 +2255,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    id="tags"
+                    active-action="tags"
                   >
                   <i class='fas fa-tags fa-fw'></i>Tags
                 </a>
@@ -2360,7 +2271,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    id="archives"
+                    active-action="archives"
                   >
                   <i class='fas fa-archive fa-fw'></i>Archive
                 </a>
@@ -2376,7 +2287,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    id="about"
+                    active-action="about"
                   >
                   <i class='fas fa-link fa-fw'></i>About
                 </a>
@@ -2397,10 +2308,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 			<ul class='switcher nav-list-h m-phone'>
 				
-					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href="/" onclick="return false;" title="search"></a></li>
 				
 				<li>
-          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href="/" onclick="return false;" title="menu"></a>
           <ul class="menu-phone list-v navigation white-box">
             
               
@@ -2410,7 +2321,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    id="categories"
+                    active-action="categories"
                   >
                   <i class='fas fa-folder-open fa-fw'></i>Categories
                 </a>
@@ -2426,7 +2337,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    id="tags"
+                    active-action="tags"
                   >
                   <i class='fas fa-tags fa-fw'></i>Tags
                 </a>
@@ -2442,7 +2353,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    id="archives"
+                    active-action="archives"
                   >
                   <i class='fas fa-archive fa-fw'></i>Archive
                 </a>
@@ -2458,7 +2369,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                   
                   
                   
-                    id="about"
+                    active-action="about"
                   >
                   <i class='fas fa-link fa-fw'></i>About
                 </a>
@@ -2484,7 +2395,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
       
   
-  </div>
+</div>
 
       <div id="safearea">
         <div class="body-wrapper" id="pjax-container">
@@ -2508,7 +2419,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
 <div class='new-meta-item author'>
   <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="/img/header/junddok.jpeg">
+    <img no-lazy src="/img/header/junddok.jpeg" alt="This is a picture without description" >
     <p>JHYEON</p>
   </a>
 </div>
@@ -2522,7 +2433,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
             <div class="new-meta-item date">
-  <a class='notlink'>
+  <a class='notlink' href="/" onclick="return false;" title="Click me!" >
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
     <p>Date : May 26, 2021</p>
   </a>
@@ -2543,10 +2454,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </div>
 
 
-  
-  
-  
-  
+  <div id="page-plugins-helper"></div>
   <h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><p>이번 글에서는 웹 프록시 도구로 취약점을 진단할 때 이러한 프록시 설정이 차단되어 있을 경우를 가정하여</p>
 <p>우회(Bypassing) 하는 방법을 작성해보고자 합니다.</p>
 <h3 id="Bypass"><a href="#Bypass" class="headerlink" title="Bypass"></a>Bypass</h3><p>첫 번째로 Burp Suite 프록시 도구를 통해 진단을 하는 경우에는 <code>Request Handling</code> 기능을 사용할 수 있습니다.</p>
@@ -2554,11 +2462,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>과정을 거쳐 타겟(대상) URL로 이동하기 때문에 프록시 차단 솔루션이 브라우저를 향해 바라보고 있다면 이러한</p>
 <p>요청 처리(Request Handling)을 통해 프록시 차단 우회가 가능합니다.</p>
 <p>설정 방법은 다음과 같습니다.</p>
-<p><img src="/img/post/proxybypass/burp1.png" class="lazyload" data-srcset="/img/post/proxybypass/burp1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo1"></p>
+<p><img src="/img/post/proxybypass/burp1.png" class="lazyload" data-srcset="/img/post/proxybypass/burp1.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="photo1"></p>
 <p>Burp Suite - Proxy - Options - Proxy Listeners 탭에서 기존에 설정된 프록시 설정을</p>
 <p>편집(Edit)모드로 들어가 Request Handling 설정을 하면 됩니다. 이 때 Redirect to Host 값에는</p>
 <p>프록시을 우회하고 들어갈 타겟(대상) URL을 입력해주신 뒤 저장을 하시고,</p>
-<p><img src="/img/post/proxybypass/burp2.png" class="lazyload" data-srcset="/img/post/proxybypass/burp2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo2"></p>
+<p><img src="/img/post/proxybypass/burp2.png" class="lazyload" data-srcset="/img/post/proxybypass/burp2.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="photo2"></p>
 <p>아래 Match and Replace 옵션에서 Host Header 값을 사진과 같이 설정해주셔야 합니다.</p>
 <p>Match에는 임의로 접속할 URL주소, Replace에는 변경할 헤더 즉, 타겟(대상) URL 주소가 됩니다.</p>
 <h3 id="Etc"><a href="#Etc" class="headerlink" title="Etc"></a>Etc</h3><p>이외에도 크롬 확장 프로그램으로 지원하는 <code>Proxy SwitchyOmega</code> 툴이 있습니다.</p>
@@ -2566,13 +2474,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>통신을 위해 사용하는 프록시 도구입니다.</p>
 <p>다운로드 : <a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif">Chrome Store</a></p>
 <p>위 크롬 스토어 링크에서 다운로드 하여 확장 프로그램에 추가한 뒤 사용할 수 있습니다.</p>
-<p><img src="/img/post/proxybypass/proxytool.png" class="lazyload" data-srcset="/img/post/proxybypass/proxytool.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo3"></p>
+<p><img src="/img/post/proxybypass/proxytool.png" class="lazyload" data-srcset="/img/post/proxybypass/proxytool.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="photo3"></p>
 <p>위 사진과 같이 설정을 하면 <code>127.0.0.1:8080</code> 로컬 서버를 프록시 서버로 경유시켜 패킷을 전송시킬 수 있습니다.</p>
 <p>물론, Burp Suite와 설정을 맞추어 패킷을 캡처하여 전송시키는 것도 가능합니다.</p>
 <p>아직 해당 도구에 대한 경험이 그렇게 많지는 않아서 더 좋은 사용 사례나 도구들이 있다면 추가로 포스팅 하겠습니다!</p>
 <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://normaltic.com/%EC%95%88%EB%9E%A9%EC%9C%BC%EB%A1%9C-%EB%B6%80%ED%84%B0-%EB%8B%B9%EB%8B%B9%ED%95%98%EC%9E%90-%EC%9A%B0%ED%9A%8C-%EA%B8%B0%EC%88%A0-astx-e2e-bypass/">ASTX E2E Bypass</a></li>
 </ul>
+
 
   
   
@@ -2586,7 +2495,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>Popluar Posts</span>
     </section>
     <section class='body'>
-      <div class="vlts-rps"><a class="item" href="/2021/08/14/iosproxy-210814/" title="IOS 단말기에서 Burp Suite 프록시 사용 방법" rel="bookmark "><img src="/img/post/iosproxy/iosproxy.jpeg" class="lazyload" data-srcset="/img/post/iosproxy/iosproxy.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">IOS 단말기에서 Burp Suite 프록시 사용 방법</span></a><a class="item" href="/2021/08/14/kospo-210814/" title="KOSPO 한국남부발전 2회차 정보보안 경진대회 후기" rel="bookmark "><img src="/img/post/kospo2th/kospo.png" class="lazyload" data-srcset="/img/post/kospo2th/kospo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">KOSPO 한국남부발전 2회차 정보보안 경진대회 후기</span></a><a class="item" href="/2021/02/28/aeroctf2021-210228/" title="AeroCTF 2021 Write up" rel="bookmark "><img src="/img/header/junddok.jpeg" class="lazyload" data-srcset="/img/header/junddok.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">AeroCTF 2021 Write up</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="/2021/08/14/iosproxy-210814/" title="IOS 단말기에서 Burp Suite 프록시 사용 방법" rel="bookmark "><img src="/img/post/iosproxy/iosproxy.jpeg" class="lazyload" data-srcset="/img/post/iosproxy/iosproxy.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" / alt="This is a picture without description" ><span class="title">IOS 단말기에서 Burp Suite 프록시 사용 방법</span></a><a class="item" href="/2021/08/14/kospo-210814/" title="KOSPO 한국남부발전 2회차 정보보안 경진대회 후기" rel="bookmark "><img src="/img/post/kospo2th/kospo.png" class="lazyload" data-srcset="/img/post/kospo2th/kospo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" / alt="This is a picture without description" ><span class="title">KOSPO 한국남부발전 2회차 정보보안 경진대회 후기</span></a><a class="item" href="/2021/02/28/aeroctf2021-210228/" title="AeroCTF 2021 Write up" rel="bookmark "><img src="/img/header/junddok.jpeg" class="lazyload" data-srcset="/img/header/junddok.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" / alt="This is a picture without description" ><span class="title">AeroCTF 2021 Write up</span></a></div></section></div>
       
       
       
@@ -2601,7 +2510,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         
           <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-05-26T00:18:27+09:00">
-  <a class='notlink'>
+  <a class='notlink' href="/" onclick="return false;" title="Click me!" >
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>Last updated : May 26, 2021</p>
   </a>
@@ -2629,7 +2538,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
           >
           
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/telegram.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" >
           
         </a>
       
@@ -2804,7 +2713,7 @@ WSGI란?WSGI(W...</p>
   </footer>
 
 
-        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="/" onclick="return false;" title="top"></a>
       </div>
     </div>
     <div>
@@ -2920,8 +2829,14 @@ WSGI란?WSGI(W...</p>
         this.list[i].run();
       }
     };
-    this.push = (fn, name) => {
-      var f = new Item(fn, name);
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = ()=>{
+          volantis.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
       this.list.push(f);
     };
     // 构造一个可以run的对象
@@ -2931,7 +2846,7 @@ WSGI란?WSGI(W...</p>
       // run方法
       this.run = () => {
         try {
-          fn();
+          fn()
         } catch (error) {
           console.log(error);
         }
@@ -2939,7 +2854,7 @@ WSGI란?WSGI(W...</p>
     }
   }
   /******************** Pjax ********************************/
-  // /layout/_third-party/pjax/index.ejs
+  // /layout/_plugins/pjax/index.ejs
   // volantis.pjax.send(callBack[,"callBackName"]) 传入pjax:send回调函数
   // volantis.pjax.push(callBack[,"callBackName"]) 传入pjax:complete回调函数
   // volantis.pjax.error(callBack[,"callBackName"]) 传入pjax:error回调函数
@@ -2969,8 +2884,8 @@ WSGI란?WSGI(W...</p>
     push: volantis.dark.method.toggle.push,
   };
   /********************  Message  ********************************/
-  // /layout/_third-party/message/script.ejs
-  // volantis.message(title,message,type,autoClose)
+  // /layout/_plugins/message/script.ejs
+  // volantis.message
   /********************  isMobile  ********************************/
   // /source/js/app.js
   // volantis.isMobile
@@ -3043,7 +2958,30 @@ WSGI란?WSGI(W...</p>
       }
     }
   }
-  /*****************************************************************/
+  /********************** requestAnimationFrame ********************************/
+  // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+  // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+  volantis.requestAnimationFrame = (fn)=>{
+    if (!window.requestAnimationFrame) {
+      window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    }
+    window.requestAnimationFrame(fn)
+  }
+  /********************** Content Visibility ********************************/
+  // 见 source/css/first.styl 如果遇到任何问题 删除 .post-story 即可
+  // 一个元素被声明 content-visibility 属性后 如果元素不在 viewport 中 浏览器不会计算其后代元素样式和属性 从而节省 Style & Layout 耗时 
+  // content-visibility 的副作用: 锚点失效 等等(实验初期 暂不明确), 使用此方法清除样式
+  volantis.cleanContentVisibility = ()=>{
+    if (document.querySelector(".post-story")) {
+      console.log("cleanContentVisibility");
+      document.querySelectorAll(".post-story").forEach(e=>{
+        e.classList.remove("post-story")
+      })
+    }
+  }
+  /******************************************************************************/
+  /******************************************************************************/
+
 </script>
 <script>
   
@@ -3068,6 +3006,8 @@ WSGI란?WSGI(W...</p>
 
 
 <!-- internal -->
+
+
 
 
 
@@ -3165,40 +3105,13 @@ function bindToggleButton() {
   })
 }
 applyCustomDarkModeSettings();
-document.addEventListener("DOMContentLoaded", bindToggleButton);
+document.addEventListener("DOMContentLoaded", ()=>{
+  volantis.requestAnimationFrame(bindToggleButton)
+});
 volantis.pjax.push(bindToggleButton);
 </script>
 
 
-
-
-<script>
-  function loadIssuesJS() {
-    
-      const sites_api = document.getElementById('sites-api');
-      if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1629606410495")
-      }
-    
-    
-      const friends_api = document.getElementById('friends-api');
-      if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1629606410495")
-      }
-    
-    
-      const contributors_api = document.getElementById('contributors-api');
-      if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1629606410495")
-      }
-    
-  };
-  loadIssuesJS()
-  volantis.pjax.push(()=>{
-    loadIssuesJS();
-  })
-
-</script>
 
 
 
@@ -3240,64 +3153,6 @@ volantis.pjax.push(bindToggleButton);
 
 
 
-  <script>
-  function wait(callback, seconds) {
-    var timelag = null;
-    timelag = window.setTimeout(callback, seconds);
-  }
-  function pjax_CopyCode() {
-    if (!(document.querySelector(".highlight .code pre") || document.querySelector(".article pre code")))
-      return;
-    if (typeof clipboard == "undefined") {
-      var clipboard = new ClipboardJS(".btn-copy", {
-        target: function (trigger) {
-          return trigger.nextElementSibling;
-        },
-      });
-    }
-    var copyHtml = "";
-    copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-    copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
-    copyHtml += "</button>";
-    document.querySelectorAll(".highlight .code pre").forEach(e => {
-      e.insertAdjacentHTML("beforebegin", copyHtml)
-    });
-    document.querySelectorAll(".article pre code").forEach(e => {
-      e.insertAdjacentHTML("beforebegin", copyHtml)
-    });
-    clipboard.off("success").on("success", function (e) {
-      let $btn = volantis.dom.$(e.trigger);
-      $btn.addClass("copied");
-      let $icon = volantis.dom.$($btn.find("i"));
-      $icon.removeClass("fa-copy").addClass("fa-check-circle");
-      let $span = volantis.dom.$($btn.find("span"));
-      $span.innerText = "COPIED";
-      wait(function () {
-        $icon.removeClass("fa-check-circle").addClass("fa-copy");
-        $span.innerText = "COPY";
-      }, 2000);
-    });
-    clipboard.off("error").on("error", function (e) {
-      e.clearSelection();
-      let $btn = volantis.dom.$(e.trigger);
-      $btn.addClass("copy-failed");
-      let $icon = volantis.dom.$($btn.find("i"));
-      $icon.removeClass("fa-copy").addClass("fa-times-circle");
-      let $span = volantis.dom.$($btn.find("span"));
-      $span.innerText = "COPY FAILED";
-      wait(function () {
-        $icon.removeClass("fa-times-circle").addClass("fa-copy");
-        $span.innerText = "COPY";
-      }, 2000);
-    });
-  }
-  volantis.js("https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js").then(pjax_CopyCode)
-  volantis.pjax.push(pjax_CopyCode);
-</script>
-
-
-
-
    <script type="text/javascript">
   function pjax_scrollrebeal() {
     ScrollReveal().reveal("#l_main .reveal", {
@@ -3308,15 +3163,20 @@ volantis.pjax.push(bindToggleButton);
       easing: "ease-out",
     });
   }
-  volantis.js("https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js")
-  document.addEventListener("DOMContentLoaded", ()=>{
-    var checkScrollReveal = setInterval(function () {
-      if (typeof ScrollReveal == "undefined") return;
-      clearInterval(checkScrollReveal);
+  function init_scrollrebeal() {
+    if (typeof ScrollReveal == "undefined") {
+      volantis.requestAnimationFrame(init_scrollrebeal);
+    } else {
       pjax_scrollrebeal();
-    }, 100);
-  })
-  volantis.pjax.push(pjax_scrollrebeal);
+    }
+  }
+  volantis.js("https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js");
+  document.addEventListener("DOMContentLoaded", init_scrollrebeal);
+  volantis.pjax.push(
+    pjax_scrollrebeal,
+    "pjax_scrollrebeal",
+    (setRequestAnimationFrame = false)
+  );
 </script>
 
 
@@ -3372,64 +3232,49 @@ volantis.pjax.push(bindToggleButton);
 
 
 
-<script src="/js/app.js?time=1629606410495.js"></script>
+<script src="/js/app.js?time=1629607400878.js"></script>
 
 
 <!-- optional -->
 
   <script>
-const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/logo/";
-const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+  const SearchServiceDataPathRoot = ("/" || "/").endsWith("/")
+    ? "/" || "/"
+    : "//" || "/";
+  const SearchServiceDataPath = SearchServiceDataPathRoot + "content.json";
 
-function loadSearchScript(){
-  return  volantis.import.jQuery().then(()=>{
-    return new Promise((resolve) => {
-      // see: layout/_partial/scripts/cdnCtrl.ejs
-      volantis.js('/js/search/hexo.js?time=1629606410495').then(()=>{ // 此处依赖JQ
-        setSearchService()
-        resolve()
-      })
-    })
-  })
-}
+  function loadSearchScript() {
+    // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
+    return volantis.js("/js/search/hexo.js?time=1629607400878");
+  }
 
-function loadSearchService(){
-  loadSearchScript()
-  document.querySelectorAll('.input.u-search-input').forEach((e)=>{
-    e.removeEventListener('focus',loadSearchService,false)
-  })
-}
-
-// 打开并搜索 字符串 s
-function OpenSearch(s) {
-  loadSearchScript().then(()=>{
-    volantis.customSearch.queryText=s
-    volantis.customSearch.search()
-  })
-}
-
-// 访问含有 ?s=xxx  的链接时打开搜索
-if (window.location.search&&/^\?s=/g.test(window.location.search)) {
-  let queryText = decodeURI(window.location.search).replace(/\ /g, '-').replace(/^\?s=/g, '');
-  OpenSearch(queryText)
-}
-
-// 搜索输入框获取焦点时加载搜索
-document.querySelectorAll('.input.u-search-input').forEach((e)=>{
-  e.addEventListener('focus',loadSearchService,false)
-})
-
-function listenSearch(){
-  
-    volantis.customSearch = new HexoSearch({
-      imagePath: SearchServiceimagePath
+  function loadSearchService() {
+    loadSearchScript();
+    document.querySelectorAll(".input.u-search-input").forEach((e) => {
+      e.removeEventListener("focus", loadSearchService, false);
     });
-  
-}
-function setSearchService() {
-	listenSearch();
-	
-}
+  }
+
+  // 打开并搜索 字符串 s
+  function OpenSearch(s) {
+    loadSearchScript().then(() => {
+      SearchService.setQueryText(s);
+      SearchService.search();
+    });
+  }
+
+  // 访问含有 ?s=xxx  的链接时打开搜索 // 与搜索引擎 structured data 相关: /scripts/helpers/structured-data/lib/config.js
+  if (window.location.search && /^\?s=/g.test(window.location.search)) {
+    let queryText = decodeURI(window.location.search)
+      .replace(/\ /g, "-")
+      .replace(/^\?s=/g, "");
+    OpenSearch(queryText);
+  }
+
+  // 搜索输入框获取焦点时加载搜索
+  document.querySelectorAll(".input.u-search-input").forEach((e) => {
+    e.addEventListener("focus", loadSearchService, false);
+  });
 </script>
 
 
@@ -3462,7 +3307,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.1.0/build/highlight.min.js"></script>
 
-<script>hljs.initHighlightingOnLoad();</script>
+<script>volantis.requestAnimationFrame(hljs.initHighlightingOnLoad)</script>
 
 <script>
 volantis.pjax.push(()=>{
@@ -3481,11 +3326,12 @@ volantis.pjax.push(()=>{
 
 
 
+<!-- pjax 标签必须存在于所有页面 否则 pjax error -->
+<pjax>
 
 
 
-
-
+</pjax>
 
 <script>
   function listennSidebarTOC() {
@@ -3498,6 +3344,7 @@ volantis.pjax.push(()=>{
       );
       link.addEventListener("click", (event) => {
         event.preventDefault();
+        volantis.cleanContentVisibility()
         window.scrollTo({
           top: target.offsetTop + document.getElementById("safearea").offsetTop + 5,
           
@@ -3565,12 +3412,14 @@ volantis.pjax.push(()=>{
     createIntersectionObserver(document.documentElement.scrollHeight);
   }
 
-  document.addEventListener("DOMContentLoaded", listennSidebarTOC);
-  document.addEventListener("pjax:success", listennSidebarTOC);
+  document.addEventListener("DOMContentLoaded", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
+  document.addEventListener("pjax:success", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
 </script>
 
-
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"JHYEON","url":"https://blog.jhyeon.dev/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"sameAs":["https://github.com/volantis-x"]},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://blog.jhyeon.dev/","name":"JHYEON"}},{"@type":"ListItem","position":3,"item":{"@id":"https://blog.jhyeon.dev/2021/05/26/proxybypass-210525/","name":"Proxy Bypass Technologies"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Proxy Bypass Technologies","description":"","datePublished":"2021-05-25T15:10:00.000Z","dateModified":"2021-05-25T15:18:27.305Z","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jhyeon.dev/2021/05/26/proxybypass-210525/"},"author":{"@type":"Person"},"publisher":{"@type":"Organization","name":"JHYEON","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://blog.jhyeon.dev/2021/05/26/proxybypass-210525/","wordCount":0,"keywords":"모의해킹,Burp Suite,웹 모의해킹,웹 해킹,Fiddler,Proxy,Proxy Bypass"}]</script>
 
 
 <!-- more -->
