@@ -9,8 +9,52 @@
     <atom:link href="https://blog.jhyeon.dev/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>JHYEON BLOG</description>
-    <pubDate>Mon, 16 Aug 2021 05:17:23 GMT</pubDate>
+    <pubDate>Sun, 22 Aug 2021 04:25:56 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Hackingcamp 23th Web Write up</title>
+      <link>https://blog.jhyeon.dev/2021/08/22/hcamp23-writeup-210822/</link>
+      <guid>https://blog.jhyeon.dev/2021/08/22/hcamp23-writeup-210822/</guid>
+      <pubDate>Sun, 22 Aug 2021 04:21:11 GMT</pubDate>
+      
+        
+        
+      <description>&lt;p&gt;해당 자료는 아래 노션 열람 또는 구글 드라이브(PDF)를 통해 다운로드 가능합니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://drive.google.com/file/d/1TEPxvE7KTM3hCnyBH4mSu6gUpjiDNA6</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<p>해당 자료는 아래 노션 열람 또는 구글 드라이브(PDF)를 통해 다운로드 가능합니다.</p><ol><li><p><a href="https://drive.google.com/file/d/1TEPxvE7KTM3hCnyBH4mSu6gUpjiDNA6J/view?usp=sharing">Google Drive</a></p></li><li><p><a href="https://jhyeon.notion.site/CTF-Write-Up-71b4ba9c3ab64ac981bb1bfc4816cd3c">Open to Notion</a></p></li></ol>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/CTF/">CTF</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/CTF/">CTF</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%ED%95%B4%ED%82%B9%EC%BA%A0%ED%94%84/">해킹캠프</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EB%B3%B4%EC%95%88/">보안</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%ED%95%B4%ED%82%B9/">해킹</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EB%B2%84%EA%B7%B8%EB%B0%94%EC%9A%B4%ED%8B%B0/">버그바운티</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/HackingCamp/">HackingCamp</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/POC-Security/">POC Security</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/DEMON/">DEMON</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/SISS/">SISS</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/08/22/hcamp23-writeup-210822/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>23회 해킹캠프 CTF 운영 후기</title>
@@ -642,41 +686,6 @@
       
       
       <comments>https://blog.jhyeon.dev/2021/04/25/hspacectf-210425/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>모바일 게임 앱 분석(Unity Game Engine)</title>
-      <link>https://blog.jhyeon.dev/2021/04/25/unityapp-analysis-210425/</link>
-      <guid>https://blog.jhyeon.dev/2021/04/25/unityapp-analysis-210425/</guid>
-      <pubDate>Sun, 25 Apr 2021 01:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h3 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h3&gt;&lt;p&gt;분석에 앞서 해당 게시글은 공부용 목적으로 연구된 자료이니, 악용 목적으로는 사용을 금합니다.&lt;/p&gt;
-&lt;</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><p>분석에 앞서 해당 게시글은 공부용 목적으로 연구된 자료이니, 악용 목적으로는 사용을 금합니다.</p><h3 id="Unity란"><a href="#Unity란" class="headerlink" title="Unity란?"></a>Unity란?</h3><p>Unity는 게임 개발을 위한 엔진이며 2D 및 3D 게임을 만들 수 있고,</p><p>3D Animation(3D 애니메이션), VR(가상 현실), AR(증강 현실) 콘텐츠을 제작하는 용도로 사용됩니다.</p><ul><li><a href="https://unity.com/kr">https://unity.com/kr</a></li></ul><h3 id="Compiler"><a href="#Compiler" class="headerlink" title="Compiler"></a>Compiler</h3><p>Unity 엔진에는 크게 두 가지 컴파일 방식이 존재합니다.</p><ol><li>MONO Compile</li></ol><p>MONO 컴파일러의 경우 안드로이드의 JIT 컴파일 방식이라고 생각하시면 됩니다.</p><p>JIT 컴파일러는 IL(중간언어)로 작성된 DLL 파일을 읽어, Runtime으로 코드 실행을 합니다.</p><p>빠른 빌드속도와 .NET 프레임워크를 사용하기 때문에 크로스 플랫폼(Window, Linux, MacOS)에서 구동이 가능하지만, 보안에는 매우 취약합니다.</p><p>아래 MONO 컴파일러의 빌드 방식을 확인해봅시다.</p><p><img src="/img/post/unity/mono.png" class="lazyload" data-srcset="/img/post/unity/mono.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo1"></p><p>이렇게 일반적으로 컴파일 된 MONO 기반의 게임은 앱을 빌드하는 과정에서 만들어지는 <code> DLL </code> 파일을 통해서</p><p>쉽게 디컴파일이 가능하고 원본에 가까운 소스코드를 확인할 수 있게 됩니다.</p><ol start="2"><li>IL2CPP Compile</li></ol><p>IL2CPP 방식으로 컴파일 된 경우에는 약간 다른 구조를 띄고 있습니다.</p><p>아래 사진을 보면서 함께 설명을 하도록 하겠습니다.</p><p><img src="/img/post/unity/unitycompiler.png" class="lazyload" data-srcset="/img/post/unity/unitycompiler.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo2"></p><p>이렇게 보면 위에서 본 사진이랑 확연히 구분하실 수 있을겁니다.</p><p>사진의 컴파일 과정을 보면, IL2CPP 방식에는 IL Assembly 코드를 <code> il2cpp.exe </code> 에 의해서</p><p>C++ 소스코드로 변환하게 되고 이를 C++ 컴파일러에 전달하여 Native Library를 생성하는 구조입니다.</p><p>즉 JAVA에서 AOT 컴파일 방식을 의미하고 있는 것이죠.</p><p>이러한 과정으로 빌드된 APK를 내부를 분석하면 <code>lib->&#123;device-architecture&#125;</code> 경로에</p><p>3개의 Native Library가 존재함을 알 수 있습니다.</p><p><img src="/img/post/unity/nativelib.png" class="lazyload" data-srcset="/img/post/unity/nativelib.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo3"></p><p>이 라이브러리는 우선 앱이 실행될 때 <code> libunity.so </code> 를 로드하여 초기 설정값들을 얻어오고,</p><p>마지막에 <code> libil2cpp.so </code> 파일을 로드하여 앱에 정의된 메소드들을 사용하게 됩니다.</p><h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>전반적인 과정을 살펴봤으니, 실제 Unity로 개발 된 앱을 가지고 분석을 해보겠습니다.</p><p>앱에 대한 정보는 문제의 여지가 있어 공개되지 않습니다 (^_^)</p><ol><li>어플리케이션 압축 해제 후 내부 구성 파일 확인</li></ol><p><img src="/img/post/unity/app1.png" class="lazyload" data-srcset="/img/post/unity/app1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo4"></p><ol start="2"><li>native library 확인 (unity)</li></ol><p><img src="/img/post/unity/app2.png" class="lazyload" data-srcset="/img/post/unity/app2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo5"></p><ol start="3"><li>IL2CPPDUMPER 도구를 활용하여 앱 내부 파일 덤프</li></ol><p><img src="/img/post/unity/app3.png" class="lazyload" data-srcset="/img/post/unity/app3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo6"></p><ol start="4"><li>Assembly-CSharp.dll 로드</li></ol><p><img src="/img/post/unity/app4.png" class="lazyload" data-srcset="/img/post/unity/app4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo7"></p><p>실제 게임 구동을 위해 구현된 Method들을 확인할 수 있습니다.</p><ol start="5"><li>특정 메소드 RVA, Offset 확인</li></ol><p><img src="/img/post/unity/app5.png" class="lazyload" data-srcset="/img/post/unity/app5.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="photo8"></p><p>주어진 RVA, Offset 값을 통해, 모듈 Base 주소를 구해서 Offset 연산을 해주면,</p><p>해당 함수의 주소를 찾을 수 있어, 실제 게임 내 값을 변조하거나 하는 등의 방법도 가능하게 됩니다.</p><p>이렇게 단계별로 나눠 분석 도구를 활용해 간단하게만 분석을 해봤는데,</p><p>이후 실제 앱을 기반으로 게임 내 값을 변조한다거나 하는 방법은 정리 및 검토가 끝난 후 추가로 포스팅 하겠습니다<del>_</del></p><h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><ul><li><p><a href="https://github.com/icsharpcode/ILSpy">https://github.com/icsharpcode/ILSpy</a> (ILSPY)</p></li><li><p><a href="https://github.com/0xd4d/dnSpy">https://github.com/0xd4d/dnSpy</a> (dnSpy)</p></li><li><p><a href="https://github.com/Perfare/Il2CppDumper">https://github.com/Perfare/Il2CppDumper</a> (IL2CppDumper)</p></li></ul><h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul><li>LINFORUM (<a href="http://linforum.kr/">http://linforum.kr/</a>)</li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://blog.jhyeon.dev/categories/Mobile/">Mobile</category>
-      
-      
-      <category domain="https://blog.jhyeon.dev/tags/Penetration/">Penetration</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Mobile/">Mobile</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/App/">App</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Unity/">Unity</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Mobile-Hacking/">Mobile Hacking</category>
-      
-      
-      <comments>https://blog.jhyeon.dev/2021/04/25/unityapp-analysis-210425/#disqus_thread</comments>
       
     </item>
     

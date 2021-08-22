@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://blog.jhyeon.dev/2021/08/16/hcamp23-210816/"/>
+  <link rel="canonical" href="https://blog.jhyeon.dev/2021/08/22/hcamp23-writeup-210822/"/>
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
@@ -20,21 +20,19 @@
   <meta content="JHYEON" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1629606410471" as="style">
+  <link rel="preload" href="/css/style.css?time=1629606410468" as="style">
   <!-- 页面元数据 -->
-  <title>23회 해킹캠프 CTF 운영 후기 - JHYEON</title>
+  <title>Hackingcamp 23th Web Write up - JHYEON</title>
   <meta name="keywords" content="CTF,해킹캠프,보안,해킹,버그바운티,HackingCamp,POC Security,DEMON,SISS,CTF, Penetration, DevSecOps, Web Hacking, System Hacking, Reversing, Bug Bounty">
-  <meta name="description" content="Summary작년 해킹캠프 22회에 이어서 올해도 23회 해킹캠프 CTF 운영을 맡았다. (데몬팀이라서 ㅎㅎ) 이번에는 오프라인을 조금 기대하고 있었는데 6-7월부터 급격하게 코로나19 확진자가 늘어나서 오프라인은 불가능하였고, 23회도 온라인으로 진행되었지만 그래도 참가자분들께서 다 재밌게 참여해주셨고 행사를 함께 준비해주신 피오씨시큐리티, 데몬팀, S">
+  <meta name="description" content="해당 자료는 아래 노션 열람 또는 구글 드라이브(PDF)를 통해 다운로드 가능합니다.  Google Drive  Open to Notion">
 <meta property="og:type" content="article">
-<meta property="og:title" content="23회 해킹캠프 CTF 운영 후기">
-<meta property="og:url" content="https://blog.jhyeon.dev/2021/08/16/hcamp23-210816/index.html">
+<meta property="og:title" content="Hackingcamp 23th Web Write up">
+<meta property="og:url" content="https://blog.jhyeon.dev/2021/08/22/hcamp23-writeup-210822/index.html">
 <meta property="og:site_name" content="JHYEON">
-<meta property="og:description" content="Summary작년 해킹캠프 22회에 이어서 올해도 23회 해킹캠프 CTF 운영을 맡았다. (데몬팀이라서 ㅎㅎ) 이번에는 오프라인을 조금 기대하고 있었는데 6-7월부터 급격하게 코로나19 확진자가 늘어나서 오프라인은 불가능하였고, 23회도 온라인으로 진행되었지만 그래도 참가자분들께서 다 재밌게 참여해주셨고 행사를 함께 준비해주신 피오씨시큐리티, 데몬팀, S">
+<meta property="og:description" content="해당 자료는 아래 노션 열람 또는 구글 드라이브(PDF)를 통해 다운로드 가능합니다.  Google Drive  Open to Notion">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blog.jhyeon.dev/img/post/hcamp23/hcamp23.png">
-<meta property="og:image" content="https://blog.jhyeon.dev/img/post/hcamp23/hcamp23ctf.png">
-<meta property="article:published_time" content="2021-08-15T23:00:00.000Z">
-<meta property="article:modified_time" content="2021-08-16T05:17:23.137Z">
+<meta property="article:published_time" content="2021-08-22T04:21:11.000Z">
+<meta property="article:modified_time" content="2021-08-22T04:25:56.539Z">
 <meta property="article:author" content="DongHyeon Jeong">
 <meta property="article:tag" content="CTF">
 <meta property="article:tag" content="해킹캠프">
@@ -46,7 +44,6 @@
 <meta property="article:tag" content="DEMON">
 <meta property="article:tag" content="SISS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.jhyeon.dev/img/post/hcamp23/hcamp23.png">
   <!-- feed -->
     <link rel="alternate" href="/rss2.xml" title="JHYEON" type="application/rss+xml">
   <!-- import meta -->
@@ -2234,8 +2231,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1629606410471" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1629606410471"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1629606410468" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1629606410468"></noscript>
     <script>
       var userColorScheme=localStorage.getItem("user-color-scheme")
       if(userColorScheme){
@@ -2501,7 +2498,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title">
-        23회 해킹캠프 CTF 운영 후기
+        Hackingcamp 23th Web Write up
       </h1>
       <div class='new-meta-box'>
         
@@ -2521,7 +2518,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class='new-meta-item category'>
     <a class='notlink'>
       <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/Memo/">Memo</a>
+      <a class="category-link" href="/categories/CTF/">CTF</a>
     </a>
   </div>
 
@@ -2532,7 +2529,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>Date : Aug 16, 2021</p>
+    <p>Date : Aug 22, 2021</p>
   </a>
 </div>
 
@@ -2555,55 +2552,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
   
-  <p><img src="/img/post/hcamp23/hcamp23.png" class="lazyload" data-srcset="/img/post/hcamp23/hcamp23.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>작년 해킹캠프 22회에 이어서 올해도 23회 해킹캠프 CTF 운영을 맡았다. (데몬팀이라서 ㅎㅎ)</p>
-<p>이번에는 오프라인을 조금 기대하고 있었는데 6-7월부터 급격하게 코로나19 확진자가 늘어나서 오프라인은</p>
-<p>불가능하였고, 23회도 온라인으로 진행되었지만 그래도 참가자분들께서 다 재밌게 참여해주셨고 행사를 함께 준비해주신</p>
-<p>피오씨시큐리티, 데몬팀, SISS, 발표자분들 다들 고생많이하셨습니다!</p>
-<h3 id="CTF"><a href="#CTF" class="headerlink" title="CTF"></a>CTF</h3><p>우선 운영을 맡았던 CTF의 경우에는 올해 12시간(20:00~08:00)으로 진행되었다.</p>
-<p>문제의 경우에는 작년 대비 난이도를 조금 향상하였었는데 비하인드 스토리가 있어서 문제 관련은 잠시…</p>
-<p>작년이랑 다르게 이번엔 팀전으로 진행되었고 총 47명의 참가자분들이 참여를 해주셔서 A~E 팀으로 각각 나누게 되었다.</p>
-<p>잘하시는분도 많이 계셨고 팀 밸런스가 전체적으로 잘 맞게 진행된 것 같아서 다행이고, 팀전 아이디어를 내주신 같은팀 팀원분에게 👏</p>
-<p>초반에 1,2,3 순위를 탈환하기 위해 되게 치열했었고 신기한건 참가자분들이 12시간 CTF에도 불구하고 아침까지 거의 20명 후반에</p>
-<p>가깝게 접속을 하고 계셨다.. (체력이 대단하십니다..) 다들 너무 열정적이고 동기부여를 해주시는 듯 했다.</p>
-<p>(사실 전 새벽 5시 조금 넘어서 기절하듯이 1시간 잤다가 알림 쌓인거보고 화들짝깨서 다시 대회 관리를 했다는..)</p>
-<p>CTF 대회가 마무리되어가던 시점에는 1,2,3등이 거의 정해졌는데 출제된 카테고리(web, pwn, rev crypto, misc)의</p>
-<p>문제들을 골고루 푸셨던 것 같다 👍👍</p>
-<p><img src="/img/post/hcamp23/hcamp23ctf.png" class="lazyload" data-srcset="/img/post/hcamp23/hcamp23ctf.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="img"></p>
-<h3 id="문제-출제"><a href="#문제-출제" class="headerlink" title="문제 출제"></a>문제 출제</h3><p>이번에 나는 웹 카테고리에서 총 4개의 문제 출제를 담당하였다. 왠만하면 작년보다 난이도를 상향하기 위해</p>
-<p>트릭보다는 취약점을 분석해야하고 이를 익스플로잇해서 플래그를 얻는 방식를 택했다.</p>
-<p>그러나 문제 개발, 검증 과정에서 꽤 많은 이슈가 있었고 이것을 사전에 꼼꼼한 검증을 안했던 탓에 대회 중간중간에</p>
-<p>문제가 수정되어야 하는 일이 발생했다. (로컬서버, 실서버)에서 익스 테스트는 진행했으나 일부 로직에 이슈가 있었고</p>
-<p>이슈에 대한 내용의 코드가 수정되는 과정에서 코드를 커밋해놓고 그냥 그대로 pull만 받아서 업데이트를 했는데,</p>
-<p>실서버에서 문제가 정상적으로 풀리는지에 대한 검증을 하지 않았다 ㅠ_ㅠ</p>
-<p>(너무 당연하게 내 코드를 믿고 작성했던 것이 문제였고 로직이 어떻게 돌아가는지 정확히 체크를 안해보고 커밋을 해버린 것이다..)</p>
-<p>변경된 코드는 다음과 같다. (기존 &gt; 1차수정(이슈) &gt; 2차 수정)</p>
-<p>이제와서 보는거지만 1차 변경때 코드를 왜 저렇게 짰을까 하면서 본인도 의아하게 느껴졌다. 정말 코드를 이상하게 짰다.</p>
-<p>분명 저렇게하면 업로드 디렉토리가 계속 변경되면서 정상적인 풀이가 불가능함에도 아무생각없이 코드를 짠 것 같다.. (맞아야함 ㅠㅠ)</p>
-<p>(기존)</p>
-<pre><code class="php">$ip = $_SERVER[&#39;REMOTE_ADDR&#39;];
-</code></pre>
-<p>(변경)</p>
-<pre><code class="php">$path = hash(&#39;sha256&#39;, rand(1,99999));
-</code></pre>
-<p>(2차 변경)</p>
-<pre><code class="php">$pass = $_POST[&#39;upload_pass&#39;];
-
-if(!preg_match(&quot;/[0-9A-za-z]/i&quot;, $pass))&#123;
-    die(&quot;~~~&quot;);
-&#125;
-
-$encrypt_path = hash(&#39;sha256&#39;, $pass);
-</code></pre>
-<p>때문에, 한 문제에 대한 풀이 이슈를 거의 대회가 끝나기 2시간전쯤 알았고 문제가 정상적으로 풀리는지 보고 계셨던 “익명의 해커” 분께서</p>
-<p>이를 지적해주셨고 더군다나 언인텐 풀이까지 지적을 해주셔서 그 이슈를 확인했을 당시에는 눈앞이 잠시 캄캄했다.</p>
-<p>(핑계라면 핑계지만.. 최근에 일이 바빠서 문제 개발 및 테스트 일정 마감을 정해진 기한안에 하지 못했고,</p>
-<p>일정에 맞추다보니 문제 테스트 과정을 진행했음에도 이를 꼼꼼히 못했다는것은 내 책임이라 참가자분들에게 이 부분은 정말 죄송하게 생각하고 있다)</p>
-<p>제가 잘못 운영했던 사실이 분명하고 향후 같은 일이 발생하지 않도록 더 꼼꼼히 검수하겠다고 본인 스스로 뼈저리게 느꼈던 케이스이다.</p>
-<p>(참가자분들 정말 죄송합니다 ㅠ_ㅠ)</p>
-<h3 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h3><p>이번에는 대회 운영하면서 저의 미숙하고 부족한 부분이 많았고 향후 같은 케이스가 발생되는일은 절대 없을 것이라고 다짐하겠습니다.</p>
-<p>그래도 다들 열정적으로 해킹캠프에 참가해주시고 마지막까지 잘 마무리해주셔서 감사드립니다.</p>
-<p>24회 해킹캠프때는 오프라인에서 뵙길 기대하며 글을 마무리합니다.</p>
+  <p>해당 자료는 아래 노션 열람 또는 구글 드라이브(PDF)를 통해 다운로드 가능합니다.</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1TEPxvE7KTM3hCnyBH4mSu6gUpjiDNA6J/view?usp=sharing">Google Drive</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://jhyeon.notion.site/CTF-Write-Up-71b4ba9c3ab64ac981bb1bfc4816cd3c">Open to Notion</a></p>
+</li>
+</ol>
 
   
   
@@ -2617,7 +2572,7 @@ $encrypt_path = hash(&#39;sha256&#39;, $pass);
       <i class="fas fa-bookmark fa-fw" aria-hidden="true"></i><span>Popluar Posts</span>
     </section>
     <section class='body'>
-      <div class="vlts-rps"><a class="item" href="/2021/08/22/hcamp23-writeup-210822/" title="Hackingcamp 23th Web Write up" rel="bookmark "><img src="/img/header/junddok.jpeg" class="lazyload" data-srcset="/img/header/junddok.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">Hackingcamp 23th Web Write up</span></a><a class="item" href="/2021/08/14/kospo-210814/" title="KOSPO 한국남부발전 2회차 정보보안 경진대회 후기" rel="bookmark "><img src="/img/post/kospo2th/kospo.png" class="lazyload" data-srcset="/img/post/kospo2th/kospo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">KOSPO 한국남부발전 2회차 정보보안 경진대회 후기</span></a><a class="item" href="/2021/02/28/aeroctf2021-210228/" title="AeroCTF 2021 Write up" rel="bookmark "><img src="/img/header/junddok.jpeg" class="lazyload" data-srcset="/img/header/junddok.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">AeroCTF 2021 Write up</span></a><a class="item" href="/2021/04/10/angstormctf-210410/" title="AngStormCTF 2021 Write-Up" rel="bookmark "><img src="/img/header/junddok.jpeg" class="lazyload" data-srcset="/img/header/junddok.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">AngStormCTF 2021 Write-Up</span></a><a class="item" href="/2020/06/19/bangsiri-wargame-200619/" title="동아리 워게임 홍보(?)" rel="bookmark "><img src="/img/header/junddok.jpeg" class="lazyload" data-srcset="/img/header/junddok.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">동아리 워게임 홍보(?)</span></a></div></section></div>
+      <div class="vlts-rps"><a class="item" href="/2021/08/16/hcamp23-210816/" title="23회 해킹캠프 CTF 운영 후기" rel="bookmark "><img src="/img/post/hcamp23/hcamp23.png" class="lazyload" data-srcset="/img/post/hcamp23/hcamp23.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">23회 해킹캠프 CTF 운영 후기</span></a><a class="item" href="/2021/08/14/kospo-210814/" title="KOSPO 한국남부발전 2회차 정보보안 경진대회 후기" rel="bookmark "><img src="/img/post/kospo2th/kospo.png" class="lazyload" data-srcset="/img/post/kospo2th/kospo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">KOSPO 한국남부발전 2회차 정보보안 경진대회 후기</span></a><a class="item" href="/2021/02/28/aeroctf2021-210228/" title="AeroCTF 2021 Write up" rel="bookmark "><img src="/img/header/junddok.jpeg" class="lazyload" data-srcset="/img/header/junddok.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">AeroCTF 2021 Write up</span></a><a class="item" href="/2021/04/10/angstormctf-210410/" title="AngStormCTF 2021 Write-Up" rel="bookmark "><img src="/img/header/junddok.jpeg" class="lazyload" data-srcset="/img/header/junddok.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">AngStormCTF 2021 Write-Up</span></a><a class="item" href="/2020/04/10/angstormctf-200410/" title="angstorm ctf 2020 Write up" rel="bookmark "><img src="/img/header/junddok.jpeg" class="lazyload" data-srcset="/img/header/junddok.jpeg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" /><span class="title">angstorm ctf 2020 Write up</span></a></div></section></div>
       
       
       
@@ -2631,10 +2586,10 @@ $encrypt_path = hash(&#39;sha256&#39;, $pass);
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-16T14:17:23+09:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-08-22T13:25:56+09:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>Last updated : Aug 16, 2021</p>
+    <p>Last updated : Aug 22, 2021</p>
   </a>
 </div>
 
@@ -2656,7 +2611,7 @@ $encrypt_path = hash(&#39;sha256&#39;, $pass);
       
         <a class="-mob-share-telegram" title="" rel="external nofollow noopener noreferrer noopener"
           
-            target="_blank" href="https://t.me/share/url?url=https://blog.jhyeon.dev/2021/08/16/hcamp23-210816/&text=23회 해킹캠프 CTF 운영 후기 - JHYEON"
+            target="_blank" href="https://t.me/share/url?url=https://blog.jhyeon.dev/2021/08/22/hcamp23-writeup-210822/&text=Hackingcamp 23th Web Write up - JHYEON"
           
           >
           
@@ -2685,23 +2640,12 @@ $encrypt_path = hash(&#39;sha256&#39;, $pass);
   
     <div class="prev-next">
       
-        <a class='prev' href='/2021/08/22/hcamp23-writeup-210822/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Hackingcamp 23th Web Write up</p>
-          <p class='content'>해당 자료는 아래 노션 열람 또는 구글 드라이브(PDF)를 통해 다운로드 가능합니다.
-
-Google Drive
-
-Open to Notion
-
-
-</p>
-        </a>
       
-      
-        <a class='next' href='/2021/08/14/iosproxy-210814/'>
-          <p class='title'>IOS 단말기에서 Burp Suite 프록시 사용 방법<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>Summary이번 게시글에서는 IOS 운영체제에서 Burp Suite 프록시를 구성하는 방법을 소개하고자 합니다.
-크게 어려운 사항은 없으나 https 패킷을 Intercep...</p>
+        <a class='next' href='/2021/08/16/hcamp23-210816/'>
+          <p class='title'>23회 해킹캠프 CTF 운영 후기<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+Summary작년 해킹캠프 22회에 이어서 올해도 23회 해킹캠프 CTF 운영을 맡았다. (데몬팀이라서 ㅎㅎ)
+이번에는 오프라인을 조금 기대하고 있었는데 6-7월부터 급격하...</p>
         </a>
       
     </div>
@@ -2747,20 +2691,6 @@ Open to Notion
 
 
 
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>TOC</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Summary"><span class="toc-number">1.</span> <span class="toc-text">Summary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CTF"><span class="toc-number">2.</span> <span class="toc-text">CTF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%AC%B8%EC%A0%9C-%EC%B6%9C%EC%A0%9C"><span class="toc-number">3.</span> <span class="toc-text">문제 출제</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%A7%88%EB%AC%B4%EB%A6%AC"><span class="toc-number">4.</span> <span class="toc-text">마무리</span></a></li></ol>
-    </div>
-  </section>
-
 
   
 
@@ -2778,7 +2708,7 @@ Open to Notion
 <script>
   window.pdata={}
   pdata.ispage=true;
-  pdata.postTitle="23회 해킹캠프 CTF 운영 후기";
+  pdata.postTitle="Hackingcamp 23th Web Write up";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   //  see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs
@@ -3213,19 +3143,19 @@ volantis.pjax.push(bindToggleButton);
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1629606410470")
+        volantis.js("/js/plugins/sites.js?time=1629606410468")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1629606410470")
+        volantis.js("/js/plugins/friends.js?time=1629606410468")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1629606410470")
+        volantis.js("/js/plugins/contributors.js?time=1629606410468")
       }
     
   };
@@ -3408,7 +3338,7 @@ volantis.pjax.push(bindToggleButton);
 
 
 
-<script src="/js/app.js?time=1629606410470.js"></script>
+<script src="/js/app.js?time=1629606410468.js"></script>
 
 
 <!-- optional -->
@@ -3421,7 +3351,7 @@ function loadSearchScript(){
   return  volantis.import.jQuery().then(()=>{
     return new Promise((resolve) => {
       // see: layout/_partial/scripts/cdnCtrl.ejs
-      volantis.js('/js/search/hexo.js?time=1629606410470').then(()=>{ // 此处依赖JQ
+      volantis.js('/js/search/hexo.js?time=1629606410468').then(()=>{ // 此处依赖JQ
         setSearchService()
         resolve()
       })
@@ -3606,7 +3536,7 @@ volantis.pjax.push(()=>{
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"JHYEON","url":"https://blog.jhyeon.dev/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"sameAs":["https://github.com/volantis-x"]},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://blog.jhyeon.dev/","name":"JHYEON"}},{"@type":"ListItem","position":2,"item":{"@id":"https://blog.jhyeon.dev/categories/Memo/","name":"Memo"}},{"@type":"ListItem","position":3,"item":{"@id":"https://blog.jhyeon.dev/2021/08/16/hcamp23-210816/","name":"23회 해킹캠프 CTF 운영 후기"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"23회 해킹캠프 CTF 운영 후기","description":"","datePublished":"2021-08-15T23:00:00.000Z","dateModified":"2021-08-16T05:17:23.137Z","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jhyeon.dev/2021/08/16/hcamp23-210816/"},"author":{"@type":"Person"},"publisher":{"@type":"Organization","name":"JHYEON","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://blog.jhyeon.dev/2021/08/16/hcamp23-210816/","wordCount":0,"articleSection":"Memo","keywords":"CTF,해킹캠프,보안,해킹,버그바운티,HackingCamp,POC Security,DEMON,SISS"}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"JHYEON","url":"https://blog.jhyeon.dev/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"sameAs":["https://github.com/volantis-x"]},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://blog.jhyeon.dev/","name":"JHYEON"}},{"@type":"ListItem","position":2,"item":{"@id":"https://blog.jhyeon.dev/categories/CTF/","name":"CTF"}},{"@type":"ListItem","position":3,"item":{"@id":"https://blog.jhyeon.dev/2021/08/22/hcamp23-writeup-210822/","name":"Hackingcamp 23th Web Write up"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hackingcamp 23th Web Write up","description":"","datePublished":"2021-08-22T04:21:11.000Z","dateModified":"2021-08-22T04:25:56.539Z","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jhyeon.dev/2021/08/22/hcamp23-writeup-210822/"},"author":{"@type":"Person"},"publisher":{"@type":"Organization","name":"JHYEON","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://blog.jhyeon.dev/2021/08/22/hcamp23-writeup-210822/","wordCount":0,"articleSection":"CTF","keywords":"CTF,해킹캠프,보안,해킹,버그바운티,HackingCamp,POC Security,DEMON,SISS"}]</script>
 
 
 <!-- more -->
