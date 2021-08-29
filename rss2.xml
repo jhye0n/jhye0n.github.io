@@ -9,8 +9,39 @@
     <atom:link href="https://blog.jhyeon.dev/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>JHYEON BLOG</description>
-    <pubDate>Sun, 22 Aug 2021 11:34:44 GMT</pubDate>
+    <pubDate>Sun, 29 Aug 2021 10:59:25 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>wormcon0x01 참가 짧은 후기</title>
+      <link>https://blog.jhyeon.dev/2021/08/29/wormcon0x01-210829/</link>
+      <guid>https://blog.jhyeon.dev/2021/08/29/wormcon0x01-210829/</guid>
+      <pubDate>Sun, 29 Aug 2021 10:50:23 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Summnary&quot;&gt;&lt;a href=&quot;#Summnary&quot; class=&quot;headerlink&quot; title=&quot;Summnary&quot;&gt;&lt;/a&gt;Summnary&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://capturetheflag.vulnf</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Summnary"><a href="#Summnary" class="headerlink" title="Summnary"></a>Summnary</h3><ul><li><p><a href="https://capturetheflag.vulnfreak.org/">https://capturetheflag.vulnfreak.org</a></p></li><li><p>2021/08/28(Sat, 19:30 KST) ~ 08/29(Sun, 19:30 KST)</p></li><li><p>TEAM : DEMON</p></li></ul><h3 id="Rank"><a href="#Rank" class="headerlink" title="Rank"></a>Rank</h3><p><img src="/img/post/ctf/wormcon0x01/wormcon0x01.png" class="lazyload" data-srcset="/img/post/ctf/wormcon0x01/wormcon0x01.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p><h3 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h3><p>이번에 해킹팀 소속으로 있는 <code>DEMON</code> 팀에서 팀원분들과 함께 CTF를 진행했다.</p><p>web, osint, app, network, crypto, iot 등 다양한 분야의 문제가 출제되었었다.</p><p>반 년만에 다시 해보는 CTF 대회이고, 다른 CTF들에 비해 문제 퀄리티가 그래도 괜찮아서 문제 접근, 풀이에 있어 재밌다고 느꼈다.</p><p>CTF 풀이에 적응을 잘 못해서 문제를 많이 풀지는 못했지만 기본적인 것들이나 많이 봐왔던 것들은 쉽게 풀 수 있었다 ㅋㅋㅋ</p><p>그럼에도 문제를 많이 못 풀었다는건 사실이니 좀 더 많이 공부하고 문제들을 많이 풀어봐야 할 것 같다.</p><p>이상 짧은 후기를 마칩니다.</p>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/CTF/">CTF</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/CTF/">CTF</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/DEMON/">DEMON</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/wormcon0x01/">wormcon0x01</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/08/29/wormcon0x01-210829/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Hackingcamp 23th Web Write up</title>
@@ -642,50 +673,6 @@
       
       
       <comments>https://blog.jhyeon.dev/2021/05/03/android-cert-210503/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>HSPACE (SatunX) CTF 2021 Write Up</title>
-      <link>https://blog.jhyeon.dev/2021/04/25/hspacectf-210425/</link>
-      <guid>https://blog.jhyeon.dev/2021/04/25/hspacectf-210425/</guid>
-      <pubDate>Sun, 25 Apr 2021 03:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h3 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;/img/post/ctf/hspace2021/logo.png&quot; class=&quot;lazylo</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h3><p><img src="/img/post/ctf/hspace2021/logo.png" class="lazyload" data-srcset="/img/post/ctf/hspace2021/logo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="photo1"></p><p>HSPACE(SatunX) 2021 (4/24 Sat 10:00 ~ 4/24 Sat 22:00 KST)</p><ul><li><a href="https://ctf.hspace.io/">https://ctf.hspace.io/</a></li><li>rank : 24th (jhye3n)</li></ul><h3 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h3><ul><li><a href="https://public.jhyeon.dev/ctf/hspace2021">https://public.jhyeon.dev/ctf/hspace2021</a></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://blog.jhyeon.dev/categories/CTF/">CTF</category>
-      
-      
-      <category domain="https://blog.jhyeon.dev/tags/CTF/">CTF</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Web/">Web</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Pwnable/">Pwnable</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Reversing/">Reversing</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Crypto/">Crypto</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Network/">Network</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/Mobile/">Mobile</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/SatunX/">SatunX</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/HSPACE/">HSPACE</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/HSPACE-CTF/">HSPACE CTF</category>
-      
-      
-      <comments>https://blog.jhyeon.dev/2021/04/25/hspacectf-210425/#disqus_thread</comments>
       
     </item>
     

@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>wormcon0x01 참가 짧은 후기</title>
+      <link href="/2021/08/29/wormcon0x01-210829/"/>
+      <url>/2021/08/29/wormcon0x01-210829/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Summnary"><a href="#Summnary" class="headerlink" title="Summnary"></a>Summnary</h3><ul><li><p><a href="https://capturetheflag.vulnfreak.org/">https://capturetheflag.vulnfreak.org</a></p></li><li><p>2021/08/28(Sat, 19:30 KST) ~ 08/29(Sun, 19:30 KST)</p></li><li><p>TEAM : DEMON</p></li></ul><h3 id="Rank"><a href="#Rank" class="headerlink" title="Rank"></a>Rank</h3><p><img src="/img/post/ctf/wormcon0x01/wormcon0x01.png" class="lazyload" data-srcset="/img/post/ctf/wormcon0x01/wormcon0x01.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p><h3 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h3><p>이번에 해킹팀 소속으로 있는 <code>DEMON</code> 팀에서 팀원분들과 함께 CTF를 진행했다.</p><p>web, osint, app, network, crypto, iot 등 다양한 분야의 문제가 출제되었었다.</p><p>반 년만에 다시 해보는 CTF 대회이고, 다른 CTF들에 비해 문제 퀄리티가 그래도 괜찮아서 문제 접근, 풀이에 있어 재밌다고 느꼈다.</p><p>CTF 풀이에 적응을 잘 못해서 문제를 많이 풀지는 못했지만 기본적인 것들이나 많이 봐왔던 것들은 쉽게 풀 수 있었다 ㅋㅋㅋ</p><p>그럼에도 문제를 많이 못 풀었다는건 사실이니 좀 더 많이 공부하고 문제들을 많이 풀어봐야 할 것 같다.</p><p>이상 짧은 후기를 마칩니다.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> DEMON </tag>
+            
+            <tag> wormcon0x01 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hackingcamp 23th Web Write up</title>
       <link href="/2021/08/22/hcamp23-writeup-210822/"/>
       <url>/2021/08/22/hcamp23-writeup-210822/</url>
@@ -1577,7 +1606,7 @@
       <link href="/2020/11/21/poxctf-201121/"/>
       <url>/2020/11/21/poxctf-201121/</url>
       
-        <content type="html"><![CDATA[<p>POX 2020 출제자 Write up 자료입니다.</p><p>아래 노션에서 풀이를 확인하실 수 있습니다.</p><p>질문 사항이 있으시면 <a href="mailto:&#x73;&#x74;&#x6a;&#x68;&#121;&#101;&#111;&#110;&#64;&#x6b;&#x61;&#x6b;&#97;&#x6f;&#x2e;&#99;&#x6f;&#109;">&#x73;&#x74;&#x6a;&#x68;&#121;&#101;&#111;&#110;&#64;&#x6b;&#x61;&#x6b;&#97;&#x6f;&#x2e;&#99;&#x6f;&#109;</a> 으로 메일을 보내주세요!</p><p><a href="https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417">https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417</a></p>]]></content>
+        <content type="html"><![CDATA[<p>POX 2020 출제자 Write up 자료입니다.</p><p>아래 노션에서 풀이를 확인하실 수 있습니다.</p><p>질문 사항이 있으시면 <a href="mailto:&#x73;&#116;&#x6a;&#x68;&#121;&#x65;&#x6f;&#x6e;&#x40;&#x6b;&#x61;&#107;&#x61;&#x6f;&#46;&#x63;&#x6f;&#x6d;">&#x73;&#116;&#x6a;&#x68;&#121;&#x65;&#x6f;&#x6e;&#x40;&#x6b;&#x61;&#107;&#x61;&#x6f;&#46;&#x63;&#x6f;&#x6d;</a> 으로 메일을 보내주세요!</p><p><a href="https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417">https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417</a></p>]]></content>
       
       
       <categories>
