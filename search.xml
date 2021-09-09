@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>한국남부발전 제2회 정보보안 경진대회 수상!</title>
+      <link href="/2021/09/10/kospo-210910/"/>
+      <url>/2021/09/10/kospo-210910/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>한달 전, 08/12(목)에 진행되었던 한국남부발전 제2회 정보보안 경진대회에서 장려상을 수상했습니다!</p><p>수상 못할줄 알았는데,, 마지막까지 초인적인 집중력으로 다 같이 잘해준 팀원들 덕분에 장려상까지 갈 수 있었네요 ㅎㅎ</p><p>이번엔 비록 장려상이지만 내년에 참가 기회가 생긴다면 더 잘해보겠습니다!</p><p><strong>TEAM : 고점에 사람있어요</strong></p><p><strong>Member : 장재원, 정희태, 정동현</strong></p><p><img src="/img/post/kospo2th/kospo_awards.jpeg" class="lazyload" data-srcset="/img/post/kospo2th/kospo_awards.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> Memo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 버그바운티 </tag>
+            
+            <tag> 모의해킹 </tag>
+            
+            <tag> 한국남부발전 </tag>
+            
+            <tag> 정보보안 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>wormcon0x01 참가 짧은 후기</title>
       <link href="/2021/08/29/wormcon0x01-210829/"/>
       <url>/2021/08/29/wormcon0x01-210829/</url>
@@ -1606,7 +1637,7 @@
       <link href="/2020/11/21/poxctf-201121/"/>
       <url>/2020/11/21/poxctf-201121/</url>
       
-        <content type="html"><![CDATA[<p>POX 2020 출제자 Write up 자료입니다.</p><p>아래 노션에서 풀이를 확인하실 수 있습니다.</p><p>질문 사항이 있으시면 <a href="mailto:&#x73;&#116;&#x6a;&#x68;&#121;&#x65;&#x6f;&#x6e;&#x40;&#x6b;&#x61;&#107;&#x61;&#x6f;&#46;&#x63;&#x6f;&#x6d;">&#x73;&#116;&#x6a;&#x68;&#121;&#x65;&#x6f;&#x6e;&#x40;&#x6b;&#x61;&#107;&#x61;&#x6f;&#46;&#x63;&#x6f;&#x6d;</a> 으로 메일을 보내주세요!</p><p><a href="https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417">https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417</a></p>]]></content>
+        <content type="html"><![CDATA[<p>POX 2020 출제자 Write up 자료입니다.</p><p>아래 노션에서 풀이를 확인하실 수 있습니다.</p><p>질문 사항이 있으시면 <a href="mailto:&#115;&#116;&#106;&#104;&#121;&#x65;&#111;&#110;&#64;&#107;&#x61;&#x6b;&#97;&#111;&#x2e;&#99;&#111;&#109;">&#115;&#116;&#106;&#104;&#121;&#x65;&#111;&#110;&#64;&#107;&#x61;&#x6b;&#97;&#111;&#x2e;&#99;&#111;&#109;</a> 으로 메일을 보내주세요!</p><p><a href="https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417">https://www.notion.so/jhyeon/POX-2020-Write-Up-300e65d33b6c4dd185d886cd2e7a6417</a></p>]]></content>
       
       
       <categories>

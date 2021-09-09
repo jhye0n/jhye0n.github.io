@@ -9,8 +9,40 @@
     <atom:link href="https://blog.jhyeon.dev/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>JHYEON BLOG</description>
-    <pubDate>Sun, 29 Aug 2021 10:59:25 GMT</pubDate>
+    <pubDate>Thu, 09 Sep 2021 20:50:21 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>한국남부발전 제2회 정보보안 경진대회 수상!</title>
+      <link>https://blog.jhyeon.dev/2021/09/10/kospo-210910/</link>
+      <guid>https://blog.jhyeon.dev/2021/09/10/kospo-210910/</guid>
+      <pubDate>Thu, 09 Sep 2021 20:43:36 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;Summary&quot;&gt;&lt;a href=&quot;#Summary&quot; class=&quot;headerlink&quot; title=&quot;Summary&quot;&gt;&lt;/a&gt;Summary&lt;/h3&gt;&lt;p&gt;한달 전, 08/12(목)에 진행되었던 한국남부발전 제2회 정보보안 경진대회에서 장려상을 </description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>한달 전, 08/12(목)에 진행되었던 한국남부발전 제2회 정보보안 경진대회에서 장려상을 수상했습니다!</p><p>수상 못할줄 알았는데,, 마지막까지 초인적인 집중력으로 다 같이 잘해준 팀원들 덕분에 장려상까지 갈 수 있었네요 ㅎㅎ</p><p>이번엔 비록 장려상이지만 내년에 참가 기회가 생긴다면 더 잘해보겠습니다!</p><p><strong>TEAM : 고점에 사람있어요</strong></p><p><strong>Member : 장재원, 정희태, 정동현</strong></p><p><img src="/img/post/kospo2th/kospo_awards.jpeg" class="lazyload" data-srcset="/img/post/kospo2th/kospo_awards.jpeg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p><hr>]]></content:encoded>
+      
+      
+      <category domain="https://blog.jhyeon.dev/categories/Memo/">Memo</category>
+      
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EB%B2%84%EA%B7%B8%EB%B0%94%EC%9A%B4%ED%8B%B0/">버그바운티</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EB%AA%A8%EC%9D%98%ED%95%B4%ED%82%B9/">모의해킹</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%ED%95%9C%EA%B5%AD%EB%82%A8%EB%B6%80%EB%B0%9C%EC%A0%84/">한국남부발전</category>
+      
+      <category domain="https://blog.jhyeon.dev/tags/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88/">정보보안</category>
+      
+      
+      <comments>https://blog.jhyeon.dev/2021/09/10/kospo-210910/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>wormcon0x01 참가 짧은 후기</title>
@@ -641,38 +673,6 @@
       
       
       <comments>https://blog.jhyeon.dev/2021/05/05/python-decouple-210505/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Android 7.0 이상의 환경에서 CA 인증서 설치</title>
-      <link>https://blog.jhyeon.dev/2021/05/03/android-cert-210503/</link>
-      <guid>https://blog.jhyeon.dev/2021/05/03/android-cert-210503/</guid>
-      <pubDate>Sun, 02 May 2021 15:00:00 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;Intro&quot;&gt;&lt;a href=&quot;#Intro&quot; class=&quot;headerlink&quot; title=&quot;Intro&quot;&gt;&lt;/a&gt;Intro&lt;/h2&gt;&lt;div class=&quot;story post-story&quot;&gt;&lt;p&gt;안드로이드 빌드 7.0 이상에서 CA(Certifi</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><div class="story post-story"><p>안드로이드 빌드 7.0 이상에서 CA(Certificate Authority) 인증서를 설치 할 때,</p><p>사용자 인증서로 설치하게 되면 SSL이 정상적으로 적용되지 않는 문제가 있다.</p><p>Burp Suite의 CA 인증서는 만료기간이 20년 이상의 인증서로 생성되는데,</p><p>Google에서 시스템 인증서는 39개월 이내의 만료기간을 가지기 때문에 정상적으로 동작하지 않는다.</p><p>따라서 7.0 빌드 이상의 환경이라면 시스템 루트 공간에 자격 증명을 만들어줘야 동작하게 되는데</p><p>그 과정을 정리하고자 한다.</p><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><p>인증서는 “Burp Suite”의 <code>cacert.der</code>을 사용할 것이다.</p><ul><li><a href="http://burp/">http://burp</a></li></ul><h3 id="Hash-Extraction"><a href="#Hash-Extraction" class="headerlink" title="Hash Extraction"></a>Hash Extraction</h3><p>위 인증서를 다운로드 받았다면 인증서 변환, 해쉬 값 추출을 진행해야 한다.</p><p>OpenSSL을 사용하여 이 과정 진행이 가능하다.</p><pre><code class="bash">mv cacert.der cacert.ceropenssl x509 -inform DER -in cacert.cer -out cacert.pemopenssl x509 -inform PEM -subject_hash_old -in cacert.pem</code></pre><p>위 세가지 명령어를 입력했다면, 아래와 같은 사진을 확인할 수 있다.</p><p><img src="/img/post/android-cert/1.png" class="lazyload" data-srcset="/img/post/android-cert/1.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="photo1"></p><p>여기서 9a5ba575(hash는 다를 수 있음)를 복사해서 파일명을 <code>해쉬값.0</code> 으로 바꿔준다.</p><pre><code class="bash">mv cacert.pem 9a5ba575.0</code></pre><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>이제 해당 인증서를 시스템 CA 인증서 디렉토리에 push 해주면 된다.</p><pre><code class="bash">adb push 9a5ba575.0 /sdcardadb shellsumount -o rw,remount /systemmv /sdcard/9a5ba575.0 /system/etc/security/cacerts/cd /system/etc/security/cacerts/chmod 644 9a5ba575.0</code></pre><h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul><li><a href="https://hackcatml.tistory.com/37">https://hackcatml.tistory.com/37</a></li></ul></div>]]></content:encoded>
-      
-      
-      <category domain="https://blog.jhyeon.dev/categories/Mobile/">Mobile</category>
-      
-      
-      <category domain="https://blog.jhyeon.dev/tags/Android/">Android</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/ADB/">ADB</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/SSL/">SSL</category>
-      
-      <category domain="https://blog.jhyeon.dev/tags/CA-%EC%9D%B8%EC%A6%9D%EC%84%9C/">CA 인증서</category>
-      
-      
-      <comments>https://blog.jhyeon.dev/2021/05/03/android-cert-210503/#disqus_thread</comments>
       
     </item>
     
